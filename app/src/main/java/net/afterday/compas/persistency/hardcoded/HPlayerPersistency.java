@@ -45,7 +45,7 @@ public class HPlayerPersistency implements PlayerPersistency
         fractions.put("GAMEMASTER743", Player.FRACTION.GAMEMASTER); //Режим игромастера
         fractions.put("STALKER753", Player.FRACTION.STALKER); //Режим обычного игрока
         fractions.put("DARKEN977", Player.FRACTION.DARKEN); //Режим Тёмного
-
+        fractions.put("MISSION101", Player.FRACTION.MISSION); //Режим на задании
     }
     private void setupCommands()
     {

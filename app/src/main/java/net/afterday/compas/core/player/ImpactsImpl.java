@@ -26,6 +26,7 @@ public class ImpactsImpl implements Impacts
     private static final int ANOMALY_COOLDOWN = 25 * 1000; //Аномалия
     private static final int MONOLITH_COOLDOWN = 15 * 1000; //Зов Монолита
     private static final int EMISSION_COOLDOWN = 30 * 1000; //Выброс
+    private static final double MISSION_DAMAGE = 0.01;
 
     private PlayerProps oldProps;
     private PlayerPropsImpl newProps;
@@ -81,10 +82,17 @@ public class ImpactsImpl implements Impacts
 
 
     public void calculateAccumulated(long delta)
-    {
+    { 
         if(newProps.getState().getCode() == Player.DEAD)
         {
             return;
+        }
+        if (newProps.getFraction() == Player.FRACTION.MISSION) {
+            newProps.setHealth(newProps.getHealth() - MISSION_DAMAGE);
+                if(newProps.getHealth() <= 0d)
+                {
+                    newProps.setState(Player.STATE.DEAD_EMISSION);
+                }
         }
         if((newProps.getRadiation() <= 1d) && (mImpacts[Influence.RADIATION] <= 0d) && !(state == STATE.DAMAGE))
         {

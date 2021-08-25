@@ -156,7 +156,8 @@ public interface Player extends Jsonable
         //Monolito neveikia mentalas, ir emisija, monolitas gydo. Yra vaizdas, bet nera garso
         MONOLITH(1),
         GAMEMASTER(2),
-        DARKEN(3);
+        DARKEN(3),
+        MISSION(4);
 
         FRACTION(int id)
         {
@@ -172,6 +173,7 @@ public interface Player extends Jsonable
                 case MONOLITH: return "MONOLITH";
                 case GAMEMASTER: return "GAMEMASTER";
                 case DARKEN: return "DARKEN";
+                case MISSION: return "MISSION";
             }
             return "UnknownFraction";
         }
@@ -184,6 +186,7 @@ public interface Player extends Jsonable
                 case "MONOLITH": return MONOLITH;
                 case "GAMEMASTER": return GAMEMASTER;
                 case "DARKEN": return DARKEN;
+                case "MISSION": return MISSION;
             }
             return null;
         }

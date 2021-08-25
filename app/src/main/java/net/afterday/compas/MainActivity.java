@@ -528,6 +528,7 @@ public class MainActivity extends AppCompatActivity {
             case STALKER: return orientation == Constants.ORIENTATION_LANDSCAPE ? R.drawable.background_h_merged : R.drawable.background_v_merged;
             case GAMEMASTER:  return orientation == Constants.ORIENTATION_LANDSCAPE ? R.drawable.background_h_gamemaster : R.drawable.background_v_gamemaster;
             case DARKEN: return orientation == Constants.ORIENTATION_LANDSCAPE ? R.drawable.background_h_darken : R.drawable.background_v_darken;
+            case MISSION: return orientation == Constants.ORIENTATION_LANDSCAPE ? R.drawable.background_h_mission : R.drawable.background_v_mission;
             default: return -1;
         }
     }

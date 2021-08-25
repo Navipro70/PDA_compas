@@ -270,6 +270,7 @@
     <string name="message_fraction_gamemaster">Фракция изменена на ИГРОМАСТЕР!</string>
     <string name="message_fraction_monolith">Фракция изменена на МОНОЛИТ!</string>
     <string name="message_fraction_stalker">Фракция изменена на СТАЛКЕР!</string>
+    <string name="message_fraction_mission">Фракция изменена на МИССИЮ!</string>
 
     <!-- Интерфейс -->
     <string name="popup_suicide">Ты хочешь убить себя?</string>

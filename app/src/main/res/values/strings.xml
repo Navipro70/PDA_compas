@@ -270,6 +270,7 @@
     <string name="message_fraction_gamemaster">Faction changed to GAMEMASTER!</string>
     <string name="message_fraction_monolith">Faction changed to MONOLITH!</string>
     <string name="message_fraction_stalker">Faction changed to STALKER!</string>
+    <string name="message_fraction_mission">Faction changed to MISSION!</string>
 
     <!-- Interface -->
     <string name="popup_suicide">Confirm suicide?</string>
