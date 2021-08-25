@@ -90,17 +90,19 @@ public class HInfluencesPersistency implements InfluencesPersistency
     {
         List<Emission> emissions = new ArrayList<Emission>();
 
-        // Emissions
-        emissions.add(emission(at(8, 6, 21, 0), 10, 5, true));
-        emissions.add(emission(at(8, 7, 2, 15), 5, 15));
-        emissions.add(emission(at(8, 7, 5, 30), 5, 10));
-        emissions.add(emission(at(8, 7, 9, 10), 10, 5, true));
-        emissions.add(emission(at(8, 7, 14, 17), 5, 10));
-        emissions.add(emission(at(8, 7, 18, 0), 10, 5, true));
-        emissions.add(emission(at(8, 7, 22, 0), 20, 120));
-        emissions.add(emission(at(8, 8, 4, 5), 5, 10));
-        emissions.add(emission(at(8, 8, 8, 24), 5, 5, true));
-        emissions.add(emission(at(8, 8, 13, 0), 10, 10));
+        // Emissions 
+        emissions.add(emission(at(10, 13, 12, 30), 10, 5, true));
+        emissions.add(emission(at(10, 15, 22, 0), 5, 15));
+        emissions.add(emission(at(10, 15, 23, 50), 5, 10, true));
+        emissions.add(emission(at(10, 16, 1, 30), 10, 5));
+        emissions.add(emission(at(10, 16, 5, 0), 5, 10));
+        emissions.add(emission(at(10, 16, 10, 0), 10, 5));
+        emissions.add(emission(at(10, 16, 16, 0), 10, 15));
+        emissions.add(emission(at(10, 16, 17, 0), 5, 10, true));
+        emissions.add(emission(at(10, 16, 21, 0), 20, 120));
+        emissions.add(emission(at(10, 17, 3, 0), 10, 10));
+        emissions.add(emission(at(10, 17, 7, 0), 5, 10));
+        emissions.add(emission(at(10, 17, 10, 0), 10, 15));
 
         return emissions;
     }

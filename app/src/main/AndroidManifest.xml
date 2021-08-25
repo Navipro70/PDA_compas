@@ -19,7 +19,7 @@
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="Туман войны"
+        android:label="Зов крови"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -28,7 +28,7 @@
         android:permission="">
         <activity android:name="net.afterday.compas.MainActivity"
             android:configChanges="keyboardHidden|screenSize"
-            android:label="Туман войны">
+            android:label="Зов крови">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

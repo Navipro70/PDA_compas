@@ -224,6 +224,26 @@
     <string name="item_calibrating_75">Calibrating -75%</string>
     <string name="desc_calibrating_75">Mastercode: All threats -75% less. Using 1 artefact slot.</string>
 
+    <!-- Уникальные вещи -->
+    <string name="item_bloodsucker_tentacles">Bloodsucker tentacles</string>
+    <string name="desc_bloodsucker_tentacles">The bloodsuckers tentacles contain a special gland: it secretes an enzyme that dissolves the victims skin and at the same time prevents blood from clotting. If scientists can determine the structure of the enzyme, it will help make a breakthrough in medicine.</string>
+    <string name="item_snork_foot">Snork foot</string>
+    <string name="desc_snork_foot">The foot of the snork, in contrast to the human, contains a larger number of tendons that have tremendous elasticity. This explains the ability of snorks to make incredible jumps. Perhaps useful to scientists.</string>
+    <string name="item_bebra">Bebra</string>
+    <string name="desc_bebra">They threw the pig again. Gives +1 experience per hour, throwing it out, you will fail</string>
+    <string name="item_piston_key">Piston key</string>
+    <string name="desc_piston_key">Gives a 50% discount on the repair of any weapon. Can be used once.</string>
+    <string name="item_ficalis_trash">Ficalias Urn</string>
+    <string name="desc_ficalis_trash">SUBMIT TO THE TEMPLE, RECENT!</string>
+    <string name="item_cigan_horse">Gypsy horse</string>
+    <string name="desc_cigan_horse">Where does the horse come from in the zone? Better to ask the Gypsy.</string>
+    <string name="item_rashpil_card">Rashpil VIP Card</string>
+    <string name="desc_rashpil_card">Come in, dont be afraid, go, dont cry. Welcome to our cafeteria!</string>
+    <string name="item_foma_map">Foma map</string>
+    <string name="desc_foma_map">Unified escort to any point in the zone</string>
+    <string name="item_paulava_pills">Paulava pills</string>
+    <string name="desc_paulava_pills">I will heal any wounds, even mental ones.</string>
+
     <!-- Log messages -->
     <string name="message_revive">You are in action again!</string>
     <string name="message_suicide">You are dying…</string>
@@ -278,7 +298,7 @@
     <string name="popup_no">No</string>
     <string name="popup_drop">Drop</string>
     <string name="popup_use">Use</string>
-    <string name="tray_open">Туман войны</string>
+    <string name="tray_open">Зов крови</string>
     <string name="tray_stop">PDA Off</string>
     <string name="tray_settings">Tune PDA</string>
     <string name="tray_vibro">Vibro off/on </string>

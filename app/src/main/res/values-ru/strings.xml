@@ -143,6 +143,25 @@
     <string name="desc_psionic_device">Квест: фигня с крутилками и тумблерами. Яйцеголовые явно заценят. 40 очков опыта.</string>
     <string name="item_pda">ПДА с важной информацией</string>
     <string name="desc_pda">Квест: Дорогая вещь, и инфа дорогая. 50 очков опыта.</string>
+    <!-- Уникальный хабар -->
+    <string name="item_bloodsucker_tentacles">Щупальца кровососа</string>
+    <string name="desc_bloodsucker_tentacles">Щупальца кровососа содержат особую железу: она выделяет фермент, растворяющий кожу жертвы и одновременно препятствующий сворачиванию крови. Если учёным удастся определить структуру фермента, это поможет осуществить прорыв в медицине.</string>
+    <string name="item_snork_foot">Стопа снорка</string>
+    <string name="desc_snork_foot">Стопа снорка, в отличие от человеческой, содержит большее количество сухожилий, обладающих потрясающей эластичностью. Этим объясняется способность снорков совершать невероятные прыжки. Возможно пригодится ученым.</string>
+    <string name="item_bebra">Бебра</string>
+    <string name="desc_bebra">Опять подкинули свинью. Даёт +1 опыта в час, выкинув её, тебя постигнет неудача</string>
+    <string name="item_piston_key">Ключ Пистона</string>
+    <string name="desc_piston_key">Дает скидку в 50% на починку любого оружия. Можно исопльзовать один раз.</string>
+    <string name="item_ficalis_trash">Урна Фикалия</string>
+    <string name="desc_ficalis_trash">ПОДАЙ НА ХРАМ, ОКАЯННЫЙ!</string>
+    <string name="item_cigan_horse">Конь цыгана</string>
+    <string name="desc_cigan_horse">Откуда конь в зоне? Лучше спросить у Цыгана.</string>
+    <string name="item_rashpil_card">ВИП Карта Рашпиля</string>
+    <string name="desc_rashpil_card">Заходи не бойся, уходи не плачь. Милости просим в наш кафетерий!</string>
+    <string name="item_foma_map">Карта Фомы</string>
+    <string name="desc_foma_map">Единое сопровождение в любую точку зоны</string>
+    <string name="item_paulava_pills">Пилюля Павловой</string>
+    <string name="desc_paulava_pills">Залечу любые раны, даже душевные.</string>
 
     <!-- Костюмы -->
     <string name="item_leather_jacket">Кожаная куртка</string>
@@ -278,7 +297,7 @@
     <string name="popup_no">Нет</string>
     <string name="popup_drop">Выбросить</string>
     <string name="popup_use">Использовать</string>
-    <string name="tray_open">Туман войны</string>
+    <string name="tray_open">Зов крови</string>
     <string name="tray_stop">Выкл. ПДА</string>
     <string name="tray_settings">Настроить ПДА</string>
     <string name="tray_vibro">Виброэффекты выкл./вкл. </string>
