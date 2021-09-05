@@ -243,7 +243,11 @@
     <string name="desc_foma_map">Unified escort to any point in the zone</string>
     <string name="item_paulava_pills">Paulava pills</string>
     <string name="desc_paulava_pills">I will heal any wounds, even mental ones.</string>
-
+    <string name="item_alf_flash_drive">Alfs flash drive</string>
+    <string name="item_squirrel_flash_drive">Squirrel flash drive</string>
+    <string name="item_lebedeva_flash_drive">Lebedeva flash drive</string>
+    <string name="item_clay_flash_drive">Glinych flash drive</string>
+    <string name="desc_flash_drive">A flash drive is a convenient device for transferring information.</string>
     <!-- Log messages -->
     <string name="message_revive">You are in action again!</string>
     <string name="message_suicide">You are dying…</string>

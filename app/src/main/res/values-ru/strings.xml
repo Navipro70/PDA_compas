@@ -162,6 +162,11 @@
     <string name="desc_foma_map">Единое сопровождение в любую точку зоны</string>
     <string name="item_paulava_pills">Пилюля Павловой</string>
     <string name="desc_paulava_pills">Залечу любые раны, даже душевные.</string>
+    <string name="item_alf_flash_drive">Флешка Альфа</string>
+    <string name="item_squirrel_flash_drive">Флешка Белки</string>
+    <string name="item_lebedeva_flash_drive">Флешка Лебедевой</string>
+    <string name="item_clay_flash_drive">Флешка Глиныча</string>
+    <string name="desc_flash_drive">Флеш-диск — удобное устройство для переноса информации.</string>
 
     <!-- Костюмы -->
     <string name="item_leather_jacket">Кожаная куртка</string>

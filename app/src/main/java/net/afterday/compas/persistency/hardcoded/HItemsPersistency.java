@@ -825,10 +825,10 @@ public class HItemsPersistency implements ItemsPersistency
         );
         possibleItems.put("Bebra101", (new ItemDescriptorImpl(HABAR, R.string.item_bebra)) 
                 .setImage(R.drawable.bebra)
-                .setArtefact(false)
+                .setArtefact(true)
                 .setConsumable(false)
                 .setXpPoints(1)
-                .addModifier(Item.HEALTH_MODIFIER, -1.25d)
+                .addModifier(Item.HEALTH_MODIFIER, -3.75d)
                 .setDescription(R.string.desc_bebra)
         );
         possibleItems.put("PistonKey101", (new ItemDescriptorImpl(HABAR, R.string.item_piston_key)) 
@@ -855,10 +855,10 @@ public class HItemsPersistency implements ItemsPersistency
         );
         possibleItems.put("CiganHorse101", (new ItemDescriptorImpl(HABAR, R.string.item_cigan_horse)) 
                 .setImage(R.drawable.cigan_horse)
-                .setArtefact(false)
+                .setArtefact(true)
                 .setConsumable(false)
                 .setXpPoints(10)
-                .addModifier(Item.RADIATION_MODIFIER, 1d)
+                .addModifier(Item.RADIATION_MODIFIER, 0.5d)
                 .setDescription(R.string.desc_cigan_horse)
         );
         possibleItems.put("FomaMap101", (new ItemDescriptorImpl(HABAR, R.string.item_foma_map)) 
@@ -875,6 +875,34 @@ public class HItemsPersistency implements ItemsPersistency
                 .setXpPoints(10)
                 .addModifier(Item.HEALTH_INSTANT, 50d)
                 .setDescription(R.string.desc_paulava_pills)
+        ); 
+        possibleItems.put("AlfFlashDrive101", (new ItemDescriptorImpl(HABAR, R.string.item_alf_flash_drive)) 
+                .setImage(R.drawable.flash_drive)
+                .setArtefact(false)
+                .setConsumable(true)
+                .setXpPoints(10)
+                .setDescription(R.string.desc_flash_drive)
+        );
+        possibleItems.put("SquirrelFlashDrive101", (new ItemDescriptorImpl(HABAR, R.string.item_squirrel_flash_drive)) 
+                .setImage(R.drawable.flash_drive)
+                .setArtefact(false)
+                .setConsumable(true)
+                .setXpPoints(10)
+                .setDescription(R.string.desc_flash_drive)
+        );
+        possibleItems.put("LebedevaFlashDrive101", (new ItemDescriptorImpl(HABAR, R.string.item_lebedeva_flash_drive)) 
+                .setImage(R.drawable.flash_drive)
+                .setArtefact(false)
+                .setConsumable(true)
+                .setXpPoints(10)
+                .setDescription(R.string.desc_flash_drive)
+        );
+        possibleItems.put("ClayFlashDrive101", (new ItemDescriptorImpl(HABAR, R.string.item_clay_flash_drive)) 
+                .setImage(R.drawable.flash_drive)
+                .setArtefact(false)
+                .setConsumable(true)
+                .setXpPoints(10)
+                .setDescription(R.string.desc_flash_drive)
         );
         
         //CALIBRATION (Калибрация)
