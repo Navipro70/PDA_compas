@@ -904,6 +904,28 @@ public class HItemsPersistency implements ItemsPersistency
                 .setXpPoints(10)
                 .setDescription(R.string.desc_flash_drive)
         );
+        possibleItems.put("HelgasDrakkar101", (new ItemDescriptorImpl(HABAR, R.string.item_helgas_drakkar)) 
+                .setImage(R.drawable.helgas_drakkar)
+                .setArtefact(false)
+                .setConsumable(true)
+                .setXpPoints(10)
+                .setDescription(R.string.desc_helgas_drakkar)
+        );
+        possibleItems.put("X18Docs101", (new ItemDescriptorImpl(HABAR, R.string.item_x18_docs)) 
+                .setImage(R.drawable.x18_docs)
+                .setArtefact(false)
+                .setConsumable(true)
+                .setXpPoints(15)
+                .setDescription(R.string.desc_x18_docs)
+        );
+        possibleItems.put("CallsPetal101", (new ItemDescriptorImpl(HABAR, R.string.item_calls_petal)) 
+                .setImage(R.drawable.calls_petal)
+                .setArtefact(true)
+                .setConsumable(true)
+                .setXpPoints(10)
+                .addModifier(Item.MENTAL_MODIFIER, 0.85d)
+                .setDescription(R.string.desc_calls_petal)
+        ); 
         
         //CALIBRATION (Калибрация)
         possibleItems.put("Calibrating111", (new ItemDescriptorImpl(DEVICES, R.string.item_calibrating_10)) //-10% к некоторым угрозам

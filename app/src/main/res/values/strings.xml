@@ -226,28 +226,35 @@
 
     <!-- Уникальные вещи -->
     <string name="item_bloodsucker_tentacles">Bloodsucker tentacles</string>
-    <string name="desc_bloodsucker_tentacles">The bloodsuckers tentacles contain a special gland: it secretes an enzyme that dissolves the victims skin and at the same time prevents blood from clotting. If scientists can determine the structure of the enzyme, it will help make a breakthrough in medicine.</string>
+    <string name="desc_bloodsucker_tentacles">The bloodsuckers tentacles contain a special gland: it secretes an enzyme that dissolves the victims skin and at the same time prevents blood from clotting. If scientists can determine the structure of the enzyme, it will help make a breakthrough in medicine. 10 exp.</string>
     <string name="item_snork_foot">Snork foot</string>
-    <string name="desc_snork_foot">The foot of the snork, in contrast to the human, contains a larger number of tendons that have tremendous elasticity. This explains the ability of snorks to make incredible jumps. Perhaps useful to scientists.</string>
+    <string name="desc_snork_foot">The foot of the snork, in contrast to the human, contains a larger number of tendons that have tremendous elasticity. This explains the ability of snorks to make incredible jumps. Perhaps useful to scientists. 10 exp.</string>
     <string name="item_bebra">Bebra</string>
     <string name="desc_bebra">They threw the pig again. Gives +1 experience per hour, throwing it out, you will fail</string>
     <string name="item_piston_key">Piston key</string>
-    <string name="desc_piston_key">Gives a 50% discount on the repair of any weapon. Can be used once.</string>
+    <string name="desc_piston_key">Gives a 50% discount on the repair of any weapon. Can be used once. 10 exp.</string>
     <string name="item_ficalis_trash">Ficalias Urn</string>
-    <string name="desc_ficalis_trash">SUBMIT TO THE TEMPLE, RECENT!</string>
+    <string name="desc_ficalis_trash">SUBMIT TO THE TEMPLE, RECENT! 10 exp.</string>
     <string name="item_cigan_horse">Gypsy horse</string>
-    <string name="desc_cigan_horse">Where does the horse come from in the zone? Better to ask the Gypsy.</string>
+    <string name="desc_cigan_horse">Where does the horse come from in the zone? Better to ask the Gypsy. 10 exp</string>
     <string name="item_rashpil_card">Rashpil VIP Card</string>
-    <string name="desc_rashpil_card">Come in, dont be afraid, go, dont cry. Welcome to our cafeteria!</string>
+    <string name="desc_rashpil_card">Come in, dont be afraid, go, dont cry. Welcome to our cafeteria! 50% sale in a bar. 10 exp.</string>
     <string name="item_foma_map">Foma map</string>
-    <string name="desc_foma_map">Unified escort to any point in the zone</string>
+    <string name="desc_foma_map">Unified escort to any point in the zone. 10 exp.</string>
     <string name="item_paulava_pills">Paulava pills</string>
-    <string name="desc_paulava_pills">I will heal any wounds, even mental ones.</string>
+    <string name="desc_paulava_pills">I will heal any wounds, even mental ones. 10 exp, heal 50% of health</string>
     <string name="item_alf_flash_drive">Alfs flash drive</string>
     <string name="item_squirrel_flash_drive">Squirrel flash drive</string>
     <string name="item_lebedeva_flash_drive">Lebedeva flash drive</string>
     <string name="item_clay_flash_drive">Glinych flash drive</string>
-    <string name="desc_flash_drive">A flash drive is a convenient device for transferring information.</string>
+    <string name="desc_flash_drive">A flash drive is a convenient device for transferring information. 10 exp</string>
+    <string name="item_helgas_drakkar">Helgas drakkar</string>
+    <string name="desc_helgas_drakkar">Gives the right to one free drink at the bar for the glory of the Gods! 10 experience points.</string>
+    <string name="item_x18_docs">X-18 Lab Documents</string>
+    <string name="desc_x18_docs">A thick stack of scientific papers. Solid terms, formulas and diagrams. Gives 15 experience points.</string>
+    <string name="item_calls_petal">Petal from the flower Challenge.</string>
+    <string name="desc_calls_petal">The flower of anomalous origin, the place of growth is not known, is not fully understood. 20 experience points. Reduces the influence of the mental by 15%.</string>
+
     <!-- Log messages -->
     <string name="message_revive">You are in action again!</string>
     <string name="message_suicide">You are dying…</string>

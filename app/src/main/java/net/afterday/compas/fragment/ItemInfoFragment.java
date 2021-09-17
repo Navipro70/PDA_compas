@@ -136,8 +136,9 @@ public class ItemInfoFragment extends DialogFragment
 
         // Set image
         ImageView itemImage = (ImageView) v.findViewById(R.id.item_image);
+        itemImage.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         itemImage.setImageResource(mItem.getItemDescriptor().getImage());
-
+ 
         dropButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
