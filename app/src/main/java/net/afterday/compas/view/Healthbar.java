@@ -4,28 +4,25 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.RectF;
 import android.graphics.Typeface;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import net.afterday.compas.R;
 import net.afterday.compas.util.Convert;
-import net.afterday.compas.util.Log;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
-public class Healthbar extends View
-{
+public class Healthbar extends View {
     private static final String TAG = "Healthbar";
 
     private static final int WIDGET_WIDTH = 749;
@@ -59,20 +56,18 @@ public class Healthbar extends View
     private boolean isPressed;
 
     private OnTouchListener listener;
-    private PorterDuffColorFilter colorFilter = new PorterDuffColorFilter(0x77000000,PorterDuff.Mode.SRC_ATOP);
+    private PorterDuffColorFilter colorFilter = new PorterDuffColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
     private OnTouchListener clicker = (v, t) -> {
-        if(listener != null)
-        {
+        v.performClick();
+        if (listener != null) {
             listener.onTouch(v, t);
         }
-        if(t.getAction() == MotionEvent.ACTION_DOWN)
-        {
+        if (t.getAction() == MotionEvent.ACTION_DOWN) {
             isPressed = true;
             mPaint.setColorFilter(colorFilter);
             mPaintGrey.setColorFilter(colorFilter);
             invalidate();
-        }else if(t.getAction() == MotionEvent.ACTION_UP)
-        {
+        } else if (t.getAction() == MotionEvent.ACTION_UP) {
             isPressed = false;
             mPaint.setColorFilter(null);
             mPaintGrey.setColorFilter(null);
@@ -118,8 +113,7 @@ public class Healthbar extends View
     }
 
     public Healthbar setInfo(double health, double healing, long controlled, boolean hasHealthInstant) {
-        if(mHealth == health && mHealing == healing && mControlled == controlled && this.hasHealthInstant == hasHealthInstant)
-        {
+        if (mHealth == health && mHealing == healing && mControlled == controlled && this.hasHealthInstant == hasHealthInstant) {
             return this;
         }
         mHealth = health;
@@ -150,7 +144,7 @@ public class Healthbar extends View
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
 
         convertRect(mBackImage.getWidth(), mBackImage.getHeight(), 0, 0, mMatrix);
@@ -165,8 +159,7 @@ public class Healthbar extends View
 
         // Draw the front layer
         canvas.drawBitmap(mTopImage, mMatrix, null);
-        if(this.hasHealthInstant)
-        {
+        if (this.hasHealthInstant) {
             convertRect(arrow.getWidth(), arrow.getHeight(), 4, 142, mMatrix);
             canvas.drawBitmap(arrow, mMatrix, null);
         }
@@ -200,7 +193,7 @@ public class Healthbar extends View
 
         txt = "." + fullTxt[1];
 
-        canvas.drawText("88",  220 * mScaleFactorX + txtWidth, 160 * mScaleFactorY, mPaintGrey);
+        canvas.drawText("88", 220 * mScaleFactorX + txtWidth, 160 * mScaleFactorY, mPaintGrey);
         canvas.drawText(txt, 220 * mScaleFactorX + txtWidth, 160 * mScaleFactorY, mPaint);
 
         txtWidth += mPaint.measureText("88");
@@ -224,30 +217,27 @@ public class Healthbar extends View
         mRect = new RectF();
         mPaint = new Paint();
         mPaintGrey = new Paint();
-        mPaintGrey.setARGB(255,35,35,35);
+        mPaintGrey.setARGB(255, 35, 35, 35);
         //mPaintGrey.setARGB(255,255,255,255);
 
         try {
             mTypefaceSeg = Typeface.createFromAsset(getContext().getAssets(), "fonts/segment.ttf");
             mPaint.setTypeface(mTypefaceSeg);
             mPaintGrey.setTypeface(mTypefaceSeg);
-        }
-        catch (RuntimeException e) {
+        } catch (RuntimeException e) {
             //Log.e(TAG, "Cannot create typeface");
         }
 
 
     }
 
-    private void convertRect(int bitmapWidth, int bitmapHeight, int left, int top, Matrix matrix)
-    {
+    private void convertRect(int bitmapWidth, int bitmapHeight, int left, int top, Matrix matrix) {
         matrix.reset();
         matrix.postScale(mScaleFactorX, mScaleFactorY);
         matrix.postTranslate(mScaleFactorX * left, mScaleFactorY * top);
     }
 
-    private void drawRect(int width, int height, int left, int top, RectF rect)
-    {
+    private void drawRect(int width, int height, int left, int top, RectF rect) {
         rect.set(
                 left * mScaleFactorX,
                 top * mScaleFactorY,
@@ -256,8 +246,7 @@ public class Healthbar extends View
         );
     }
 
-    private int[] getColor()
-    {
+    private int[] getColor() {
         if (mHealth <= 0d || mControlled > 0) {
             return Convert.numberToRGB(Convert.RGB_GREY);
         }
@@ -265,15 +254,14 @@ public class Healthbar extends View
             return Convert.numberToRGB(Convert.RGB_BLUE);
         }
         if (mHealth > 100d) {
-            return new int[]{255,0,255,0};
+            return new int[]{255, 0, 255, 0};
         }
 
         return Convert.numberToRGB(mHealth);
     }
 
     @Override
-    public void setOnTouchListener(OnTouchListener l)
-    {
+    public void setOnTouchListener(OnTouchListener l) {
         this.listener = l;
     }
 }

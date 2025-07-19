@@ -4,20 +4,21 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
-import io.reactivex.Observable;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.Disposable;
 
 
-public class Clock extends View
-{
+public class Clock extends View {
     private static final String TAG = "Clock";
 
     private static final int WIDGET_WIDTH = 195;
@@ -38,6 +39,7 @@ public class Clock extends View
     private Typeface mTypeface;
     private Observable<Long> ticks;
     private Disposable subscription;
+
     public Clock(Context context) {
         super(context);
 
@@ -63,8 +65,7 @@ public class Clock extends View
     }
 
     @Override
-    protected void onAttachedToWindow()
-    {
+    protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         subscription = ticks.subscribe((i) -> {
             postInvalidate();
@@ -72,8 +73,7 @@ public class Clock extends View
     }
 
     @Override
-    protected void onDetachedFromWindow()
-    {
+    protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         subscription.dispose();
     }
@@ -99,7 +99,7 @@ public class Clock extends View
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
         Calendar c = Calendar.getInstance();
         int hours = c.get(Calendar.HOUR_OF_DAY);
@@ -109,15 +109,14 @@ public class Clock extends View
     }
 
     protected void init() {
-        ticks = Observable.interval(0,1, TimeUnit.SECONDS);
+        ticks = Observable.interval(0, 1, TimeUnit.SECONDS);
         mPaint = new Paint();
-        mPaint.setARGB(255,255,127,0);
+        mPaint.setARGB(255, 255, 127, 0);
 
         try {
             mTypeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/console.ttf");
             mPaint.setTypeface(mTypeface);
-        }
-        catch (RuntimeException e) {
+        } catch (RuntimeException e) {
             Log.e(TAG, "Cannot create typeface");
         }
     }

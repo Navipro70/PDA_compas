@@ -7,7 +7,6 @@ import net.afterday.compas.engine.influences.InfluenceProvider;
  * Created by Justas Spakauskas on 4/2/2018.
  */
 
-public interface WiFiInfluenceProvider extends InfluenceProvider<InfluencesPack>
-{
+public interface WiFiInfluenceProvider extends InfluenceProvider<InfluencesPack> {
 
 }

@@ -9,9 +9,10 @@ import java.util.List;
  * Created by Justas Spakauskas on 3/5/2018.
  */
 
-public interface GameState
-{
+public interface GameState {
     Player getPlayer();
+
     State getState();
+
     List<Item> getItems();
 }

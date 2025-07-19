@@ -1,12 +1,13 @@
 package net.afterday.compas.fragment;
 
 import android.content.Context;
-import android.support.v4.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+
+import androidx.core.util.Pair;
 
 import net.afterday.compas.R;
 import net.afterday.compas.core.inventory.items.Item;
@@ -20,12 +21,9 @@ import java.util.Map;
  * Created by spaka on 6/6/2018.
  */
 
-public class CategoriesAdapter extends BaseAdapter
-{
+public class CategoriesAdapter extends BaseAdapter {
     private static final List<Pair<Item.CATEGORY, Integer>> categories = new ArrayList<>();
-    private static final Map<Item.CATEGORY, Integer> categoryImages = new HashMap<>();
-    private final List<Pair<Item.CATEGORY, Pair<List<Item>, Integer>>> categoryItems = new ArrayList<>();
-    private final Context context;
+
     static {
         categories.add(new Pair<>(Item.CATEGORY.MEDKITS, R.drawable.cat_medkits));
         categories.add(new Pair<>(Item.CATEGORY.ANTIRADS, R.drawable.cat_antirads));
@@ -41,56 +39,48 @@ public class CategoriesAdapter extends BaseAdapter
         categories.add(new Pair<>(Item.CATEGORY.DEVICES, R.drawable.cat_devices));
     }
 
-    public CategoriesAdapter(Context c, List<Item> inventory)
-    {
+    private final List<Pair<Item.CATEGORY, Pair<List<Item>, Integer>>> categoryItems = new ArrayList<>();
+    private final Context context;
+
+    public CategoriesAdapter(Context c, List<Item> inventory) {
         context = c;
         Map<Item.CATEGORY, List<Item>> itemsOfCategory = new HashMap<>();
-        for (Item i : inventory)
-        {
+        for (Item i : inventory) {
             Item.CATEGORY cat = i.getItemDescriptor().getCategory();
-            if(itemsOfCategory.containsKey(cat))
-            {
+            if (itemsOfCategory.containsKey(cat)) {
                 itemsOfCategory.get(i.getItemDescriptor().getCategory()).add(i);
-            }else
-            {
+            } else {
                 List<Item> items = new ArrayList<>();
                 items.add(i);
                 itemsOfCategory.put(cat, items);
             }
         }
-        for (Pair<Item.CATEGORY, Integer> catImg : categories)
-        {
-            if(itemsOfCategory.containsKey(catImg.first))
-            {
+        for (Pair<Item.CATEGORY, Integer> catImg : categories) {
+            if (itemsOfCategory.containsKey(catImg.first)) {
                 categoryItems.add(new Pair<>(catImg.first, new Pair<>(itemsOfCategory.get(catImg.first), catImg.second)));
-            }else
-            {
+            } else {
                 categoryItems.add(new Pair<>(catImg.first, new Pair<>(new ArrayList<>(), catImg.second)));
             }
         }
     }
 
     @Override
-    public int getCount()
-    {
+    public int getCount() {
         return categories.size();
     }
 
     @Override
-    public Object getItem(int i)
-    {
+    public Object getItem(int i) {
         return categoryItems.get(i);
     }
 
     @Override
-    public long getItemId(int i)
-    {
+    public long getItemId(int i) {
         return 0;
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup)
-    {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         ImageView imageView;
         if (view == null) {
             // if it's not recycled, initialize some attributes
@@ -103,15 +93,13 @@ public class CategoriesAdapter extends BaseAdapter
         }
         Pair<List<Item>, Integer> img = categoryItems.get(i).second;
         imageView.setImageResource(img.second);
-        if(img.first.size() == 0)
-        {
-            imageView.setAlpha(50);
+        if (img.first.isEmpty()) {
+            imageView.setImageAlpha(50);
         }
         return imageView;
     }
 
-    public List<Item> getItemsByCategory(int position)
-    {
+    public List<Item> getItemsByCategory(int position) {
         return categoryItems.get(position).second.first;
     }
 }

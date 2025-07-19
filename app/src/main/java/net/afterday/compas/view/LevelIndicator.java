@@ -4,15 +4,14 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatImageButton;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.ImageButton;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageButton;
 
 import net.afterday.compas.R;
 
@@ -20,25 +19,23 @@ import net.afterday.compas.R;
  * Created by spaka on 5/9/2018.
  */
 
-public class LevelIndicator extends AppCompatImageButton
-{
+public class LevelIndicator extends AppCompatImageButton {
     private static final String TAG = "QrBtnLevelIndicator";
-//    private static final int WIDGET_WIDTH = 155;
+    //    private static final int WIDGET_WIDTH = 155;
 //    private static final int WIDGET_HEIGHT = 155;
     private int mWidth,
-                mHeight,
-                backgroundWidth,
-                backgroundHeight;
+            mHeight,
+            backgroundWidth,
+            backgroundHeight;
     private float mScaleFactorX,
-                  mScaleFactorY;
+            mScaleFactorY;
     private Paint paint;
     private Paint imgPaint;
     private int level = 1;
     private Bitmap qrImage;
     private Matrix matrix;
 
-    public LevelIndicator(Context context)
-    {
+    public LevelIndicator(Context context) {
         super(context);
         init();
     }
@@ -53,10 +50,8 @@ public class LevelIndicator extends AppCompatImageButton
         init();
     }
 
-    public void setLevel(int level)
-    {
-        if(level == this.level)
-        {
+    public void setLevel(int level) {
+        if (level == this.level) {
             return;
         }
         this.level = level;
@@ -80,24 +75,23 @@ public class LevelIndicator extends AppCompatImageButton
         mScaleFactorY = (float) mHeight / backgroundHeight;
 
         paint.setTextSize(100 * mScaleFactorY);
+        paint.setTextAlign(Paint.Align.CENTER);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override
-    public void onDraw(Canvas canvas)
-    {
-        this.setAlpha(0);
+    public void onDraw(Canvas canvas) {
+        this.setImageAlpha(0);
         super.onDraw(canvas);
         //
 
         Log.d("LevelIndicator", "draw   ---- " + level);
         //this.setAlpha(100);
 
-        convertRect(-1,-2, matrix);
+        convertRect(-1, -2, matrix);
         canvas.drawBitmap(qrImage, matrix, imgPaint);
-        if(level > 0)
-        {
-            canvas.drawText(Integer.toString(level), mScaleFactorX * (level > 1 ? 35 : 6), mScaleFactorY * 125, paint);
+        if (level > 0) {
+            canvas.drawText(Integer.toString(level), level == 1 ? getWidth() / 3 : getWidth() / 2, mScaleFactorY * 125, paint);
         }
 //        if(level == 1)
 //        {
@@ -116,12 +110,11 @@ public class LevelIndicator extends AppCompatImageButton
 
     }
 
-    private void init()
-    {
+    private void init() {
         imgPaint = new Paint();
         //imgPaint.setAlpha(180);
         paint = new Paint();
-        paint.setARGB(255,255,127,0);
+        paint.setARGB(255, 255, 127, 0);
         paint.setAlpha(180);
         matrix = new Matrix();
         qrImage = BitmapFactory.decodeResource(getResources(), R.drawable.qr_button);
@@ -129,15 +122,13 @@ public class LevelIndicator extends AppCompatImageButton
         backgroundHeight = qrImage.getHeight();
         try {
             paint.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/segment.ttf"));
-        }
-        catch (RuntimeException e) {
+        } catch (RuntimeException e) {
             //Log.e(TAG, "Cannot create typeface");
         }
         //paint.setColor(Color.WHITE);
     }
 
-    private void convertRect(int left, int top, Matrix matrix)
-    {
+    private void convertRect(int left, int top, Matrix matrix) {
         matrix.reset();
         matrix.postScale(mScaleFactorX, mScaleFactorY);
         matrix.postTranslate(mScaleFactorX * left, mScaleFactorY * top);

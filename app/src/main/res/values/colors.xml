@@ -17,4 +17,5 @@
     <color name="armorBar">#643200ff</color>
     <color name="deviceBar">#6400c864</color>
     <color name="staminaBar">#64ffc864</color>
+    <color name="white">#cccfcd</color>
 </resources>

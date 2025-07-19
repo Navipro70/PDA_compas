@@ -28,11 +28,11 @@
     <string name="item_ip2">IP2 antidote</string>
     <string name="desc_ip2">Eliminates anomaly effect for 1 minute</string>
     <string name="item_hercules">Hercules</string>
-    <string name="desc_hercules">Health restores 50% faster in clear locations, if less than 1 Sv is obtained. Lasts for 30 minutes</string>
+    <string name="desc_hercules" formatted="false">Health restores 50% faster in clear locations, if less than 1 Sv is obtained. Lasts for 30 minutes</string>
     <string name="item_energy_drink">Energy Drink Stalker</string>
-    <string name="desc_energy_drink">Health restores 100% faster in clear locations, if less than 1 Sv is obtained. Lasts for 30 minutes</string>
+    <string name="desc_energy_drink" formatted="false">Health restores 100% faster in clear locations, if less than 1 Sv is obtained. Lasts for 30 minutes</string>
     <string name="item_green_svoboda">Green Svoboda serum</string>
-    <string name="desc_green_svoboda">Radiation obtains 90% slower for 2 hours</string>
+    <string name="desc_green_svoboda" formatted="false">Radiation obtains 90% slower for 2 hours</string>
     <string name="item_yellow_svoboda">Yellow Svoboda serum</string>
     <string name="desc_yellow_svoboda">Mental strength 90% lower for 2 hours</string>
 
@@ -56,11 +56,11 @@
     <string name="item_shlem2">Psionic helmet Mark 2</string>
     <string name="desc_shlem2">Mental strength 99% lower, Call of monolith strength 99% weaker, Controller is 60% weaker for 1 hour.</string>
     <string name="item_respirator">Respirator</string>
-    <string name="desc_respirator">Radiation obtains 40% slower for 30 minutes.</string>
+    <string name="desc_respirator" formatted="false">Radiation obtains 40% slower for 30 minutes.</string>
     <string name="item_gasmask">Gasmask</string>
-    <string name="desc_gasmask">Radiation obtains 60% slower for 1 hour.</string>
+    <string name="desc_gasmask" formatted="false">Radiation obtains 60% slower for 1 hour.</string>
     <string name="item_szd">Rebreather</string>
-    <string name="desc_szd">Radiation obtains 90% slower for 2 hours.</string>
+    <string name="desc_szd" formatted="false">Radiation obtains 99% slower for 1 hours.</string>
 
     <!-- Weapons -->
     <string name="item_knife">Battle knife</string>
@@ -146,7 +146,7 @@
 
     <!-- Suits -->
     <string name="item_leather_jacket">Leather jacket</string>
-    <string name="desc_leather_jacket">Radiation obtains 10% slower for 1 hour of any damage</string>
+    <string name="desc_leather_jacket" formatted="false">Radiation obtains 10% slower for 1 hour of any damage</string>
     <string name="item_stalker_suit">Stalker suit</string>
     <string name="desc_stalker_suit">Radiation obtains 30% slower, anomaly effect 20% less, mental effect 10% less for 2 hours of any damage</string>
     <string name="item_seva_suit">SEVA suit</string>
@@ -165,6 +165,8 @@
     <string name="desc_bandit_suit">Fractional: Worn off after 3 hours of any damage. Radiation obtains 30% slower, anomaly effect 20% less, mental effect 10% less</string>
     <string name="item_duty_suit">Duty suit</string>
     <string name="desc_duty_suit">Fractional: Worn off after 3 hours of any damage. Radiation obtains 30% slower, anomaly effect 20% less, mental effect 10% less</string>
+    <string name="item_vuzov_suit">Vuzov suit</string>
+    <string name="desc_vuzov_suit">Fractional: Worn off after 3 hours of any damage. Radiation obtains 30% slower, anomaly effect 20% less, mental effect 10% less</string>
     <string name="item_freedom_suit">Freedom suit</string>
     <string name="desc_freedom_suit">Fractional: Worn off after 3 hours of any damage. Radiation obtains 30% slower, anomaly effect 20% less, mental effect 10% less</string>
     <string name="item_berill_suit">Berill suit</string>
@@ -173,56 +175,56 @@
     <string name="desc_clearsky_suit">Fractional: Worn off after 3 hours of any damage. Radiation obtains 30% slower, anomaly effect 20% less, mental effect 10% less</string>
 
     <!-- Artefacts -->
-    <string name="item_jellyfish">Jellyfish</string>
-    <string name="desc_jellyfish">Health restores 50% faster in clear locations, when obtained les than 1 Sv of radiation. Gives 1 point of expirience.</string>
-    <string name="item_stone_flower">Stone Flower</string>
-    <string name="desc_stone_flower">Mental effect 20% less, but radiation obtains 20% faster. Gives 5 points of expirience.</string>
-    <string name="item_droplets">Droplets</string>
-    <string name="desc_droplets">Radiation obtains 10% slower. Gives 2 points of expirience.</string>
-    <string name="item_eye">Eye</string>
-    <string name="desc_eye">Health restores 100% faster in clear locations, when less than 1 Sv of radiation is obtained. Gives 2 points of expirience.</string>
-    <string name="item_night_star">Night Star</string>
-    <string name="desc_night_star">Mental effect 60% less, but radiation obtains 60% faster. Gives 15 points of expirience.</string>
-    <string name="item_kolobok">Kolobok</string>
-    <string name="desc_kolobok">Health restores 200% faster in clear locations, when less than 1 Sv of radiation is obtained. Gives 5 points of expirience.</string>
-    <string name="item_thorn">Thorn</string>
-    <string name="desc_thorn">Radiation obtains 50% slower, anomaly and mental effect 25% more. Gives 10 points of expirience.</string>
+    <string name="item_jellyfish" formatted="false">Jellyfish</string>
+    <string name="desc_jellyfish" formatted="false">Health restores 50% faster in clear locations, when obtained les than 1 Sv of radiation.</string>
+    <string name="item_stone_flower" formatted="false">Stone Flower</string>
+    <string name="desc_stone_flower" formatted="false">Mental effect 20% less, but radiation obtains 20% faster.</string>
+    <string name="item_droplets" formatted="false">Droplets</string>
+    <string name="desc_droplets" formatted="false">Radiation obtains 10% slower.</string>
+    <string name="item_eye" formatted="false">Eye</string>
+    <string name="desc_eye" formatted="false">Health restores 100% faster in clear locations, when less than 1 Sv of radiation is obtained.</string>
+    <string name="item_night_star" formatted="false">Night Star</string>
+    <string name="desc_night_star" formatted="false">Mental effect 60% less, but radiation obtains 60% faster.</string>
+    <string name="item_kolobok" formatted="false">Kolobok</string>
+    <string name="desc_kolobok" formatted="false">Health restores 200% faster in clear locations, when less than 1 Sv of radiation is obtained.</string>
+    <string name="item_thorn" formatted="false">Thorn</string>
+    <string name="desc_thorn" formatted="false">Radiation obtains 50% slower, anomaly and mental effect 25% more.</string>
     <string name="item_fireball">Fireball</string>
-    <string name="desc_fireball">Radiation obtains 30% slower. Gives 10 points of expirience.</string>
+    <string name="desc_fireball" formatted="false">Radiation obtains 30% slower.</string>
     <string name="item_bubble">Bubble</string>
-    <string name="desc_bubble">Radiation obtains 20% slower. Gives 5 points of expirience.</string>
-    <string name="item_mamas_beads">Mamas Beads</string>
-    <string name="desc_mamas_beads">Health restores 400% faster in clear locations, when less than 1 Sv of radiation is obtained. Resist to Burer telekinetic attack 90%. Gives 15 points of expirience.</string>
-    <string name="item_moonlight">Moonlight</string>
-    <string name="desc_moonlight">Resist to anomaly effect 50%, but radiation obtains 20% faster. Gives 10 points of expirience.</string>
-    <string name="item_spring">Spring</string>
-    <string name="desc_spring">Resist to anomaly effect 25%, but radiation obtains 10% faster. Gives 5 points of expirience.</string>
-    <string name="item_pellicle">Pellicle</string>
-    <string name="desc_pellicle">Mental effect 40% less, but radiation obtains 40% faster. Gives 10 points of expirience.</string>
-    <string name="item_mica">Mica</string>
-    <string name="desc_mica">Health restores 500% faster in clear locations, when less than 1 Sv of radiation is obtained. Resist to Burer and Controller distant attacks 90%. but radiation, anomaly  and mental 25% strongest. Gives 20 points of expirience.</string>
-    <string name="item_compass">Compass</string>
-    <string name="desc_compass">Anomalies is detectable, but can\'t hurt, Mental effect 60% less, but radiation obtains 100% faster. Gives 30 points of expirience.</string>
-    <string name="item_crystal">Crystal</string>
-    <string name="desc_crystal">Radiation obtains 40% slower. Gives 10 points of expirience.</string>
-    <string name="item_goldfish">Goldfish</string>
-    <string name="desc_goldfish">Health restores 300% faster in clear locations, when less than 1 Sv of radiation is obtained. Resist to Controller psionic attack 90%. Gives 15 points of expirience.</string>
-    <string name="item_altered_insulator">Altered Insulator</string>
-    <string name="desc_altered_insulator">Emits 7 Sv of radiation permanently, when in inventory.</string>
-    <string name="item_shell">Shell</string>
-    <string name="desc_shell">Emits 1 Sv of radiation permanently, when in inventory.</string>
-    <string name="item_black_energy">Black energy</string>
-    <string name="desc_black_energy">Emits 14 Sv of radiation permanently, when in inventory.</string>
+    <string name="desc_bubble" formatted="false">Radiation obtains 20% slower.</string>
+    <string name="item_mamas_beads" formatted="false">Mamas Beads</string>
+    <string name="desc_mamas_beads" formatted="false">Health restores 400% faster in clear locations, when less than 1 Sv of radiation is obtained. Resist to Burer telekinetic attack 90%.</string>
+    <string name="item_moonlight" formatted="false">Moonlight</string>
+    <string name="desc_moonlight" formatted="false">Resist to anomaly effect 50%, but radiation obtains 20% faster.</string>
+    <string name="item_spring" formatted="false">Spring</string>
+    <string name="desc_spring" formatted="false">Resist to anomaly effect 25%, but radiation obtains 10% faster.</string>
+    <string name="item_pellicle" formatted="false">Pellicle</string>
+    <string name="desc_pellicle" formatted="false">Mental effect 40% less, but radiation obtains 40% faster.</string>
+    <string name="item_mica" formatted="false">Mica</string>
+    <string name="desc_mica" formatted="false">Health restores 500% faster in clear locations, when less than 1 Sv of radiation is obtained. Resist to Burer and Controller distant attacks 90%. but radiation, anomaly  and mental 25% strongest.</string>
+    <string name="item_compass" formatted="false">Compass</string>
+    <string name="desc_compass" formatted="false">Anomalies is detectable, but can\'t hurt, Mental effect 60% less, but radiation obtains 100% faster.</string>
+    <string name="item_crystal" formatted="false">Crystal</string>
+    <string name="desc_crystal" formatted="false">Radiation obtains 40% slower.</string>
+    <string name="item_goldfish" formatted="false">Goldfish</string>
+    <string name="desc_goldfish" formatted="false">Health restores 300% faster in clear locations, when less than 1 Sv of radiation is obtained. Resist to Controller psionic attack 90%.</string>
+    <string name="item_altered_insulator" formatted="false">Altered Insulator</string>
+    <string name="desc_altered_insulator" formatted="false">Emits 7 Sv of radiation permanently, when in inventory.</string>
+    <string name="item_shell" formatted="false">Shell</string>
+    <string name="desc_shell" formatted="false">Emits 1 Sv of radiation permanently, when in inventory.</string>
+    <string name="item_black_energy" formatted="false">Black energy</string>
+    <string name="desc_black_energy" formatted="false">Emits 14 Sv of radiation permanently, when in inventory.</string>
 
     <!-- Calibrating -->
-    <string name="item_calibrating_10">Calibrating -10%</string>
-    <string name="desc_calibrating_10">Mastercode: All threats -10% less. Using 1 artefact slot.</string>
-    <string name="item_calibrating_25">Calibrating -25%</string>
-    <string name="desc_calibrating_25">Mastercode: All threats -25% less. Using 1 artefact slot.</string>
-    <string name="item_calibrating_50">Calibrating -50%</string>
-    <string name="desc_calibrating_50">Mastercode: All threats -50% less. Using 1 artefact slot.</string>
-    <string name="item_calibrating_75">Calibrating -75%</string>
-    <string name="desc_calibrating_75">Mastercode: All threats -75% less. Using 1 artefact slot.</string>
+    <string name="item_calibrating_10" formatted="false">Calibrating -10%</string>
+    <string name="desc_calibrating_10" formatted="false">Mastercode: All threats -10% less. Using 1 artefact slot.</string>
+    <string name="item_calibrating_25" formatted="false">Calibrating -25%</string>
+    <string name="desc_calibrating_25" formatted="false">Mastercode: All threats -25% less. Using 1 artefact slot.</string>
+    <string name="item_calibrating_50" formatted="false">Calibrating -50%</string>
+    <string name="desc_calibrating_50" formatted="false">Mastercode: All threats -50% less. Using 1 artefact slot.</string>
+    <string name="item_calibrating_75" formatted="false">Calibrating -75%</string>
+    <string name="desc_calibrating_75" formatted="false">Mastercode: All threats -75% less. Using 1 artefact slot.</string>
 
     <!-- Уникальные вещи -->
     <string name="item_bloodsucker_tentacles">Bloodsucker tentacles</string>
@@ -232,13 +234,13 @@
     <string name="item_bebra">Bebra</string>
     <string name="desc_bebra">They threw the pig again. Gives +1 experience per hour, throwing it out, you will fail</string>
     <string name="item_piston_key">Piston key</string>
-    <string name="desc_piston_key">Gives a 50% discount on the repair of any weapon. Can be used once. 10 exp.</string>
+    <string name="desc_piston_key" formatted="false">Gives a 50% discount on the repair of any weapon. Can be used once. 10 exp.</string>
     <string name="item_ficalis_trash">Ficalias Urn</string>
     <string name="desc_ficalis_trash">SUBMIT TO THE TEMPLE, RECENT! 10 exp.</string>
     <string name="item_cigan_horse">Gypsy horse</string>
     <string name="desc_cigan_horse">Where does the horse come from in the zone? Better to ask the Gypsy. 10 exp</string>
     <string name="item_rashpil_card">Rashpil VIP Card</string>
-    <string name="desc_rashpil_card">Come in, dont be afraid, go, dont cry. Welcome to our cafeteria! 50% sale in a bar. 10 exp.</string>
+    <string name="desc_rashpil_card" formatted="false">Come in, dont be afraid, go, dont cry. Welcome to our cafeteria! 50% sale in a bar. 10 exp.</string>
     <string name="item_foma_map">Foma map</string>
     <string name="desc_foma_map">Unified escort to any point in the zone. 10 exp.</string>
     <string name="item_paulava_pills">Paulava pills</string>
@@ -258,6 +260,8 @@
     <string name="desc_calls_petal">The flower of anomalous origin, the place of growth is not known, is not fully understood. 20 experience points. Reduces the influence of the mental by 15%.</string>
 
     <!-- Log messages -->
+    <string name="message_strong_explosion_hit">Strong explosion hits you!</string>
+    <string name="message_weak_explosion_hit">Weak explosion hits you!</string>    
     <string name="message_revive">You are in action again!</string>
     <string name="message_suicide">You are dying…</string>
     <string name="message_dead">You are dead!</string>
@@ -297,13 +301,20 @@
     <string name="message_level_3">PDA level 3 is activated. Mental detector is available!</string>
     <string name="message_level_4">PDA level 4 is activated. Monster anticipating is available!</string>
     <string name="message_level_up">PDA is upgraded. New functionality is available!</string>
-    <string name="message_level_max">PDA is reached maximum level. Artefacts detector is available!</string>
+    <string name="message_level_max">PDA has reached maximum level!</string>
     <string name="message_compass_enabled">Compass is enabled</string>
     <string name="message_compass_disabled">Compass is disabled</string>
     <string name="message_fraction_gamemaster">Faction changed to GAMEMASTER!</string>
     <string name="message_fraction_monolith">Faction changed to MONOLITH!</string>
     <string name="message_fraction_stalker">Faction changed to STALKER!</string>
     <string name="message_fraction_mission">Faction changed to MISSION!</string>
+    <string name="message_fraction_darken">Faction changed to DARKEN!</string>
+    <string name="message_wifi_error">Scanning error: unable to retrieve environmental data! Please check the equipment.</string>
+    <string name="message_wifi_continue">Scan functionality restored: error resolved!</string>
+    <string name="message_pda_on">PDA is now on.</string>
+    <string name="message_pda_off">PDA is now off.</string>
+    <string name="message_dead_explosion">Explosion kills you!</string>
+    <string name="message_w_dead_explosion">You are critically wounded by explosion!</string>
 
     <!-- Interface -->
     <string name="popup_suicide">Confirm suicide?</string>
@@ -311,15 +322,28 @@
     <string name="popup_no">No</string>
     <string name="popup_drop">Drop</string>
     <string name="popup_use">Use</string>
-    <string name="tray_open">S.T.A.L.K.E.R Полоцк</string>
+    <string name="tray_open">S.T.A.L.K.E.R Polotsk</string>
     <string name="tray_stop">PDA Off</string>
     <string name="tray_settings">Tune PDA</string>
-    <string name="tray_vibro">Vibro off/on </string>
-    <string name="tray_compass">Compass off/on </string>
+    <string name="tray_vibro">Vibration</string>
+    <string name="tray_compass">Compass</string>
     <string name="tray_orientation">Orientation</string>
     <string name="tray_portrait">Portrait</string>
     <string name="tray_landscape">Landscape</string>
-
+    <string name="close_info">Closes current window.</string>
+    <string name="settings_info">Opens setting tab.</string>
+    <string name="item_image_info">Image of the item you tapped on.</string>
+    <string name="tray_permissions">Permissions</string>
+    <string name="gps_permission">Gps permission granted</string>
+    <string name="gps_background_permission">Gps background permission granted</string>
+    <string name="notifications_permission">Notification permissions granted</string>
+    <string name="devices_nearby_permission">"Devices nearby" permission granted</string>
+    <string name="development_mode">Development mode enabled.</string>
+    <string name="wifi_throttling">Wifi scanning restrictions disabled</string>
+    <string name="suicide_image_info">Information about suicide</string>
+    <string name="wifi_throttling_nocheck">Impossible to check setting status</string>
+    <string name="wifi_throttling_nodisable">Cannot be disabled manually</string>
+    <string name="development_mode_noneed">Not necessary</string>
     <!-- Fake -->
     <string name="toast_cant_use_dead">You are dead, you can\'t do this…</string>
     <string name="toast_cant_use_artefact">You can\'t use artefact. Is already active</string>

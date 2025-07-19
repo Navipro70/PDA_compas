@@ -3,26 +3,15 @@ package net.afterday.compas;
 import android.app.Application;
 import android.content.Intent;
 
-//import com.crashlytics.android.Crashlytics;
-import io.fabric.sdk.android.Fabric;
 import net.afterday.compas.core.Game;
 import net.afterday.compas.core.gameState.Frame;
-import net.afterday.compas.core.inventory.items.Events.ItemAdded;
-import net.afterday.compas.core.player.Player;
 import net.afterday.compas.core.serialization.Serializer;
-import net.afterday.compas.core.userActions.UserActionsPack;
 import net.afterday.compas.engine.Engine;
-import net.afterday.compas.engine.events.ItemEventsBus;
-import net.afterday.compas.logging.Logger;
 import net.afterday.compas.sensors.Battery.Battery;
-import net.afterday.compas.sensors.WiFi.WifiImpl;
 import net.afterday.compas.settings.Settings;
 import net.afterday.compas.util.Fonts;
-import net.afterday.compas.view.SmallLogListAdapter;
 
-import io.reactivex.Observable;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.subjects.PublishSubject;
+import io.reactivex.rxjava3.core.Observable;
 
 
 /**
@@ -35,7 +24,6 @@ public class StalkerApp extends Application
     private static StalkerApp instance;
     private Game game;
     private Engine engine;
-    private Observable<UserActionsPack> userActionsStream = PublishSubject.create();
     private Observable<Frame> framesStream;
     private Observable<Integer> batteryLevelStream;
     private Battery battery;
@@ -45,7 +33,6 @@ public class StalkerApp extends Application
     @Override
     public void onCreate()
     {
-        super.onCreate();
 
         //android.util.Log.d(TAG, "onCreate " + Thread.currentThread().getName());
 //        if (LeakCanary.isInAnalyzerProcess(this)) {
@@ -68,6 +55,7 @@ public class StalkerApp extends Application
 //        battery.start();
 //        framesStream = engine.getFramesStream();
 //        engine.start();
+
         settings = Settings.instance(this);
         fonts = Fonts.instance(this.getAssets());
         startService(new Intent(StalkerApp.this, LocalMainService.class));
@@ -81,7 +69,7 @@ public class StalkerApp extends Application
 //                System.exit(2);
 //            }
 //        });
-
+        super.onCreate();
     }
 
     public Game getGame()

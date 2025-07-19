@@ -6,7 +6,6 @@ import com.google.gson.JsonObject;
  * Created by spaka on 5/30/2018.
  */
 
-public interface Jsonable
-{
+public interface Jsonable {
     JsonObject toJson();
 }

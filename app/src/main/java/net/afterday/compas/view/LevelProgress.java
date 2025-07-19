@@ -8,13 +8,14 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
-import net.afterday.compas.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import net.afterday.compas.core.inventory.items.Events.ItemAdded;
 import net.afterday.compas.util.Fonts;
 
@@ -22,16 +23,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
 
 
 /**
  * Created by spaka on 5/20/2018.
  */
 
-public class LevelProgress extends View
-{
+public class LevelProgress extends View {
     private static final String TAG = "LevelProgress";
     private static final int WIDGET_WIDTH = 350;
     private static final int WIDGET_HEIGHT = 100;
@@ -53,41 +53,34 @@ public class LevelProgress extends View
     private Paint fPaint;
     private List<OnLevelChangedListener> levelChangedListeners = new ArrayList<>();
 
-    public LevelProgress(Context context)
-    {
+    public LevelProgress(Context context) {
         super(context);
         init();
     }
 
-    public LevelProgress(Context context, @Nullable AttributeSet attrs)
-    {
+    public LevelProgress(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public LevelProgress(Context context, @Nullable AttributeSet attrs, int defStyleAttr)
-    {
+    public LevelProgress(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
-    public void setProgress(int progress)
-    {
+    public void setProgress(int progress) {
         this.percents = progress;
         invalidate();
     }
 
-    public void showMax(boolean show)
-    {
+    public void showMax(boolean show) {
         showMax = show;
         invalidate();
     }
 
-    public void setProgress(ItemAdded itemAdded)
-    {
+    public void setProgress(ItemAdded itemAdded) {
         xpAdded = itemAdded.getItem().getItemDescriptor().getXpPoints();
-        if(xpAdded == 0)
-        {
+        if (xpAdded == 0) {
             return;
         }
         showXp = true;
@@ -97,54 +90,46 @@ public class LevelProgress extends View
             int progress = itemAdded.getLevelXpPercents();
             boolean levelChanged = itemAdded.levelChanged();
 
-            if(progress == percents && !levelChanged)
-            {
+            if (progress == percents && !levelChanged) {
                 postInvalidate();
                 return;
             }
             //int progress = percents + item.getXpPoints();
-            if(progress <= percents)
-            {
+            if (progress <= percents) {
                 vAnimator.cancel();
                 vAnimator = ValueAnimator.ofInt(percents, 100 + progress);
                 vAnimator.setDuration(700);
                 vAnimator.setInterpolator(new LinearInterpolator());
                 vAnimator.addUpdateListener((v) -> {
-                    int val = (int)v.getAnimatedValue();
+                    int val = (int) v.getAnimatedValue();
                     Log.d(TAG, "Animator 1: " + val);
                     percents = val <= 100 ? val : val - 100;
                     postInvalidate();
                 });
-            }else
-            {
+            } else {
                 vAnimator.cancel();
                 vAnimator = ValueAnimator.ofInt(percents, progress);
                 vAnimator.setDuration(700);
                 vAnimator.setInterpolator(new LinearInterpolator());
                 vAnimator.addUpdateListener((v) -> {
-                    percents = (int)v.getAnimatedValue();
+                    percents = (int) v.getAnimatedValue();
                     Log.d(TAG, "Animator 1: " + percents);
                     postInvalidate();
                 });
             }
             vAnimator.start();
-            if(itemAdded.levelChanged())
-            {
-                vAnimator.addListener(new AnimatorListenerAdapter()
-                {
+            if (itemAdded.levelChanged()) {
+                vAnimator.addListener(new AnimatorListenerAdapter() {
                     @Override
-                    public void onAnimationEnd(Animator animation)
-                    {
-                        for(OnLevelChangedListener l : levelChangedListeners)
-                        {
+                    public void onAnimationEnd(Animator animation) {
+                        for (OnLevelChangedListener l : levelChangedListeners) {
                             l.levelChanged(itemAdded.getLevel());
                         }
                     }
                 });
             }
         });
-        if(itemAdded.getLevel() == 5)
-        {
+        if (itemAdded.getLevel() == 5) {
             Observable.timer(2, TimeUnit.SECONDS).take(1).observeOn(AndroidSchedulers.mainThread())
                     .subscribe((t) -> {
                         showXp = true;
@@ -154,8 +139,7 @@ public class LevelProgress extends View
         }
     }
 
-    public void addOnLevelChangedListener(OnLevelChangedListener listener)
-    {
+    public void addOnLevelChangedListener(OnLevelChangedListener listener) {
         this.levelChangedListeners.add(listener);
     }
 
@@ -177,34 +161,31 @@ public class LevelProgress extends View
         matrix.reset();
         matrix.postScale(mScaleFactorX, mScaleFactorY);
         matrix.postTranslate(0, 0);
-        fPaint.setTextSize((int)(mHeight * 1.0));
+        fPaint.setTextSize((int) (mHeight + 5));
+        fPaint.setTextAlign(Paint.Align.CENTER);
         //fPaint.setTextSize(60);
 
     }
 
     @Override
-    protected void onDraw(Canvas canvas)
-    {
+    protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
         Log.e(TAG, "HEIGHT: " + mHeight);
 
 //        canvas.drawText( "MAX", mScaleFactorX * 60, (mHeight + 5) * mScaleFactorY, fPaint);
 //        return;
-        if(showMax)
-        {
-            canvas.drawText( "MAX", mScaleFactorX * 70, (mHeight + 15) * mScaleFactorY, fPaint);
+        if (showMax) {
+            canvas.drawText("MAX", getWidth() / 2, getHeight() / 2 - ((fPaint.descent() + fPaint.ascent()) / 2), fPaint);
             return;
         }
-        if(showXp && xpAdded > 0)
-        {
-            canvas.drawText( "+" + Integer.toString(xpAdded), mScaleFactorX * 70, (mHeight + 15) * mScaleFactorY, fPaint);
+        if (showXp && xpAdded > 0) {
+            canvas.drawText("+" + xpAdded, mWidth / 2, mHeight / 2, fPaint);
             return;
         }
-        if(percents == 100)
-        {
+        if (percents == 100) {
             percents = 0;
         }
-        drawRect(mWidth * percents / 100 , rect);
+        drawRect(mWidth * percents / 100, rect);
         canvas.drawRoundRect(rect, 7, 7, paint);
 
     }
@@ -213,15 +194,14 @@ public class LevelProgress extends View
         matrix = new Matrix();
         rect = new RectF();
         paint = new Paint();
-        paint.setARGB(255,255,127,0);
+        paint.setARGB(255, 255, 127, 0);
         paint.setAlpha(180);
         vAnimator = ValueAnimator.ofInt(0, 0);
         fPaint = Fonts.instance().getDefaultFontPaint();
         //fPaint.setTextSize(110);
     }
 
-    private void drawRect(int width, RectF rect)
-    {
+    private void drawRect(int width, RectF rect) {
         rect.set(
                 0,
                 0,
@@ -230,8 +210,7 @@ public class LevelProgress extends View
         );
     }
 
-    public interface OnLevelChangedListener
-    {
+    public interface OnLevelChangedListener {
         void levelChanged(int level);
     }
 }

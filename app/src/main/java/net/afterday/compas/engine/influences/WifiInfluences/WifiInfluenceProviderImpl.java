@@ -13,16 +13,15 @@ import net.afterday.compas.sensors.WiFi.WiFi;
 
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.subjects.BehaviorSubject;
-import io.reactivex.subjects.Subject;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.subjects.BehaviorSubject;
+import io.reactivex.rxjava3.subjects.Subject;
 
 /**
  * Created by Justas Spakauskas on 4/2/2018.
  */
 
-public class WifiInfluenceProviderImpl implements WiFiInfluenceProvider
-{
+public class WifiInfluenceProviderImpl implements WiFiInfluenceProvider {
     private static final String TAG = "WifiInflProvider";
     private WiFi wifi;
     private InfluencesPersistency ip;
@@ -34,8 +33,7 @@ public class WifiInfluenceProviderImpl implements WiFiInfluenceProvider
     private double lastHealingStrength;
     private long lastHealingTime = 0;
 
-    public WifiInfluenceProviderImpl(WiFi wifi, InfluencesPersistency ip)
-    {
+    public WifiInfluenceProviderImpl(WiFi wifi, InfluencesPersistency ip) {
         this.wifi = wifi;
         this.ip = ip;
         //ies = new ByMacExtractionStrategy(ip.getRegisteredWifiModules());
@@ -45,41 +43,35 @@ public class WifiInfluenceProviderImpl implements WiFiInfluenceProvider
                 .observeOn(Threads.computation())
                 .map(this.ies::makeInfluences)
                 .map((i) -> verifyHealing(i))
-                .subscribe((i) -> ((Subject<InfluencesPack>)wifiInfluence).onNext(i));//.doOnNext((i) -> Log.d(TAG, "WifiEmitted: " + i.toString()));
+                .subscribe((i) -> ((Subject<InfluencesPack>) wifiInfluence).onNext(i));//.doOnNext((i) -> Log.d(TAG, "WifiEmitted: " + i.toString()));
     }
 
     @Override
-    public Observable<InfluencesPack> getInfluenceStream()
-    {
+    public Observable<InfluencesPack> getInfluenceStream() {
         return wifiInfluence;
     }
 
-    public void start()
-    {
+    public void start() {
         //((Subject<InfluencesPack>)wifiInfluence).onNext(new InflPack());
         wifi.start();
     }
 
     @Override
-    public void stop()
-    {
+    public void stop() {
         wifi.stop();
-        ((Subject<InfluencesPack>)wifiInfluence).onNext(new InflPack());
+        ((Subject<InfluencesPack>) wifiInfluence).onNext(new InflPack());
     }
 
-    public InfluencesPack verifyHealing(InfluencesPack ip)
-    {
+    public InfluencesPack verifyHealing(InfluencesPack ip) {
 //        if(ip.influencedBy(Influence.BURER))
 //        {
 //            ip.addInfluence(Influence.RADIATION, 100000);
 //        }
-        if(ip.influencedBy(Influence.HEALTH))
-        {
+        if (ip.influencedBy(Influence.HEALTH)) {
             //wasHealing = true;
             lastHealingStrength = ip.getInfluence(Influence.HEALTH);
             lastHealingTime = System.currentTimeMillis();
-        }else if((System.currentTimeMillis() - lastHealingTime) < 5000)
-        {
+        } else if ((System.currentTimeMillis() - lastHealingTime) < 5000) {
             //noHealing++;
             ip.addInfluence(Influence.HEALTH, lastHealingStrength);
             //wasHealing = false;

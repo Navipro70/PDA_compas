@@ -4,8 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class SQLiteHelper extends SQLiteOpenHelper
-{
+public class SQLiteHelper extends SQLiteOpenHelper {
     public static final String TABLE_LOG = "messages";
     public static final String TABLE_INVENTORY = "inventory";
 

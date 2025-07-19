@@ -1,22 +1,20 @@
 package net.afterday.compas.db.log;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import net.afterday.compas.db.SQLiteHelper;
 import net.afterday.compas.logging.LogLine;
+
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 /**
  * Created by spaka on 6/12/2018.
  */
 
-public class LogDb
-{
+public class LogDb {
     private SQLiteHelper dbHelper;
 
     private String[] allColumns = {
@@ -26,13 +24,11 @@ public class LogDb
             SQLiteHelper.COLUMN_TYPE
     };
 
-    public LogDb(SQLiteHelper dbHelper)
-    {
+    public LogDb(SQLiteHelper dbHelper) {
         this.dbHelper = dbHelper;
     }
 
-    public List<LogLine> getLogLines()
-    {
+    public List<LogLine> getLogLines() {
         SQLiteDatabase database = dbHelper.getReadableDatabase();
         List<LogLine> list = new ArrayList<>();
 
@@ -40,7 +36,7 @@ public class LogDb
 
         cursor.moveToFirst();
 
-        while(!cursor.isAfterLast()) {
+        while (!cursor.isAfterLast()) {
             list.add(cursorToResult(cursor));
             cursor.moveToNext();
         }
@@ -50,8 +46,7 @@ public class LogDb
         return list;
     }
 
-    public void putLogLine(LogLine line)
-    {
+    public void putLogLine(LogLine line) {
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(SQLiteHelper.COLUMN_TEXT, line.getText());

@@ -10,19 +10,20 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.RectF;
 import android.graphics.Typeface;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import net.afterday.compas.R;
 import net.afterday.compas.util.Convert;
 
 import java.util.Locale;
 
-public class Radbar extends View
-{
+public class Radbar extends View {
     private static final String TAG = "Radbar";
 
     private static final int WIDGET_WIDTH = 749;
@@ -60,18 +61,16 @@ public class Radbar extends View
     private boolean isPressed;
     private PorterDuffColorFilter colorFilter = new PorterDuffColorFilter(0x77000000, PorterDuff.Mode.SRC_ATOP);
     private OnTouchListener clicker = (v, t) -> {
-        if(listener != null)
-        {
+        if (listener != null) {
             listener.onTouch(v, t);
+            v.performClick();
         }
-        if(t.getAction() == MotionEvent.ACTION_DOWN)
-        {
+        if (t.getAction() == MotionEvent.ACTION_DOWN) {
             isPressed = true;
             mPaint.setColorFilter(colorFilter);
             mPaintSymbol.setColorFilter(colorFilter);
             invalidate();
-        }else if(t.getAction() == MotionEvent.ACTION_UP)
-        {
+        } else if (t.getAction() == MotionEvent.ACTION_UP) {
             isPressed = false;
             mPaint.setColorFilter(null);
             mPaintSymbol.setColorFilter(null);
@@ -123,8 +122,7 @@ public class Radbar extends View
     }
 
     public Radbar setInfo(double health, double radiation, double healing, long controlled, boolean hasRadInstant) {
-        if(mHealth == health && mRadiation == radiation && mHealing == healing && mControlled == controlled && this.hasRadInstant == hasRadInstant)
-        {
+        if (mHealth == health && mRadiation == radiation && mHealing == healing && mControlled == controlled && this.hasRadInstant == hasRadInstant) {
             return this;
         }
         mHealth = health;
@@ -158,7 +156,7 @@ public class Radbar extends View
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         Log.d(TAG, "RadBar - onDraw");
         super.onDraw(canvas);
 
@@ -174,8 +172,7 @@ public class Radbar extends View
 
         // Draw the front layer
         canvas.drawBitmap(mTopImage, mMatrix, null);
-        if(hasRadInstant)
-        {
+        if (hasRadInstant) {
             convertRect(arrow.getWidth(), arrow.getHeight(), 4, 142, mMatrix);
             canvas.drawBitmap(arrow, mMatrix, null);
         }
@@ -199,10 +196,9 @@ public class Radbar extends View
         // Draw more symbol
         if (rad > 15d) {
             rad = 15d;
-            mPaintMore.setARGB(255,255,127,0);
-        }
-        else {
-            mPaintMore.setARGB(255,35,35,35);
+            mPaintMore.setARGB(255, 255, 127, 0);
+        } else {
+            mPaintMore.setARGB(255, 35, 35, 35);
         }
 
         canvas.drawText(">", 270 * mScaleFactorX, 135 * mScaleFactorY, mPaintMore);
@@ -223,7 +219,7 @@ public class Radbar extends View
 
         txt = "." + fullTxt[1];
 
-        canvas.drawText("888",  270 * mScaleFactorX + txtWidth, 155 * mScaleFactorY, mPaintGrey);
+        canvas.drawText("888", 270 * mScaleFactorX + txtWidth, 155 * mScaleFactorY, mPaintGrey);
         canvas.drawText(txt, 270 * mScaleFactorX + txtWidth, 155 * mScaleFactorY, mPaint);
 
         txtWidth += mPaint.measureText("888");
@@ -249,9 +245,9 @@ public class Radbar extends View
         mRect = new RectF();
         mPaint = new Paint();
         mPaintGrey = new Paint();
-        mPaintGrey.setARGB(255,35,35,35);
+        mPaintGrey.setARGB(255, 35, 35, 35);
         mPaintSymbol = new Paint();
-        mPaintSymbol.setARGB(255,255,127,0);
+        mPaintSymbol.setARGB(255, 255, 127, 0);
         mPaintMore = new Paint();
         //mPaintGrey.setARGB(255,255,255,255);
 
@@ -259,21 +255,18 @@ public class Radbar extends View
             mTypefaceSeg = Typeface.createFromAsset(getContext().getAssets(), "fonts/segment.ttf");
             mPaint.setTypeface(mTypefaceSeg);
             mPaintGrey.setTypeface(mTypefaceSeg);
-        }
-        catch (RuntimeException e) {
+        } catch (RuntimeException e) {
             //Log.e(TAG, "Cannot create typeface");
         }
     }
 
-    private void convertRect(int bitmapWidth, int bitmapHeight, int left, int top, Matrix matrix)
-    {
+    private void convertRect(int bitmapWidth, int bitmapHeight, int left, int top, Matrix matrix) {
         matrix.reset();
         matrix.postScale(mScaleFactorX, mScaleFactorY);
         matrix.postTranslate(mScaleFactorX * left, mScaleFactorY * top);
     }
 
-    private void drawRect(int width, int height, int left, int top, RectF rect)
-    {
+    private void drawRect(int width, int height, int left, int top, RectF rect) {
         rect.set(
                 left * mScaleFactorX,
                 top * mScaleFactorY,
@@ -282,8 +275,7 @@ public class Radbar extends View
         );
     }
 
-    private int[] getColor()
-    {
+    private int[] getColor() {
         if (mHealth <= 0d || mControlled > 0) {
             return Convert.numberToRGB(Convert.RGB_GREY);
         }
@@ -291,16 +283,13 @@ public class Radbar extends View
             return Convert.numberToRGB(Convert.RGB_BLUE);
         }
 
-        if(mRadiation >= 15f) {
-            return new int[]{255,255,0,0};
-        }
-        else if(mRadiation < 15f && mRadiation >= 7f) {
+        if (mRadiation >= 15f) {
+            return new int[]{255, 255, 0, 0};
+        } else if (mRadiation < 15f && mRadiation >= 7f) {
             return Convert.numberToRGB(Convert.map(mRadiation, 7, 15, 15, 0)); // red
-        }
-        else if(mRadiation < 7f && mRadiation >= 1f) {
+        } else if (mRadiation < 7f && mRadiation >= 1f) {
             return Convert.numberToRGB(Convert.map(mRadiation, 1, 7, 47, 30)); // yellow
-        }
-        else if(mRadiation < 1f && mRadiation >= 0f) {
+        } else if (mRadiation < 1f && mRadiation >= 0f) {
             return Convert.numberToRGB(Convert.map(mRadiation, 0, 1, 100, 60)); // green
         }
 
@@ -308,8 +297,7 @@ public class Radbar extends View
     }
 
     @Override
-    public void setOnTouchListener(OnTouchListener l)
-    {
+    public void setOnTouchListener(OnTouchListener l) {
         this.listener = l;
     }
 }

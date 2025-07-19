@@ -1,11 +1,9 @@
 package net.afterday.compas.fragment;
 
-import android.app.DialogFragment;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.content.LocalBroadcastManager;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -16,6 +14,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import net.afterday.compas.R;
 import net.afterday.compas.core.inventory.items.Item;
 import net.afterday.compas.core.player.Player;
@@ -25,20 +27,17 @@ import net.afterday.compas.engine.events.PlayerEventBus;
 import net.afterday.compas.util.Fonts;
 
 import java.util.Locale;
-import java.util.concurrent.TimeUnit;
+import java.util.Objects;
 
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
-public class ItemInfoFragment extends DialogFragment
-{
+public class ItemInfoFragment extends DialogFragment {
+    private static Item mItem;
     private ItemInfoCallback mCallback;
     private Typeface mTypeface;
     private LinearLayout mEffectHolder;
     private View v;
-    private static Observable<Item> itemViews;
-    private static Item mItem;
     private CompositeDisposable subscriptions = new CompositeDisposable();
 
     public static ItemInfoFragment newInstance(Item item) {
@@ -53,7 +52,11 @@ public class ItemInfoFragment extends DialogFragment
         super.onCreate(savedInstanceState);
         //itemViews.observeOn(AndroidSchedulers.mainThread()).subscribe((i) -> setupItem(i));
         setStyle(DialogFragment.STYLE_NO_FRAME, R.style.DialogStyle);
-        subscriptions.add(PlayerEventBus.instance().getPlayerStateStream().observeOn(AndroidSchedulers.mainThread()).subscribe((ps) -> {if(ps.getCode() != Player.ALIVE) {close();}}));
+        subscriptions.add(PlayerEventBus.instance().getPlayerStateStream().observeOn(AndroidSchedulers.mainThread()).subscribe((ps) -> {
+            if (ps.getCode() != Player.ALIVE) {
+                close();
+            }
+        }));
     }
 
     @Nullable
@@ -73,37 +76,39 @@ public class ItemInfoFragment extends DialogFragment
 
         return v;
     }
+    public void onResume()
+    {
+        super.onResume();
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+        int width = displayMetrics.widthPixels;
+        getDialog().getWindow().setLayout(width, height);
+    }
 
     @Override
-    public void onDestroyView()
-    {
+    public void onDestroyView() {
         super.onDestroyView();
-        if(!subscriptions.isDisposed())
-        {
+        if (!subscriptions.isDisposed()) {
             subscriptions.dispose();
         }
     }
 
-    private void setupItem(Item mItem)
-    {
+    private void setupItem(Item mItem) {
         // Fill in item name
         TextView itemName = (TextView) v.findViewById(R.id.name);
-        if(mItem.getItemDescriptor().getNameId() > 0)
-        {
+        if (mItem.getItemDescriptor().getNameId() > 0) {
             itemName.setText(mItem.getItemDescriptor().getNameId());
-        }else
-        {
+        } else {
             itemName.setText(mItem.getItemDescriptor().getName());
         }
         //Log.e("Item fragment", mItem.getName());
         itemName.setTextSize(30);
         TextView description = (TextView) v.findViewById(R.id.description);
         description.setTextSize(21);
-        if(mItem.getItemDescriptor().getDescriptionId() > 0)
-        {
+        if (mItem.getItemDescriptor().getDescriptionId() > 0) {
             description.setText(mItem.getItemDescriptor().getDescriptionId());
-        }else
-        {
+        } else {
             description.setText(mItem.getItemDescriptor().getDescription());
         }
 
@@ -119,16 +124,13 @@ public class ItemInfoFragment extends DialogFragment
             useButton.setTypeface(mTypeface);
             useButton.setTextSize(25);
             description.setTypeface(mTypeface);
-        }
-        catch (RuntimeException e) {
+        } catch (RuntimeException e) {
             //Log.e("ItemInfoFragment", "Cannot create typeface");
         }
-        if(!mItem.getItemDescriptor().isConsumable() || mItem.getItemDescriptor().isArtefact() || mItem.isActive())
-        {
+        if (!mItem.getItemDescriptor().isConsumable() || mItem.getItemDescriptor().isArtefact() || mItem.isActive()) {
             useButton.setVisibility(View.GONE);
         }
-        if(!mItem.getItemDescriptor().isDropable() || mItem.isActive())
-        {
+        if (!mItem.getItemDescriptor().isDropable() || mItem.isActive()) {
             dropButton.setVisibility(View.GONE);
         }
 
@@ -138,7 +140,7 @@ public class ItemInfoFragment extends DialogFragment
         ImageView itemImage = (ImageView) v.findViewById(R.id.item_image);
         itemImage.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         itemImage.setImageResource(mItem.getItemDescriptor().getImage());
- 
+
         dropButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,22 +155,17 @@ public class ItemInfoFragment extends DialogFragment
             }
         });
 
-        for(int i = 0; i < Item.MODIFIERS_COUNT; i++)
-        {
-            if(mItem.hasModifier(i))
-            {
+        for (int i = 0; i < Item.MODIFIERS_COUNT; i++) {
+            if (mItem.hasModifier(i)) {
                 createEffectView(i, mItem.getModifier(i));
             }
         }
 
-        if(mItem.getItemDescriptor().getName() == "Anabiotic")
-        {
+        if (Objects.equals(mItem.getItemDescriptor().getName(), "Anabiotic")) {
             subscriptions.add(EmissionEventBus.instance().getEmissionStateStream().observeOn(AndroidSchedulers.mainThread()).subscribe((active) -> {
-                if(active)
-                {
+                if (active) {
                     useButton.setVisibility(View.VISIBLE);
-                }else
-                {
+                } else {
                     useButton.setVisibility(View.GONE);
                 }
             }));
@@ -177,23 +174,21 @@ public class ItemInfoFragment extends DialogFragment
     }
 
     public void closePopup(View view) {
-        try
-        {
+        try {
             dismiss();
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
 
     }
 
     public void close() {
-        try
-        {
+        try {
             dismiss();
-            if (mCallback != null)
-            {
+            if (mCallback != null) {
                 mCallback.onItemInfoClosed(mItem);
             }
-        }catch (Exception e)
-        {}
+        } catch (Exception e) {
+        }
     }
 
     public void setCallback(ItemInfoCallback callback) {
@@ -216,8 +211,7 @@ public class ItemInfoFragment extends DialogFragment
 //        Intent intent = new Intent("StalkerUseItem");
 //        //intent.putExtra("item", mItem);
 //        LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent);
-        if(mCallback != null)
-        {
+        if (mCallback != null) {
             mCallback.onItemUsed(mItem);
         }
         ItemEventsBus.instance().useItem(mItem);
@@ -245,8 +239,8 @@ public class ItemInfoFragment extends DialogFragment
 
         ImageView effectImage = new ImageView(getActivity());
         effectImage.setLayoutParams(new ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
         ));
         effectImage.setImageResource(getEffectImage(type, amount));
         l.addView(effectImage);

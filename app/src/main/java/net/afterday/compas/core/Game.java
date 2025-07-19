@@ -10,13 +10,17 @@ import net.afterday.compas.core.player.Player;
  * Created by Justas Spakauskas on 2/3/2018.
  */
 
-public interface Game
-{
+public interface Game {
     Frame start();
+
     ////////////////////////////////////
     Frame acceptInfluences(InfluencesPack influences);
+
     Player getPlayer();
+
     Inventory getInventory();
+
     boolean acceptCode(String code);
+
     Frame useItem(Item item);
 }

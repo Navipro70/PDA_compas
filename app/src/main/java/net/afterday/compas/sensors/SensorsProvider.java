@@ -9,10 +9,12 @@ import net.afterday.compas.sensors.WiFi.WiFi;
  * Created by Justas Spakauskas on 2/10/2018.
  */
 
-public interface SensorsProvider
-{
+public interface SensorsProvider {
     WiFi getWifiSensor();
+
     Battery getBatterySensor();
+
     Bluetooth getBluetoothSensor();
+
     Gps getGpsSensor();
 }

@@ -9,9 +9,10 @@ import java.util.List;
  * Created by Justas Spakauskas on 2/10/2018.
  */
 
-public interface InfluencesPersistency
-{
+public interface InfluencesPersistency {
     List<Influence> getPossibleInfluences();
+
     List<String> getRegisteredWifiModules();
+
     List<Emission> getEmissions();
 }

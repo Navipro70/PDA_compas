@@ -1,5 +1,8 @@
 package net.afterday.compas.view;
 
+import static java.lang.Math.abs;
+import static java.lang.Math.sqrt;
+
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -8,17 +11,18 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AnticipateOvershootInterpolator;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import net.afterday.compas.R;
 import net.afterday.compas.util.Convert;
 
-public class Geiger extends View
-{
+public class Geiger extends View {
     private static final String TAG = "Geiger";
 
     private static final int WIDGET_WIDTH = 1010;
@@ -46,7 +50,6 @@ public class Geiger extends View
 
     // Bitmaps
     private Bitmap mScale;
-    private Bitmap scaleLvl5;
     private Bitmap mIndicator;
     private Bitmap mFrontSide;
     private Bitmap brokenGlass;
@@ -73,6 +76,7 @@ public class Geiger extends View
     public Geiger(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
+
     }
 
     public Geiger(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -107,6 +111,10 @@ public class Geiger extends View
         invalidate();
     }
 
+    public float getSvh() {
+        return mSvh;
+    }
+
     public void setSvh(float svh) {
         if (svh == mSvh) {
             return;
@@ -114,10 +122,6 @@ public class Geiger extends View
 
         mSvh = svh;
         invalidate();
-    }
-
-    public float getSvh() {
-        return mSvh;
     }
 
     public void toSvh(final float svh, long duration) {
@@ -131,7 +135,7 @@ public class Geiger extends View
         mSvhAnimator.setDuration(duration);
         mSvhAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
+            public void onAnimationUpdate(@NonNull ValueAnimator animation) {
                 mSvh = (float) mSvhAnimator.getAnimatedValue();
                 postInvalidate();
             }
@@ -139,28 +143,23 @@ public class Geiger extends View
         mSvhAnimator.start();
     }
 
-    public void setBrokenGlass(boolean broken)
-    {
-        if(isBroken == broken)
-        {
+    public void setBrokenGlass(boolean broken) {
+        if (isBroken == broken) {
             return;
         }
         isBroken = broken;
         invalidate();
     }
 
-    public void setFingerPrint(boolean fPrint)
-    {
-        if(hasFingerPrint == fPrint)
-        {
+    public void setFingerPrint(boolean fPrint) {
+        if (hasFingerPrint == fPrint) {
             return;
         }
         hasFingerPrint = fPrint;
         invalidate();
     }
 
-    public void setLevel(int level)
-    {
+    public void setLevel(int level) {
         this.level = level;
         invalidate();
     }
@@ -174,10 +173,8 @@ public class Geiger extends View
         int finalMeasureSpecX = MeasureSpec.makeMeasureSpec(widthSize, MeasureSpec.EXACTLY);
         int finalMeasureSpecY = MeasureSpec.makeMeasureSpec(heightSize, MeasureSpec.EXACTLY);
         super.onMeasure(finalMeasureSpecX, finalMeasureSpecY);
-
         mWidth = widthSize;
         mHeight = heightSize;
-
         mScaleFactorX = (float) mWidth / WIDGET_WIDTH;
         mScaleFactorY = (float) mHeight / WIDGET_HEIGHT;
         //Log.d(TAG, "widthSize: " + widthSize + " heightSize:" + heightSize
@@ -188,7 +185,7 @@ public class Geiger extends View
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         Log.d(TAG, "Geiger - onDraw");
         super.onDraw(canvas);
         //this.bringToFront();
@@ -227,17 +224,15 @@ public class Geiger extends View
         canvas.drawBitmap(mScale, mMatrix, null);
         //convertRect(scaleLvl5.getWidth(), scaleLvl5.getHeight(), 0, 100, mMatrix);
         //canvas.drawBitmap(scaleLvl5, mMatrix, null);
-        if(level >= 2)
+        if (level >= 2)
             drawAnomaly(canvas);
-        if(level >= 3)
+        if (level >= 3)
             drawMental(canvas);
-        if(hasFingerPrint)
-        {
+        if (hasFingerPrint) {
             convertRect(fingerPrint.getWidth(), fingerPrint.getHeight(), -35, 210, mMatrix);
             canvas.drawBitmap(fingerPrint, mMatrix, null);
         }
-        if(isBroken)
-        {
+        if (isBroken) {
             convertRect(brokenGlass.getWidth(), brokenGlass.getHeight(), 170, 100, mMatrix);
             canvas.drawBitmap(brokenGlass, mMatrix, null);
         }
@@ -245,8 +240,17 @@ public class Geiger extends View
 
     protected void drawIndicator(Canvas canvas) {
 
-        convertRect(mIndicator.getWidth(), mIndicator.getHeight(), 487, 350, mMatrix);
-        mMatrix.postRotate(svhToRotation(mSvh), 505 * mScaleFactorX, 1010 * mScaleFactorY);
+        //convertRect(mIndicator.getWidth(), mIndicator.getHeight(), 487, 350, mMatrix);
+        mMatrix.reset();
+        float rotation = svhToRotation(mSvh);
+        float a = mIndicator.getHeight() * mScaleFactorX;
+        float b = mIndicator.getHeight() * mScaleFactorY;
+        double fi = Math.toRadians(abs(rotation - 90));
+        float indicatorScaleY = (float) (a * b / sqrt(a * a * Math.sin(fi) * Math.sin(fi) + b * b * Math.cos(fi) * Math.cos(fi))) / (mIndicator.getHeight());
+        mMatrix.postScale(mScaleFactorX, indicatorScaleY);
+        Log.d(TAG, "indicatorScaleY: " + indicatorScaleY);
+        mMatrix.postTranslate(mScaleFactorX * 487, mScaleFactorY * 980 - indicatorScaleY * mIndicator.getHeight());
+        mMatrix.postRotate(rotation, 505 * mScaleFactorX, 1010 * mScaleFactorY);
         canvas.drawBitmap(mIndicator, mMatrix, null);
     }
 
@@ -260,8 +264,8 @@ public class Geiger extends View
         canvas.drawBitmap(mBulbBack, mMatrix, null);
 
         drawRect(151, 151, 286, 120, mRect);
-        int color[] = mAnomaly <= 0f ? Convert.numberToRGB(Convert.RGB_GREY) : Convert.numberToRGB(Convert.map(mAnomaly, 0f, 15f, 100f, 0f));
-        if(mAnomaly >= 15f) {
+        int[] color = mAnomaly <= 0f ? Convert.numberToRGB(Convert.RGB_GREY) : Convert.numberToRGB(Convert.map(mAnomaly, 0f, 15f, 100f, 0f));
+        if (mAnomaly >= 15f) {
             color[1] = 255;
             color[2] = 0;
             color[3] = 0;
@@ -279,8 +283,8 @@ public class Geiger extends View
         canvas.drawBitmap(mBulbBack, mMatrix, null);
 
         drawRect(151, 151, 577, 120, mRect);
-        int color[] = mMental <= 0f ? Convert.numberToRGB(Convert.RGB_GREY) : Convert.numberToRGB(Convert.map(mMental, 0f, 15f, 100f, 0f));
-        if(mMental >= 15f) {
+        int[] color = mMental <= 0f ? Convert.numberToRGB(Convert.RGB_GREY) : Convert.numberToRGB(Convert.map(mMental, 0f, 15f, 100f, 0f));
+        if (mMental >= 15f) {
             color[1] = 255;
             color[2] = 0;
             color[3] = 0;
@@ -297,41 +301,33 @@ public class Geiger extends View
 
         if (mSvh >= 15) {
             canvas.drawBitmap(mPeakOn, mMatrix, null);
-        }
-        else {
+        } else {
             canvas.drawBitmap(mPeakOff, mMatrix, null);
         }
     }
 
-    private void convertRect(int bitmapWidth, int bitmapHeight, int left, int top, Matrix matrix)
-    {
+    private void convertRect(int bitmapWidth, int bitmapHeight, int left, int top, Matrix matrix) {
         matrix.reset();
         matrix.postScale(mScaleFactorX, mScaleFactorY);
         matrix.postTranslate(mScaleFactorX * left, mScaleFactorY * top);
     }
 
     private float svhToRotation(float svh) {
-        if(svh >= 0f && svh < 1f) {
-            return Convert.map(svh, 0f, 1f, -37f, -20f);
+        if (svh >= 0f && svh < 1f) {
+            return (float) ((double) mWidth / mHeight) * Convert.map(svh, 0f, 1f, -37f, -20f);
+        } else if (svh >= 1f && svh < 7f) {
+            return (float) ((double) mWidth / mHeight) * Convert.map(svh, 1f, 7f, -20f, 10f);
+        } else if (svh >= 7f && svh < 9f) {
+            return (float) ((double) mWidth / mHeight) * Convert.map(svh, 7f, 9f, 10f, 21f);
+        } else if (svh >= 9f && svh < 15f) {
+            return (float) ((double) mWidth / mHeight) * Convert.map(svh, 9f, 15f, 21f, 37f);
+        } else if (svh >= 15f) {
+            return (float) ((double) mWidth / mHeight) * 37f;
         }
-        else if(svh >= 1f && svh < 7f) {
-            return Convert.map(svh, 1f, 7f, -20f, 10f);
-        }
-        else if(svh >= 7f && svh < 9f) {
-            return Convert.map(svh, 7f, 9f, 10f, 21f);
-        }
-        else if(svh >= 9f && svh < 15f) {
-            return Convert.map(svh, 9f, 15f, 21f, 37f);
-        }
-        else if(svh >= 15f) {
-            return 37f;
-        }
-
-        return -37f;
+        return (float) ((double) mWidth / mHeight) * -37f;
     }
 
-    private void drawRect(int width, int height, int left, int top, RectF rect)
-    {
+    private void drawRect(int width, int height, int left, int top, RectF rect) {
         rect.set(
                 left * mScaleFactorX,
                 top * mScaleFactorY,
