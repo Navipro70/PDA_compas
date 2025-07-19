@@ -1,14 +1,16 @@
 package net.afterday.compas.fragment;
 
-import android.app.DialogFragment;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 
 import net.afterday.compas.R;
 import net.afterday.compas.engine.events.PlayerEventBus;
@@ -16,15 +18,14 @@ import net.afterday.compas.util.Fonts;
 
 import java.util.concurrent.TimeUnit;
 
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.core.Observable;
 
 
 /**
  * Created by spaka on 5/13/2018.
  */
 
-public class SuicideConfirmationFragment extends DialogFragment
-{
+public class SuicideConfirmationFragment extends DialogFragment {
     private View v;
     private Button cancelBtn;
     private Button confirmBtn;
@@ -59,20 +60,16 @@ public class SuicideConfirmationFragment extends DialogFragment
             }
         });
 
-        cancelBtn.setOnClickListener(new View.OnClickListener()
-        {
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 closePopup(v);
             }
         });
 
-        confirmBtn.findViewById(R.id.confirm_suicide).setOnClickListener(new View.OnClickListener()
-        {
+        confirmBtn.findViewById(R.id.confirm_suicide).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 PlayerEventBus.instance().suicide();
                 closePopup(v);
             }
@@ -83,13 +80,21 @@ public class SuicideConfirmationFragment extends DialogFragment
         return v;
     }
 
+    public void onResume()
+    {
+        super.onResume();
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+        int width = displayMetrics.widthPixels;
+        getDialog().getWindow().setLayout(width, height);
+    }
+
     public void closePopup(View view) {
-        try
-        {
-            if(!this.isDetached())
+        try {
+            if (!this.isDetached())
                 dismiss();
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
         }
     }
 }

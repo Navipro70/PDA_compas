@@ -6,6 +6,5 @@ import net.afterday.compas.engine.influences.InfluenceProvider;
  * Created by spaka on 6/7/2018.
  */
 
-public interface GpsInfluenceProvider extends InfluenceProvider<Integer>
-{
+public interface GpsInfluenceProvider extends InfluenceProvider<Integer> {
 }

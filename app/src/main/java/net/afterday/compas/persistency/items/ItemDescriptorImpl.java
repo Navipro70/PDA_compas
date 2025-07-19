@@ -1,18 +1,19 @@
 package net.afterday.compas.persistency.items;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import static net.afterday.compas.core.inventory.items.Item.CATEGORY;
+import static net.afterday.compas.core.inventory.items.Item.MODIFIERS_COUNT;
+
+import androidx.annotation.NonNull;
 
 import net.afterday.compas.core.inventory.items.Item;
 
-import static net.afterday.compas.core.inventory.items.Item.*;
+import java.util.Arrays;
 
 /**
  * Created by Justas Spakauskas on 3/25/2018.
  */
 
-public class ItemDescriptorImpl implements ItemDescriptor
-{
+public class ItemDescriptorImpl implements ItemDescriptor {
     private static final String TAG = "ItemDescriptorImpl";
     private int imageId;
     private String title;
@@ -30,139 +31,55 @@ public class ItemDescriptorImpl implements ItemDescriptor
     private boolean isDropable = true;
     private int descriptionId = -1;
     private CATEGORY category;
-    public ItemDescriptorImpl(CATEGORY category)
-    {
+
+    public ItemDescriptorImpl(CATEGORY category) {
         this.category = category;
         initModifiers();
     }
 
-    public ItemDescriptorImpl(CATEGORY category, String title)
-    {
+    public ItemDescriptorImpl(CATEGORY category, String title) {
         this.title = title;
         this.category = category;
         initModifiers();
     }
 
-    public ItemDescriptorImpl(CATEGORY category, int titleId)
-    {
+    public ItemDescriptorImpl(CATEGORY category, int titleId) {
         this.titleId = titleId;
         this.category = category;
         initModifiers();
     }
 
-    private void initModifiers()
-    {
-        for(int i = 0; i < MODIFIERS_COUNT; i++)
-        {
-            modifiers[i] = NULL_MODIFIER;
-        }
+    private void initModifiers() {
+        Arrays.fill(modifiers, NULL_MODIFIER);
     }
 
-    public ItemDescriptorImpl setImage(int image)
-    {
-        this.imageId = image;
-        return this;
-    }
-
-    public ItemDescriptorImpl setTitle(String title)
-    {
+    public ItemDescriptorImpl setTitle(String title) {
         this.title = title;
         return this;
     }
 
-    public ItemDescriptorImpl setTitleId(int titleId)
-    {
+    public ItemDescriptorImpl setTitleId(int titleId) {
         this.titleId = titleId;
         return this;
     }
 
-    public ItemDescriptorImpl setDescription(String description)
-    {
-        this.description = description;
-        return this;
-    }
-
-    public ItemDescriptorImpl setDescription(int descriptionId)
-    {
-        this.descriptionId = descriptionId;
-        return this;
-    }
-
-    public ItemDescriptorImpl addModifier(int modifier, double value)
-    {
+    public ItemDescriptorImpl addModifier(int modifier, double value) {
         modifiers[modifier] = value;
         return this;
     }
 
-    public ItemDescriptorImpl setArtefact(boolean isArtifact)
-    {
-        this.isArtifact = isArtifact;
-        return this;
-    }
-
-    public ItemDescriptorImpl setBooster(boolean isBooster)
-    {
-        this.isBooster = isBooster;
-        return this;
-    }
-
-    public ItemDescriptorImpl setDevice(boolean isDevice)
-    {
-        this.isDevice = isDevice;
-        return this;
-    }
-
-    public ItemDescriptorImpl setArmor(boolean isArmor)
-    {
-        this.isArmor = isArmor;
-        return this;
-    }
-
-    public ItemDescriptorImpl setDuration(long duration)
-    {
-        this.duration = duration;
-        return this;
-    }
-
-    public ItemDescriptorImpl setXpPoints(int xpPoints)
-    {
-        this.xpPoints = xpPoints;
-        return this;
-    }
-
-    public ItemDescriptorImpl setConsumable(boolean isConsumable)
-    {
-        this.isConsumable = isConsumable;
-        return this;
-    }
-
-    public ItemDescriptorImpl setUsable(boolean isUsable)
-    {
-        this.isUsable = isUsable;
-        return this;
-    }
-
-    public ItemDescriptorImpl setDropable(boolean isDropable)
-    {
-        this.isDropable = isDropable;
-        return this;
-    }
-
-    public ItemDescriptorImpl setCategory(Item.CATEGORY category)
-    {
-        this.category = category;
-        return this;
-    }
-
     @Override
-    public int getImage()
-    {
+    public int getImage() {
         return imageId;
     }
 
+    public ItemDescriptorImpl setImage(int image) {
+        this.imageId = image;
+        return this;
+    }
+
     @Override
-    public String getName()
-    {
+    public String getName() {
         return title;
     }
 
@@ -172,91 +89,137 @@ public class ItemDescriptorImpl implements ItemDescriptor
     }
 
     @Override
-    public boolean isBooster()
-    {
+    public boolean isBooster() {
         return isBooster;
     }
 
+    public ItemDescriptorImpl setBooster(boolean isBooster) {
+        this.isBooster = isBooster;
+        return this;
+    }
+
     @Override
-    public boolean isDevice()
-    {
+    public boolean isDevice() {
         return isDevice;
     }
 
+    public ItemDescriptorImpl setDevice(boolean isDevice) {
+        this.isDevice = isDevice;
+        return this;
+    }
+
     @Override
-    public boolean isArmor()
-    {
+    public boolean isArmor() {
         return isArmor;
     }
 
-    @Override
-    public boolean isArtefact()
-    {
-        return isArtifact;
+    public ItemDescriptorImpl setArmor(boolean isArmor) {
+        this.isArmor = isArmor;
+        return this;
     }
 
     @Override
-    public boolean isSingleUse()
-    {
+    public boolean isArtefact() {
+        return isArtifact;
+    }
+
+    public ItemDescriptorImpl setArtefact(boolean isArtifact) {
+        this.isArtifact = isArtifact;
+        return this;
+    }
+
+    @Override
+    public boolean isSingleUse() {
         return !(isArtifact || isBooster || isDevice || isArmor);
     }
 
     @Override
-    public boolean isConsumable()
-    {
+    public boolean isConsumable() {
         return isConsumable;
     }
 
-    @Override
-    public long getDuration()
-    {
-        return duration;
+    public ItemDescriptorImpl setConsumable(boolean isConsumable) {
+        this.isConsumable = isConsumable;
+        return this;
     }
 
     @Override
-    public double[] getModifiers()
-    {
+    public long getDuration() {
+        return duration;
+    }
+
+    public ItemDescriptorImpl setDuration(long duration) {
+        this.duration = duration;
+        return this;
+    }
+
+    @Override
+    public double[] getModifiers() {
         return modifiers;
     }
 
     @Override
-    public int getXpPoints()
-    {
+    public int getXpPoints() {
         return xpPoints;
     }
 
-    @Override
-    public String getDescription()
-    {
-        return description;
+    public ItemDescriptorImpl setXpPoints(int xpPoints) {
+        this.xpPoints = xpPoints;
+        return this;
     }
 
     @Override
-    public int getDescriptionId()
-    {
+    public String getDescription() {
+        return description;
+    }
+
+    public ItemDescriptorImpl setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public ItemDescriptorImpl setDescription(int descriptionId) {
+        this.descriptionId = descriptionId;
+        return this;
+    }
+
+    @Override
+    public int getDescriptionId() {
         return descriptionId;
     }
 
     @Override
-    public boolean isUsable()
-    {
+    public boolean isUsable() {
         return isUsable;
     }
 
+    public ItemDescriptorImpl setUsable(boolean isUsable) {
+        this.isUsable = isUsable;
+        return this;
+    }
+
     @Override
-    public boolean isDropable()
-    {
+    public boolean isDropable() {
         return isDropable;
     }
 
+    public ItemDescriptorImpl setDropable(boolean isDropable) {
+        this.isDropable = isDropable;
+        return this;
+    }
+
     @Override
-    public CATEGORY getCategory()
-    {
+    public CATEGORY getCategory() {
         return category;
     }
 
-    public String toString()
-    {
+    public ItemDescriptorImpl setCategory(Item.CATEGORY category) {
+        this.category = category;
+        return this;
+    }
+
+    @NonNull
+    public String toString() {
         return "";
     }
 

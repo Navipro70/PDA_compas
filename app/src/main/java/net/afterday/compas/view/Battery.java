@@ -6,25 +6,26 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import net.afterday.compas.sensors.Battery.BatteryStatus;
 import net.afterday.compas.util.Fonts;
 
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-import io.reactivex.Observable;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.Disposable;
 
 /**
  * Created by Justas Spakauskas on 3/20/2018.
  */
 
-public class Battery extends View
-{
+public class Battery extends View {
     private static final String TAG = "Clock";
 
     private static final int WIDGET_WIDTH = 195;
@@ -73,8 +74,7 @@ public class Battery extends View
         return this;
     }
 
-    public void setLevel(int level)
-    {
+    public void setLevel(int level) {
         energy = level;
         mText = level + "%";
         color = this.getColor();
@@ -82,33 +82,26 @@ public class Battery extends View
         invalidate();
     }
 
-    public void setStatus(BatteryStatus batteryStatus)
-    {
+    public void setStatus(BatteryStatus batteryStatus) {
         energy = batteryStatus.getEnergyLevel();
 //        energy = 14;
         mText = energy + "%";
-        if(energy > 15)
-        {
+        if (energy > 15) {
             mPaint = Fonts.instance().setDefaultColor(mPaint);
-        }else
-        {
+        } else {
             mPaint.setColor(RED);
         }
-        
-        if(batteryStatus.isCharging())
-        {
-            if(subscription != null && !subscription.isDisposed())
-            {
+
+        if (batteryStatus.isCharging()) {
+            if (subscription != null && !subscription.isDisposed()) {
                 subscription.dispose();
             }
             subscription = Observable.interval(1, TimeUnit.SECONDS).subscribe((s) -> {
                 isVisible = !isVisible;
                 postInvalidate();
             });
-        }else
-        {
-            if(subscription != null && !subscription.isDisposed())
-            {
+        } else {
+            if (subscription != null && !subscription.isDisposed()) {
                 subscription.dispose();
             }
             subscription = null;
@@ -133,27 +126,27 @@ public class Battery extends View
         mScaleFactorX = (float) mWidth / WIDGET_WIDTH;
         mScaleFactorY = (float) mHeight / WIDGET_HEIGHT;
 
-        mPaint.setTextSize(60 * mScaleFactorY);
         //mPaint.setTextSize((int)(mHeight * 1.0));
     }
 
     @Override
-    protected void onDetachedFromWindow()
-    {
+    protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if(subscription != null && !subscription.isDisposed())
-        {
+        if (subscription != null && !subscription.isDisposed()) {
             subscription.dispose();
             subscription = null;
         }
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
-        if(isVisible)
-        {
-            canvas.drawText(mText, 23 * mScaleFactorX, 60 * mScaleFactorY, mPaint);
+        if (!Objects.equals(mText, "100%"))
+            mPaint.setTextSize(70 * mScaleFactorY);
+        else
+            mPaint.setTextSize(60 * mScaleFactorY);
+        if (isVisible) {
+            canvas.drawText(mText, 20 * mScaleFactorX, getHeight() / 2 - ((mPaint.descent() + mPaint.ascent()) / 2), mPaint);
         }
     }
 
@@ -163,8 +156,7 @@ public class Battery extends View
         mPaint.setTypeface(mTypeface);
     }
 
-    private int getColor()
-    {
+    private int getColor() {
         return (Integer) (new ArgbEvaluator()).evaluate(energy / 100, RED, GREEN);
         //return new Argb
     }
@@ -178,8 +170,7 @@ public class Battery extends View
         float[] hsvb = new float[3];
         Color.colorToHSV(a, hsva);
         Color.colorToHSV(b, hsvb);
-        for (int i = 0; i < 3; i++)
-        {
+        for (int i = 0; i < 3; i++) {
             hsvb[i] = interpolate(hsva[i], hsvb[i], proportion);
         }
         p.setColor(Color.HSVToColor(hsvb));

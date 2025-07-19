@@ -1,96 +1,309 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.percent.PercentRelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.afterday.compas.MainActivity"
-    android:keepScreenOn="true">
-
-    <android.support.constraint.ConstraintLayout
+    android:clipChildren="false"
+    android:keepScreenOn="true"
+    android:visibility="visible"
+    tools:context="net.afterday.compas.MainActivity">
+    <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
-        android:layout_height="247dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_layout"
+        app:layout_constraintGuide_percent=".1"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_layout"
+        app:layout_constraintGuide_percent=".9"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_layout"
+        app:layout_constraintGuide_percent=".10"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_layout"
+        app:layout_constraintGuide_percent=".99"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_centerInParent="false"
         android:background="@drawable/popup_background"
         android:padding="20dp"
-        app:layout_heightPercent="90%"
-        app:layout_marginBottomPercent="1%"
-        app:layout_marginLeftPercent="10%"
-        app:layout_marginRightPercent="5%"
-        app:layout_marginTopPercent="10%"
-        app:layout_widthPercent="99%">
-
-        <TextView
-            android:id="@+id/s_vibro"
-            android:layout_width="140dp"
-            android:layout_height="50dp"
-            android:text="@string/tray_vibro"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="0dp" />
-
-        <Switch
-            android:id="@+id/vibroSwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/settings_row_h"
-            app:layout_constraintLeft_toRightOf="@id/s_vibro" />
-
-        <TextView
-            android:id="@+id/s_compass"
-            android:layout_width="140dp"
-            android:layout_height="53dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/tray_compass"
-            app:layout_constraintTop_toBottomOf="@id/s_vibro"
-            tools:layout_editor_absoluteX="0dp" />
-
-        <Switch
-            android:id="@+id/compassSwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/settings_row_h"
-            android:layout_marginTop="@dimen/settings_row_gap"
-            app:layout_constraintLeft_toRightOf="@id/s_compass"
-            app:layout_constraintTop_toBottomOf="@id/vibroSwitch" />
-
-        <TextView
-            android:id="@+id/s_orientation"
-            android:layout_width="@dimen/settings_title_w"
-            android:layout_height="50dp"
-            android:layout_marginTop="28dp"
-            android:text="@string/tray_orientation"
-            app:layout_constraintTop_toBottomOf="@id/s_compass"
-            tools:layout_editor_absoluteX="0dp" />
-
-        <RadioGroup
-            android:id="@+id/orientation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/settings_row_gap"
-            android:orientation="vertical"
-            app:layout_constraintLeft_toRightOf="@id/s_orientation"
-            app:layout_constraintTop_toBottomOf="@id/compassSwitch">
-
-            <RadioButton
-                android:id="@+id/orientationPort"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_layout"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_layout"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_layout"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_layout">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/s_vibro"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/settings_row_h"
-                android:text="@string/tray_portrait" />
+                android:gravity="center"
+                android:text="@string/tray_vibro"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <RadioButton
-                android:id="@+id/orientationLand"
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/vibroSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/settings_row_h"
-                android:text="@string/tray_landscape" />
-        </RadioGroup>
+                android:textColor="@color/whiteTransparent"
+                app:layout_constraintLeft_toRightOf="@id/s_vibro"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/s_compass"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/settings_row_h"
+                android:layout_marginTop="@dimen/settings_row_gap"
+                android:gravity="center"
+                android:text="@string/tray_compass"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/s_vibro"
+                tools:textColor="@color/white" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/compassSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/settings_row_h"
+                android:layout_marginTop="@dimen/settings_row_gap"
+                app:layout_constraintLeft_toRightOf="@id/s_compass"
+                app:layout_constraintTop_toBottomOf="@id/s_vibro" />
+
+            <TextView
+                android:id="@+id/s_orientation"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/settings_row_h"
+                android:layout_marginTop="@dimen/settings_row_gap"
+                android:gravity="center"
+                android:text="@string/tray_orientation"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/s_compass" />
+
+            <RadioGroup
+                android:id="@+id/orientation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/s_orientation">
+
+                <RadioButton
+                    android:id="@+id/orientationPort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/settings_row_h"
+                    android:text="@string/tray_portrait"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/orientationLand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/settings_row_h"
+                    android:text="@string/tray_landscape"
+                    android:textColor="@color/white" />
+
+            </RadioGroup>
+            <TextView
+                android:id="@+id/s_Permissions"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/settings_row_h"
+                android:layout_marginTop="@dimen/settings_row_gap"
+                android:gravity="center"
+                android:text="@string/tray_permissions"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/orientation" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/gpsPermission"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/s_Permissions">
+                <CheckBox
+                    android:id="@+id/checkBoxGps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:clickable="false"/>
+                <TextView
+                    android:id="@+id/textGps"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/checkBoxGps"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/white"
+                    android:text="@string/gps_permission"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/gpsBackgroundPermission"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gpsPermission">
+                <CheckBox
+                    android:id="@+id/checkBoxGpsBg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:clickable="false"/>
+                <TextView
+                    android:id="@+id/textGpsBg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/checkBoxGpsBg"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textColor="@color/white"
+                    android:text="@string/gps_background_permission"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/notificationPermission"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gpsBackgroundPermission">
+                <CheckBox
+                    android:id="@+id/checkBoxNot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:clickable="false"/>
+                <TextView
+                    android:id="@+id/textNot"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/checkBoxNot"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textColor="@color/white"
+                    android:text="@string/notifications_permission"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/nearbyPermission"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/notificationPermission">
+                <CheckBox
+                    android:id="@+id/checkBoxNearby"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:clickable="false"/>
+                <TextView
+                    android:id="@+id/textNearby"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/checkBoxNearby"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/white"
+                    android:text="@string/devices_nearby_permission"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/developmentMode"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nearbyPermission">
+                <CheckBox
+                    android:id="@+id/checkBoxDev"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:clickable="false"/>
+                <TextView
+                    android:id="@+id/textDev"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/checkBoxDev"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/white"
+                    android:text="@string/development_mode"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/wifiThrottling"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/developmentMode">
+                <CheckBox
+                    android:id="@+id/checkBoxWifiThr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:clickable="false"/>
+                <TextView
+                    android:id="@+id/textWifiThr"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/checkBoxWifiThr"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:textColor="@color/white"
+                    android:text="@string/wifi_throttling"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_close"
+        app:layout_constraintGuide_percent=".93"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_btn"
+        app:layout_constraintGuide_percent=".07"
+        android:orientation="horizontal"/>
     <ImageButton
         android:id="@+id/close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_marginLeftPercent="87%"
-        app:layout_marginTopPercent="7%"
         android:background="@drawable/popup_close"
-        android:contentDescription="TODO" />
+        android:clipToPadding="false"
+        android:contentDescription="@string/close_info"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_close"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_btn"/>
 
-</android.support.percent.PercentRelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

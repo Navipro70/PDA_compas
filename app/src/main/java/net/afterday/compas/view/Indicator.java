@@ -6,10 +6,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import net.afterday.compas.R;
 import net.afterday.compas.util.Convert;
@@ -18,8 +20,7 @@ import net.afterday.compas.util.Convert;
  * Created by Justas Spakauskas on 3/10/2018.
  */
 
-public class Indicator extends View
-{
+public class Indicator extends View {
     private static final String TAG = "Indicator";
 
     private static final int WIDGET_WIDTH = 600;
@@ -42,8 +43,7 @@ public class Indicator extends View
 
     private float mStrength;
 
-    public Indicator(Context context)
-    {
+    public Indicator(Context context) {
         super(context);
         init();
     }
@@ -58,30 +58,25 @@ public class Indicator extends View
         init();
     }
 
-    public void setLevel(int level)
-    {
+    public void setLevel(int level) {
         this.level = level;
     }
 
-    public void setStrength(float strength)
-    {
-        if(this.level < 5)
-        {
-            return;
-        }
-        if(strength == mStrength)
-        {
+    public void setStrength(float strength) {
+        Log.d(TAG, "setStrength on " + strength);
+        if (strength == mStrength) {
             return;
         }
         mStrength = strength;
         vAnimator.cancel();
-        int nw = (int) Convert.map(strength > 100 ? 100 : strength, 0, 100, maxWidth, 0);
+        final int maxSignal = 75;
+        int nw = (int) Convert.map(strength > maxSignal ? maxSignal : strength, 0, maxSignal, maxWidth, 0);
         vAnimator = ValueAnimator.ofInt(x, nw);
         vAnimator.setDuration(1000);
         vAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                x = (int)animation.getAnimatedValue();
+            public void onAnimationUpdate(@NonNull ValueAnimator animation) {
+                x = (int) animation.getAnimatedValue();
                 postInvalidate();
             }
         });
@@ -112,30 +107,26 @@ public class Indicator extends View
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         Log.d(TAG, "Indicator - onDraw");
         super.onDraw(canvas);
-        Matrix m = new Matrix();
-        convertRect(indicatorOn.getWidth(), indicatorOn.getHeight(), 0, 0, m);
+        convertRect(indicatorOn.getWidth(), indicatorOn.getHeight(), 0, 0, matrix);
         convertRect(indicatorBck.getWidth(), indicatorBck.getHeight(), 0, 0, matrix);
         int v = indicatorOn.getWidth() - x;
         canvas.drawBitmap(indicatorBck, matrix, null);
-        if((maxWidth - x) > 0)
-        {
-            canvas.translate((x / 2) * mScaleFactorX, 0);
+        if ((maxWidth - x) > 0) {
+            canvas.translate(((float) x / 2) * mScaleFactorX, 0);
 
-            canvas.drawBitmap(Bitmap.createBitmap(indicatorOn, x / 2, 0, maxWidth - x, indicatorOn.getHeight()),matrix, null);
+            canvas.drawBitmap(Bitmap.createBitmap(indicatorOn, x / 2, 0, maxWidth - x, indicatorOn.getHeight()), matrix, null);
         }
     }
 
     @Override
-    public void onAttachedToWindow()
-    {
+    public void onAttachedToWindow() {
         super.onAttachedToWindow();
     }
 
-    private void convertRect(int bitmapWidth, int bitmapHeight, int left, int top, Matrix matrix)
-    {
+    private void convertRect(int bitmapWidth, int bitmapHeight, int left, int top, Matrix matrix) {
         matrix.reset();
         matrix.postScale(mScaleFactorX, mScaleFactorY);
         matrix.postTranslate(mScaleFactorX * left, mScaleFactorY * top);
@@ -145,7 +136,7 @@ public class Indicator extends View
 
         indicatorOn = BitmapFactory.decodeResource(getResources(), R.drawable.light_bars);
         indicatorBck = BitmapFactory.decodeResource(getResources(), R.drawable.light_bars_off);
- //       //Log.w(TAG, "IndicatorON width: " + indicatorOn.getWidth());
+        //       //Log.w(TAG, "IndicatorON width: " + indicatorOn.getWidth());
         //c2 = new Canvas(indicatorBck);
         vAnimator = ValueAnimator.ofFloat(0f, 1f);
         matrix = new Matrix();

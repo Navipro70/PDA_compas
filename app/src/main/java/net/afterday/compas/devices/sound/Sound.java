@@ -5,65 +5,51 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.net.Uri;
-import android.util.Log;
 
 import net.afterday.compas.R;
-import net.afterday.compas.core.Controls;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Consumer;
-
-import io.reactivex.Observable;
 
 public class Sound {
-    private int mRadTick;
-    private int mEmissionStarts;
-    private int mEmissionWarning;
-    private int mEmissionHit;
-    private int mEmissionPeriodical;
-    private int mEmissionEnds;
-    private int mAnomalyTick;
-    private int mMental;
-    private int mAnomalyDeath;
-    private int mDie;
-    private int mZombify;
-    private int mControl;
-    private int mBurer;
-    private int mController;
-    private int mHealing;
-    private int mGlassBreak;
-	private int mBulbBreak;
-    private int mLevelUp;
-    private int mCompassOn;
-    private int mCompassOff;
-    private int mInventoryOpen;
-    private int mInventoryDrop;
-    private int mInventoryUse;
-    private int mInventoryClose;
-    private int mPdaOn;
-    private int mPdaOff;
-    private int mPdaWake;
-    private int mControllerPresence;
-    private int mBurerPresence;
-    private int mTransmutating;
-    private int mWTimer;
-    private int mMentalHit;
-    private int mMonolithHit;
-    private int mAbducted;
-    private int mItemScanned;
-    private int mArtefact;
+    private static final String TAG = "SOUND";
+    private final int mRadTick;
+    private final int mEmissionStarts;
+    private final int mEmissionWarning;
+    private final int mEmissionHit;
+    private final int mEmissionPeriodical;
+    private final int mEmissionEnds;
+    private final int mAnomalyTick;
+    private final int mMental;
+    private final int mAnomalyDeath;
+    private final int mDie;
+    private final int mZombify;
+    private final int mControl;
+    private final int mBurer;
+    private final int mController;
+    private final int mHealing;
+    private final int mGlassBreak;
+    private final int mBulbBreak;
+    private final int mLevelUp;
+    private final int mInventoryOpen;
+    private final int mInventoryDrop;
+    private final int mInventoryUse;
+    private final int mInventoryClose;
+    private final int mPdaOn;
+    private final int mPdaOff;
+    private final int mTransmutating;
+    private final int mWTimer;
+    private final int mMentalHit;
+    private final int mMonolithHit;
+    private final int mAbducted;
+    private final int mItemScanned;
+    private final int mArtefact;
+    private final int mFruitPunch;
+    private final int mWeakExplosion;
+    private final int mStrongExplosion;
+    private final int mFruitPunchDeath;    
     private MediaPlayer burrerPlayer = new MediaPlayer();
     private MediaPlayer controllerPlayer = new MediaPlayer();
-    private static final String TAG = "SOUND";
     private SoundPool mSoundPool;
-    private AudioManager mAudioManager;
     private String pckg;
     private Context ctx;
-    private int currentPlaying = -1;
-    private long hStarted = 0;
     private boolean burrerPlaying;
     private boolean controllerPlaying;
 
@@ -72,12 +58,17 @@ public class Sound {
         pckg = ctx.getPackageName();
 
         mSoundPool = new SoundPool(16, AudioManager.STREAM_MUSIC, 32);
-        mAudioManager = (AudioManager) ctx.getSystemService(Context.AUDIO_SERVICE);
 
-        preparePlayer(burrerPlayer, R.raw.burer_presence, (s) -> {burrerPlaying = false;});
-        preparePlayer(controllerPlayer, R.raw.controller_presence, (s) -> {controllerPlaying = false;});
+        preparePlayer(burrerPlayer, R.raw.burer_presence, (s) -> {
+            burrerPlaying = false;
+        });
+        preparePlayer(controllerPlayer, R.raw.controller_presence, (s) -> {
+            controllerPlaying = false;
+        });
 
         // Load samples
+        mPdaOn = mSoundPool.load(ctx, R.raw.pda_app_start, 1);
+        mPdaOff = mSoundPool.load(ctx, R.raw.pda_app_stop, 1);
         mRadTick = mSoundPool.load(ctx, R.raw.rad_click, 1);
         mAnomalyTick = mSoundPool.load(ctx, R.raw.anomaly, 1);
         mMental = mSoundPool.load(ctx, R.raw.mental, 1);
@@ -92,21 +83,14 @@ public class Sound {
         mControl = mSoundPool.load(ctx, R.raw.controlled, 1);
         mBurer = mSoundPool.load(ctx, R.raw.burer, 1);
         mController = mSoundPool.load(ctx, R.raw.controller, 1);
-        mControllerPresence = mSoundPool.load(ctx, R.raw.controller_presence, 1);
         mHealing = mSoundPool.load(ctx, R.raw.healing, 1);
         mGlassBreak = mSoundPool.load(ctx, R.raw.glass_break, 1);
-		mBulbBreak = mSoundPool.load(ctx, R.raw.bulb_break, 1);
+        mBulbBreak = mSoundPool.load(ctx, R.raw.bulb_break, 1);
         mLevelUp = mSoundPool.load(ctx, R.raw.pda_level_up, 1);
-        mCompassOn = mSoundPool.load(ctx, R.raw.compass_on, 1);
-        mCompassOff = mSoundPool.load(ctx, R.raw.compass_off, 1);
         mInventoryOpen = mSoundPool.load(ctx, R.raw.inv_open, 1);
         mInventoryDrop = mSoundPool.load(ctx, R.raw.inv_drop, 1);
         mInventoryUse = mSoundPool.load(ctx, R.raw.inv_use, 1);
         mInventoryClose = mSoundPool.load(ctx, R.raw.inv_close, 1);
-        mPdaOn = mSoundPool.load(ctx, R.raw.pda_app_start, 1);
-        mPdaOff = mSoundPool.load(ctx, R.raw.pda_app_stop, 1);
-        mPdaWake = mSoundPool.load(ctx, R.raw.pda_app_wake_up, 1);
-        mBurerPresence = mSoundPool.load(ctx, R.raw.burer_presence, 1);
         mTransmutating = mSoundPool.load(ctx, R.raw.transmutating, 1);
         mWTimer = mSoundPool.load(ctx, R.raw.w_timer_begins, 1);
         mMentalHit = mSoundPool.load(ctx, R.raw.mental_hit, 1);
@@ -114,7 +98,10 @@ public class Sound {
         mAbducted = mSoundPool.load(ctx, R.raw.abducted, 1);
         mItemScanned = mSoundPool.load(ctx, R.raw.pda_qr_scanned, 1);
         mArtefact = mSoundPool.load(ctx, R.raw.pda_artefact, 1);
-
+        mFruitPunch = mSoundPool.load(ctx, R.raw.fruitpunch, 1);
+        mFruitPunchDeath = mSoundPool.load(ctx, R.raw.fruitpunch_kill, 1);
+        mWeakExplosion = mSoundPool.load(ctx, R.raw.weak_explosion, 1);        
+        mStrongExplosion = mSoundPool.load(ctx, R.raw.strong_explosion, 1);
     }
 
     public void playRadClick() {
@@ -130,22 +117,30 @@ public class Sound {
         );
     }
 
-    public void playGlassBreak()
-    {
+    public void playGlassBreak() {
         mSoundPool.play(mGlassBreak, 1f, 1f, 2, 0, 1f);
     }
 
-    public void playBulbBreak()
-    {
+    public void playBulbBreak() {
         mSoundPool.play(mBulbBreak, 1f, 1f, 2, 0, 1f);
     }
-    public void playLevelUp()
-    {
-        mSoundPool.play(mLevelUp, 1f, 1f, 2, 0, 1f);
+
+    public void playLevelUp() {
+        int result = mSoundPool.play(mLevelUp, 1f, 1f, 2, 0, 1f);
+        if (result > 0)
+            return;
+        mSoundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete(SoundPool soundPool, int sampleId, int status)
+            {
+                if (sampleId == mLevelUp && status == 0) {
+                    mSoundPool.play(mLevelUp, 1f, 1f, 2, 0, 1f);
+                }
+            }
+        });
     }
 
-    public void playHealing()
-    {
+    public void playHealing() {
         mSoundPool.play(mHealing,
                 1f,
                 1f,
@@ -155,13 +150,20 @@ public class Sound {
 
     }
 
-    public void stopHealing()
-    {
+    public void playPdaOn() {
+        mSoundPool.setOnLoadCompleteListener((soundPool, sampleId, status) -> {
+            if (sampleId == mPdaOn && status == 0) {
+                mSoundPool.play(mPdaOn, 1f, 1f, 1, 0, 1f);
+            }
+        });
+    }
+
+    public void stopHealing() {
         mSoundPool.stop(mHealing);
     }
 
     public void playAnomalyClick() {
-       mSoundPool.play(
+        mSoundPool.play(
                 mAnomalyTick, // Sound
                 1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Left volume
                 1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Right volume
@@ -171,6 +173,13 @@ public class Sound {
         );
     }
 
+    public void playWeakExplosion() {
+        mSoundPool.play(mWeakExplosion, 1f, 1f, 2, 0, 1f);
+    }
+
+    public void playStrongExplosion() {
+        mSoundPool.play(mStrongExplosion, 1f, 1f, 2, 0, 1f);
+    }
     public void playMental() {
         mSoundPool.play(
                 mMental, // Sound
@@ -185,6 +194,28 @@ public class Sound {
     public void playAnomalyDeath() {
         mSoundPool.play(
                 mAnomalyDeath, // Sound
+                1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Left volume
+                1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Right volume
+                2, // Priority
+                0, // Loop
+                1f // Frequency
+        );
+    }
+
+    public void playFruitPunch() {
+        mSoundPool.play(
+                mFruitPunch, // Sound
+                1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Left volume
+                1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Right volume
+                2, // Priority
+                0, // Loop
+                1f // Frequency
+        );
+    }
+
+    public void playFruitPunchDeath() {
+        mSoundPool.play(
+                mFruitPunchDeath, // Sound
                 1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Left volume
                 1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Right volume
                 2, // Priority
@@ -249,28 +280,6 @@ public class Sound {
         );
     }
 
-    public void playCompassOn() {
-        mSoundPool.play(
-                mCompassOn, // Sound
-                1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Left volume
-                1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Right volume
-                1, // Priority
-                0, // Loop
-                1f // Frequency
-        );
-    }
-
-    public void playCompassOff() {
-        mSoundPool.play(
-                mCompassOff, // Sound
-                1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Left volume
-                1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Right volume
-                1, // Priority
-                0, // Loop
-                1f // Frequency
-        );
-    }
-
     public void playInventoryOpen() {
         mSoundPool.play(
                 mInventoryOpen, // Sound
@@ -315,31 +324,9 @@ public class Sound {
         );
     }
 
-    public void playPdaOn() {
-        mSoundPool.play(
-                mPdaOn, // Sound
-                1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Left volume
-                1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Right volume
-                1, // Priority
-                0, // Loop
-                1f // Frequency
-        );
-    }
-
     public void playPdaOff() {
         mSoundPool.play(
                 mPdaOff, // Sound
-                1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Left volume
-                1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Right volume
-                1, // Priority
-                0, // Loop
-                1f // Frequency
-        );
-    }
-
-    public void playPdaWake() {
-        mSoundPool.play(
-                mPdaWake, // Sound
                 1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Left volume
                 1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Right volume
                 1, // Priority
@@ -458,8 +445,7 @@ public class Sound {
         );
     }
 
-    public void playItemScanned()
-    {
+    public void playItemScanned() {
         mSoundPool.play(
                 mItemScanned, // Sound
                 1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Left volume
@@ -470,8 +456,7 @@ public class Sound {
         );
     }
 
-    public void playArtefact()
-    {
+    public void playArtefact() {
         mSoundPool.play(
                 mArtefact, // Sound
                 1f, //mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC),// / mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), // Left volume
@@ -483,48 +468,40 @@ public class Sound {
     }
 
     public void playControllerPresence() {
-        if(!controllerPlaying)
-        {
+        if (!controllerPlaying) {
             this.controllerPlaying = true;
             controllerPlayer.start();
         }
     }
 
-    public void playBurerPresence () {
-        if(!burrerPlaying)
-        {
+    public void playBurerPresence() {
+        if (!burrerPlaying) {
             burrerPlaying = true;
             burrerPlayer.start();
         }
     }
 
-    private boolean preparePlayer(MediaPlayer mediaPlayer, int resId, MediaPlayer.OnCompletionListener mp)
-    {
+    private boolean preparePlayer(MediaPlayer mediaPlayer, int resId, MediaPlayer.OnCompletionListener mp) {
         boolean prepared;
-        try
-        {
+        try {
             mediaPlayer.setDataSource(ctx, getSounUri(resId));
             mediaPlayer.prepare();
             mediaPlayer.setOnCompletionListener(mp);
-            mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener()
-            {
+            mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() {
                 @Override
-                public boolean onError(MediaPlayer mediaPlayer, int i, int i1)
-                {
+                public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
                     mp.onCompletion(mediaPlayer);
                     return true;
                 }
             });
             prepared = true;
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             prepared = false;
         }
         return prepared;
     }
 
-    private Uri getSounUri(int res)
-    {
+    private Uri getSounUri(int res) {
         return Uri.parse("android.resource://" + pckg + "/" + res);
     }
 }

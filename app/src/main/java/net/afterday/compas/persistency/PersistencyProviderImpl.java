@@ -13,33 +13,29 @@ import net.afterday.compas.persistency.player.PlayerPersistency;
  * Created by Justas Spakauskas on 1/28/2018.
  */
 
-public class PersistencyProviderImpl implements PersistencyProvider
-{
+public class PersistencyProviderImpl implements PersistencyProvider {
     private final ItemsPersistency itemsPersistency = new HItemsPersistency();
     private final GameStatePersistency gameStatePersistency = new HGameStatePersistency();
     private final InfluencesPersistency influencesPersistency = new HInfluencesPersistency();
     private final PlayerPersistency playerPersistency = new HPlayerPersistency();
+
     @Override
-    public InfluencesPersistency getInfluencesPersistency()
-    {
+    public InfluencesPersistency getInfluencesPersistency() {
         return influencesPersistency;
     }
 
     @Override
-    public ItemsPersistency getItemsPersistency()
-    {
+    public ItemsPersistency getItemsPersistency() {
         return itemsPersistency;
     }
 
     @Override
-    public GameStatePersistency getInitialStatePersistency()
-    {
+    public GameStatePersistency getInitialStatePersistency() {
         return gameStatePersistency;
     }
 
     @Override
-    public PlayerPersistency getPlayerPersistency()
-    {
+    public PlayerPersistency getPlayerPersistency() {
         return playerPersistency;
     }
 }

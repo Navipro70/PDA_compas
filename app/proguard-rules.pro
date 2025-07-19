@@ -26,17 +26,13 @@
 -dontwarn sun.misc.**
 -dontwarn build.IgnoreJava8API
 
+
 -keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
    long producerIndex;
    long consumerIndex;
 }
 
--keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
-    rx.internal.util.atomic.LinkedQueueNode producerNode;
-}
-
--keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
-    rx.internal.util.atomic.LinkedQueueNode consumerNode;
-}
-
 -dontnote rx.internal.util.PlatformDependent
+
+# Правило для игнорирования предупреждений о классе MustBeClosed
+-dontwarn com.google.errorprone.annotations.MustBeClosed

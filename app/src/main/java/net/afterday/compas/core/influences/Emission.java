@@ -6,10 +6,12 @@ import java.util.Calendar;
  * Created by spaka on 6/7/2018.
  */
 
-public interface Emission
-{
+public interface Emission {
     Calendar getStartTime();
+
     int notifyBefore();
+
     int duration();
+
     boolean isFake();
 }

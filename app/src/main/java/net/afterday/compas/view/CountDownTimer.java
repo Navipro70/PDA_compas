@@ -2,12 +2,12 @@ package net.afterday.compas.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import net.afterday.compas.util.Fonts;
 
@@ -15,22 +15,18 @@ import net.afterday.compas.util.Fonts;
  * Created by spaka on 5/5/2018.
  */
 
-public class CountDownTimer extends View
-{
+public class CountDownTimer extends View {
     private static final String TAG = "CountDownTimer";
-    private Paint paint;
-    private int mWidth,
-                mHeight;
-
-    private float mScaleFactorX,
-                  mScaleFactorY;
-
     private static final int WIDGET_WIDTH = 200;
     private static final int WIDGET_HEIGHT = 120;
+    private Paint paint;
+    private int mWidth,
+            mHeight;
+    private float mScaleFactorX,
+            mScaleFactorY;
     private long secondsLeft = 0;
 
-    public CountDownTimer(Context context)
-    {
+    public CountDownTimer(Context context) {
         super(context);
         init();
     }
@@ -61,44 +57,38 @@ public class CountDownTimer extends View
         mScaleFactorX = (float) mWidth / WIDGET_WIDTH;
         mScaleFactorY = (float) mHeight / WIDGET_HEIGHT;
 
-        paint.setTextSize(120 * mScaleFactorY);
+        paint.setTextSize(115 * mScaleFactorY);
+        paint.setTextAlign(Paint.Align.CENTER);
     }
 
     @Override
-    public void onDraw(Canvas canvas)
-    {
+    public void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
         //canvas.drawText("00:00", 23 * mScaleFactorX, 60 * mScaleFactorY, paint);
-        if(secondsLeft < 0)
-        {
+        if (secondsLeft < 0) {
             return;
         }
         //bringToFront();
 
-        canvas.drawText(secondsToString(secondsLeft), 23 * mScaleFactorX, 60 * mScaleFactorY, paint);
+        canvas.drawText(secondsToString(secondsLeft), getWidth() / 2, getHeight() / 2 , paint);
     }
 
-    public void setSecondsLeft(Long timeLeft)
-    {
+    public void setSecondsLeft(Long timeLeft) {
         secondsLeft = timeLeft;
         invalidate();
     }
 
-    private void init()
-    {
+    private void init() {
         paint = Fonts.instance().getDefaultFontPaint();
     }
 
-    private String secondsToString(long secondsLeft)
-    {
+    private String secondsToString(long secondsLeft) {
         String mins = Long.toString(secondsLeft / 60);
-        if(mins.length() < 2)
-        {
+        if (mins.length() < 2) {
             mins = "0" + mins;
         }
         String secs = Long.toString(secondsLeft % 60);
-        if(secs.length() < 2)
-        {
+        if (secs.length() < 2) {
             secs = "0" + secs;
         }
         return mins + ":" + secs;

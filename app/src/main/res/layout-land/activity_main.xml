@@ -1,207 +1,606 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="0dp"
     android:layout_margin="0dp"
+    android:keepScreenOn="true"
+    android:padding="0dp"
     tools:context="net.afterday.compas.MainActivity"
-    android:keepScreenOn="true">
+    tools:ignore="MissingDefaultResource">
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_compass"
+        app:layout_constraintGuide_percent=".45"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_compass"
+        app:layout_constraintGuide_percent=".978125"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_compass"
+        app:layout_constraintGuide_percent=".028"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_compass"
+        app:layout_constraintGuide_percent=".9668888888888889"
+        android:orientation="horizontal"/>
     <net.afterday.compas.view.Compass
         android:id="@+id/compass"
-        app:layout_widthPercent="52.8125%"
-        app:layout_heightPercent="93.888888888888888888888888888889%"
-        app:layout_marginLeftPercent="45.0%"
-        app:layout_marginTopPercent="2.8%"
-        />
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_compass"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_compass"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_compass"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_compass" />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_geiger"
+        app:layout_constraintGuide_percent=".4793"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_geiger"
+        app:layout_constraintGuide_percent=".9492"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_geiger"
+        app:layout_constraintGuide_percent=".0896"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_geiger"
+        app:layout_constraintGuide_percent=".922"
+        android:orientation="horizontal"/>
     <net.afterday.compas.view.Geiger
         android:id="@+id/geiger"
-        app:layout_widthPercent="46.99%"
-        app:layout_heightPercent="83.24%"
-        app:layout_marginLeftPercent="47.93%"
-        app:layout_marginTopPercent="8.96%" />
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_geiger"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_geiger"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_geiger"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_geiger" />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_tube"
+        app:layout_constraintGuide_percent=".5565"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_tube"
+        app:layout_constraintGuide_percent=".875458333"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_tube"
+        app:layout_constraintGuide_percent=".58"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_tube"
+        app:layout_constraintGuide_percent=".8401855"
+        android:orientation="horizontal"/>
     <net.afterday.compas.view.Tube
         android:id="@+id/tube"
-        app:layout_widthPercent="31.895833333%"
-        app:layout_heightPercent="26.018518519%"
-        app:layout_marginLeftPercent="55.65%"
-        app:layout_marginTopPercent="58%" />
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_tube"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_tube"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_tube"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_tube" />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_countdown"
+        app:layout_constraintGuide_percent=".664"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_countdown"
+        app:layout_constraintGuide_percent=".764"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_countdown"
+        app:layout_constraintGuide_percent=".58"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_countdown"
+        app:layout_constraintGuide_percent=".65"
+        android:orientation="horizontal"/>
     <net.afterday.compas.view.CountDownTimer
         android:id="@+id/countdown"
-        app:layout_widthPercent="10.00%"
-        app:layout_heightPercent="7.00%"
-        app:layout_marginLeftPercent="66.40%"
-        app:layout_marginTopPercent="58.0%"/>
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_countdown"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_countdown"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_countdown"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_countdown"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_indicator"
+        app:layout_constraintGuide_percent=".57"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_indicator"
+        app:layout_constraintGuide_percent=".878958"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_indicator"
+        app:layout_constraintGuide_percent=".78"
+        android:orientation="horizontal"/>
     <net.afterday.compas.view.Indicator
         android:id="@+id/indicator"
-        app:layout_widthPercent="30.895833333%"
-        app:layout_heightPercent="26.018518519%"
-        app:layout_marginLeftPercent="57.0%"
-        app:layout_marginTopPercent="78%" />
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_indicator"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_indicator"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_indicator" />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_bar"
+        app:layout_constraintGuide_percent=".022"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_bar"
+        app:layout_constraintGuide_percent=".402"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_armorbar"
+        app:layout_constraintGuide_percent=".071"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_armorbar"
+        app:layout_constraintGuide_percent=".155"
+        android:orientation="horizontal"/>
     <net.afterday.compas.view.Bar
         android:id="@+id/armorbar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:image="@drawable/bar_armor"
-        app:layout_heightPercent="8.5%"
-        app:layout_marginLeftPercent="2.2%"
-        app:layout_marginTopPercent="7.1%"
-        app:layout_widthPercent="38%"
         app:measurement="horizontal"
         app:offset_bottom="10"
         app:offset_left="130"
         app:scale_color="@color/armorBar"
         app:scale_height="40"
-        app:scale_width="600"/>
-
+        app:scale_width="600"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_armorbar"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_bar"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_bar"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_armorbar"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_devicebar"
+        app:layout_constraintGuide_percent=".004"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_devicebar"
+        app:layout_constraintGuide_percent=".089"
+        android:orientation="horizontal"/>
     <net.afterday.compas.view.Bar
         android:id="@+id/devicebar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:image="@drawable/bar_device"
-        app:layout_heightPercent="8.5%"
-        app:layout_marginLeftPercent="2.2%"
-        app:layout_marginTopPercent="0.4%"
-        app:layout_widthPercent="38%"
         app:measurement="horizontal"
         app:offset_bottom="11"
         app:offset_left="130"
         app:scale_color="@color/deviceBar"
         app:scale_height="40"
-        app:scale_width="600"/>
-
+        app:scale_width="600"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_devicebar"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_bar"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_bar"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_devicebar"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_staminabar"
+        app:layout_constraintGuide_percent=".15"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_staminabar"
+        app:layout_constraintGuide_percent=".235"
+        android:orientation="horizontal"/>
     <net.afterday.compas.view.Bar
         android:id="@+id/staminabar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:image="@drawable/bar_stamina"
-        app:layout_heightPercent="8.5%"
-        app:layout_marginLeftPercent="2.2%"
-        app:layout_marginTopPercent="15%"
-        app:layout_widthPercent="38%"
         app:measurement="horizontal"
         app:offset_bottom="21"
         app:offset_left="130"
         app:scale_color="@color/staminaBar"
         app:scale_height="34"
-        app:scale_width="600"/>
-
+        app:scale_width="600"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_staminabar"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_bar"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_bar"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_staminabar"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_radbar"
+        app:layout_constraintGuide_percent=".2325"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_radbar"
+        app:layout_constraintGuide_percent=".44"
+        android:orientation="horizontal"/>
     <net.afterday.compas.view.Radbar
         android:id="@+id/radbar"
-        app:layout_heightPercent="20.740740741%"
-        app:layout_marginLeftPercent="2.5%"
-        app:layout_marginTopPercent="23.25%"
-        app:layout_widthPercent="39.010416667%" />
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_radbar"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_bar"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_bar"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_radbar"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_healthbar"
+        app:layout_constraintGuide_percent=".4475"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_healthbar"
+        app:layout_constraintGuide_percent=".654807"
+        android:orientation="horizontal"/>
     <net.afterday.compas.view.Healthbar
         android:id="@+id/healthbar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_heightPercent="20.740740741%"
         app:layout_marginLeftPercent="2.5%"
         app:layout_marginTopPercent="44.75%"
-        app:layout_widthPercent="39.010416667%" />
-
+        app:layout_widthPercent="39.010416667%"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_healthbar"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_bar"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_bar"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_healthbar"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_levelindicator"
+        app:layout_constraintGuide_percent=".435"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_levelindicator"
+        app:layout_constraintGuide_percent=".533"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_levelindicator"
+        app:layout_constraintGuide_percent=".042"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_levelindicator"
+        app:layout_constraintGuide_percent=".215"
+        android:orientation="horizontal"/>
     <net.afterday.compas.view.LevelIndicator
         android:id="@+id/qrbutton"
-        app:layout_widthPercent="9.8%"
-        app:layout_heightPercent="17.3%"
-        app:layout_marginLeftPercent="43.5%"
-        app:layout_marginTopPercent="4.2%"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/close_info"
         android:background="@null"
-        android:contentDescription="TODO" />
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_levelindicator"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_levelindicator"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_levelindicator"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_levelindicator"/>
 
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_levelBg"
+        app:layout_constraintGuide_percent=".82"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_levelBg"
+        app:layout_constraintGuide_percent=".962"
+        android:orientation="horizontal"/>
     <View
         android:id="@+id/levelProgress_background"
-        app:layout_heightPercent="14.2%"
-        app:layout_marginLeftPercent="43.9%"
-        app:layout_marginTopPercent="82.0%"
-        app:layout_widthPercent="10%"
-        android:background="@drawable/exp_h"/>
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/exp_h"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_levelBg"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_levelindicator"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_levelindicator"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_levelBg"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_levelprogeress"
+        app:layout_constraintGuide_percent=".444"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_levelprogeress"
+        app:layout_constraintGuide_percent=".53"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_levelprogeress"
+        app:layout_constraintGuide_percent=".878"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_levelprogeress"
+        app:layout_constraintGuide_percent=".938"
+        android:orientation="horizontal"/>
     <net.afterday.compas.view.LevelProgress
         android:id="@+id/levelProgress"
-        app:layout_widthPercent="8.6%"
-        app:layout_heightPercent="6.0%"
-        app:layout_marginLeftPercent="44.4%"
-        app:layout_marginTopPercent="87.8%"
-        />
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_levelprogeress"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_levelprogeress"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_levelprogeress"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_levelprogeress"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_clockBg"
+        app:layout_constraintGuide_percent=".878"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_clockBg"
+        app:layout_constraintGuide_percent=".986"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_clockBg"
+        app:layout_constraintGuide_percent=".167"
+        android:orientation="horizontal"/>
     <View
         android:id="@+id/clock_background"
-        app:layout_heightPercent="14.7%"
-        app:layout_marginLeftPercent="87.8%"
-        app:layout_marginTopPercent="2%"
-        app:layout_widthPercent="10.8%"
-        android:background="@drawable/time_h"/>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/time_h"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_clockBg"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_clockBg"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_clockBg"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_compass"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_clock"
+        app:layout_constraintGuide_percent=".877"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_clock"
+        app:layout_constraintGuide_percent=".9785625"
+        android:orientation="vertical"/>
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top_guideline_clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="10dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_clock"
+        app:layout_constraintGuide_percent=".1222"
+        android:orientation="horizontal"/>
     <net.afterday.compas.view.Clock
         android:id="@+id/clock"
-        app:layout_widthPercent="10.15625%"
-        app:layout_heightPercent="9.87037037%"
-        app:layout_marginLeftPercent="87.70%"
-        app:layout_marginTopPercent="2.35%" />
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_clock"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_clock"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_clock"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_clock"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_batteryBg"
+        app:layout_constraintGuide_percent=".908"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_batteryBg"
+        app:layout_constraintGuide_percent=".993"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_batteryBg"
+        app:layout_constraintGuide_percent=".79"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_batteryBg"
+        app:layout_constraintGuide_percent=".997"
+        android:orientation="horizontal"/>
     <View
         android:id="@+id/battery_background"
-        app:layout_heightPercent="20.7%"
-        app:layout_marginLeftPercent="90.8%"
-        app:layout_marginTopPercent="79.0%"
-        app:layout_widthPercent="8.5%"
-        android:background="@drawable/energy_h"/>
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/energy_h"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_batteryBg"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_batteryBg"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_batteryBg"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_batteryBg"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_battery"
+        app:layout_constraintGuide_percent=".905"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_battery"
+        app:layout_constraintGuide_percent=".9965625"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_battery"
+        app:layout_constraintGuide_percent=".853"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_battery"
+        app:layout_constraintGuide_percent=".9517"
+        android:orientation="horizontal"/>
     <net.afterday.compas.view.Battery
         android:id="@+id/battery"
-        app:layout_widthPercent="9.15625%"
-        app:layout_heightPercent="9.87037037%"
-        app:layout_marginLeftPercent="90.5%"
-        app:layout_marginTopPercent="85.3%" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_battery"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_battery"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_battery"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_battery"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_logBg"
+        app:layout_constraintGuide_percent=".63"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_logBg"
+        app:layout_constraintGuide_percent=".413"
+        android:orientation="vertical"/>
 
     <View
         android:id="@+id/log_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/log_h"
-        app:layout_heightPercent="34%"
-        app:layout_marginLeftPercent="2%"
-        app:layout_marginTopPercent="63%"
-        app:layout_widthPercent="40.7%"
-        />
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_compass"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_logBg"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_bar"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_logBg" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_loglist"
+        app:layout_constraintGuide_percent=".675"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_guideline_loglist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".94"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_loglist"
+        app:layout_constraintGuide_percent=".031"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_loglist"
+        app:layout_constraintGuide_percent=".39"
+        android:orientation="vertical"/>
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/log_list"
-        app:layout_widthPercent="37.7%"
-        app:layout_heightPercent="27%"
-        app:layout_marginLeftPercent="3.1%"
-        app:layout_marginTopPercent="67.5%"
-        app:stackFromEnd="true"
-        app:reverseLayout="true" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_loglist"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_loglist"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_loglist"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_loglist"
+        app:reverseLayout="true"
+        app:stackFromEnd="true" />
 
     <!--<Button-->
-        <!--app:layout_widthPercent="10.15625%"-->
-        <!--app:layout_heightPercent="7.87037037%"-->
-        <!--app:layout_marginLeftPercent="73.5%"-->
-        <!--app:layout_marginTopPercent="84.4%"-->
-        <!--android:text="Stop game service"-->
-        <!--android:onClick="stopGameService" />-->
+    <!--app:layout_widthPercent="10.15625%"-->
+    <!--app:layout_heightPercent="7.87037037%"-->
+    <!--app:layout_marginLeftPercent="73.5%"-->
+    <!--app:layout_marginTopPercent="84.4%"-->
+    <!--android:text="Stop game service"-->
+    <!--android:onClick="stopGameService" />-->
     <!--<Button-->
-        <!--app:layout_widthPercent="10.15625%"-->
-        <!--app:layout_heightPercent="7.87037037%"-->
-        <!--app:layout_marginLeftPercent="63.5%"-->
-        <!--app:layout_marginTopPercent="84.4%"-->
-        <!--android:text="Start game service"-->
-        <!--android:onClick="startGameService" />-->
+    <!--app:layout_widthPercent="10.15625%"-->
+    <!--app:layout_heightPercent="7.87037037%"-->
+    <!--app:layout_marginLeftPercent="63.5%"-->
+    <!--app:layout_marginTopPercent="84.4%"-->
+    <!--android:text="Start game service"-->
+    <!--android:onClick="startGameService" />-->
     <!--<Button-->
-        <!--app:layout_widthPercent="10.15625%"-->
-        <!--app:layout_heightPercent="7.87037037%"-->
-        <!--app:layout_marginLeftPercent="53.5%"-->
-        <!--app:layout_marginTopPercent="84.4%"-->
-        <!--android:text="Revive"-->
-        <!--android:onClick="revivePlayer" />-->
+    <!--app:layout_widthPercent="10.15625%"-->
+    <!--app:layout_heightPercent="7.87037037%"-->
+    <!--app:layout_marginLeftPercent="53.5%"-->
+    <!--app:layout_marginTopPercent="84.4%"-->
+    <!--android:text="Revive"-->
+    <!--android:onClick="revivePlayer" />-->
     <!--<Button-->
-        <!--app:layout_widthPercent="10.15625%"-->
-        <!--app:layout_heightPercent="7.87037037%"-->
-        <!--app:layout_marginLeftPercent="53.5%"-->
-        <!--app:layout_marginTopPercent="74.4%"-->
-        <!--android:text="Kill"-->
-        <!--android:onClick="killPlayer" />-->
+    <!--app:layout_widthPercent="10.15625%"-->
+    <!--app:layout_heightPercent="7.87037037%"-->
+    <!--app:layout_marginLeftPercent="53.5%"-->
+    <!--app:layout_marginTopPercent="74.4%"-->
+    <!--android:text="Kill"-->
+    <!--android:onClick="killPlayer" />-->
 
 
-</android.support.percent.PercentRelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

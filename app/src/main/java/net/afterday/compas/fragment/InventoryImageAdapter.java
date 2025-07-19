@@ -6,11 +6,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+
 import net.afterday.compas.core.inventory.items.Item;
+
 import java.util.List;
 
-public class InventoryImageAdapter extends BaseAdapter
-{
+public class InventoryImageAdapter extends BaseAdapter {
     public static final int CATEGORIES = Item.ALL;
     private Context mContext;
     private List<Item> mInventory;

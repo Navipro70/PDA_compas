@@ -11,13 +11,16 @@ import java.util.List;
  * Created by Justas Spakauskas on 3/4/2018.
  */
 
-public interface UserActionsPack extends EventsPack
-{
+public interface UserActionsPack extends EventsPack {
     boolean hasAddItemEvents();
+
     boolean hasUseItemEvents();
+
     boolean hasDropItemEvents();
 
     List<AddItem> getAddItemEvents();
+
     List<UseItem> getUseItemEvents();
+
     List<DropItem> getDropItemEvents();
 }

@@ -6,7 +6,6 @@ import net.afterday.compas.persistency.influences.InfluencesPersistency;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,62 +25,25 @@ public class HInfluencesPersistency implements InfluencesPersistency
     {
         List<String> wifiInfls = new ArrayList<>();
 
-        wifiInfls.add("86:0d:8e:ab:9d:09");
-        wifiInfls.add("86:0d:8e:ab:98:d4");
-        wifiInfls.add("86:0d:8e:ab:9c:44");
-        wifiInfls.add("86:0d:8e:ab:98:12"); 
-        wifiInfls.add("86:0d:8e:ab:97:7b");
-        wifiInfls.add("86:0d:8e:ab:99:a9"); 
-        wifiInfls.add("86:0d:8e:ab:9d:c7"); 
-        wifiInfls.add("86:0d:8e:ab:9c:3f"); 
-        wifiInfls.add("86:0d:8e:ab:98:54"); 
-        wifiInfls.add("86:0d:8e:ab:9c:13"); 
-        wifiInfls.add("be:dd:c2:23:69:ae"); 
-        wifiInfls.add("ce:50:e3:37:c0:1a"); 
-        wifiInfls.add("ce:50:e3:37:bd:2d");
-        wifiInfls.add("ee:fa:bc:2f:fe:bb");
-        wifiInfls.add("be:dd:c2:9d:f5:ce"); 
-        wifiInfls.add("be:dd:c2:9d:f2:cf"); 
-        wifiInfls.add("ce:50:e3:37:bf:b5"); 
-        wifiInfls.add("be:dd:c2:9d:e6:a0"); 
-        wifiInfls.add("ce:50:e3:55:8f:81"); 
-        wifiInfls.add("b6:e6:2d:44:ad:ef"); 
-        wifiInfls.add("82:7d:3a:3e:d7:3f"); 
-        wifiInfls.add("86:0d:8e:88:c0:fd"); 
-        wifiInfls.add("ce:50:e3:0c:82:f3"); 
-        wifiInfls.add("82:7d:3a:3e:d7:a8"); 
-        wifiInfls.add("ce:50:e3:55:8e:a3"); 
-        wifiInfls.add("ce:50:e3:55:8e:0a"); 
-        wifiInfls.add("ce:50:e3:37:bc:33"); 
-        wifiInfls.add("ce:50:e3:37:bb:2f"); 
-        wifiInfls.add("be:dd:c2:9d:f4:b7"); 
-        wifiInfls.add("ce:50:e3:55:8d:d8"); 
-        wifiInfls.add("86:0d:8e:ab:99:7d"); 
-        wifiInfls.add("86:0d:8e:ab:9b:95"); 
-        wifiInfls.add("be:dd:c2:9d:65:55"); 
-        wifiInfls.add("ee:fa:bc:30:45:17"); 
-        wifiInfls.add("be:dd:c2:9d:ed:95"); 
-        wifiInfls.add("86:0d:8e:ab:9b:32"); 
-        wifiInfls.add("86:0d:8e:ab:99:e0"); 
-        wifiInfls.add("86:0d:8e:ab:98:2a"); 
-        wifiInfls.add("be:dd:c2:9d:ea:fd"); 
-        wifiInfls.add("86:0d:8e:ab:98:5d"); 
-        wifiInfls.add("86:0d:8e:ab:9b:36");
-        wifiInfls.add("86:0d:8e:ab:9c:75");
-        wifiInfls.add("be:dd:c2:9d:f5:06");
-        wifiInfls.add("86:0d:8e:ab:9c:46"); 
-        wifiInfls.add("86:0d:8e:ab:9b:55");
-        wifiInfls.add("ce:50:e3:37:bc:75");
-        wifiInfls.add("86:0d:8e:ab:9c:2d");
-        wifiInfls.add("ce:50:e3:37:bc:e2");
-        wifiInfls.add("86:0d:8e:ab:96:76"); 
-        wifiInfls.add("86:0d:8e:ab:9d:fc"); 
-        wifiInfls.add("86:0d:8e:ab:9d:a8"); 
-        wifiInfls.add("86:0d:8e:ab:9a:80"); 
-        wifiInfls.add("be:dd:c2:9d:f2:88"); 
-        wifiInfls.add("86:0d:8e:ab:99:b8"); 
-        wifiInfls.add("86:0d:8e:ab:9d:e2");
-
+        wifiInfls.add("86:0d:7e:ab:9d:09");
+        wifiInfls.add("86:0d:7e:ab:98:d4");
+        wifiInfls.add("86:0d:8e:ab:9c:74");
+        wifiInfls.add("86:0d:8e:ab:98:32"); 
+        wifiInfls.add("86:0d:8e:ab:97:6b");
+        wifiInfls.add("86:0d:8e:ab:99:a4"); 
+        wifiInfls.add("86:0d:8e:ab:9d:c2"); 
+        wifiInfls.add("86:0d:8e:ab:9c:2f"); 
+        wifiInfls.add("86:0d:8e:ab:98:64"); 
+        wifiInfls.add("86:0d:8e:ab:9c:23"); 
+        wifiInfls.add("be:dd:c2:23:49:ae"); 
+        wifiInfls.add("ce:50:e3:37:c0:3a"); 
+        wifiInfls.add("ce:50:e3:37:bd:7d");
+        wifiInfls.add("ee:fa:bc:6f:fe:bb");
+        wifiInfls.add("be:dd:c2:8d:f5:ce"); 
+        wifiInfls.add("be:dd:c2:5d:f2:cf"); 
+        wifiInfls.add("ce:50:e3:32:bf:b5"); 
+        wifiInfls.add("be:dd:c4:9d:e6:a0"); 
+      
         return wifiInfls;
     }
 
@@ -90,22 +52,15 @@ public class HInfluencesPersistency implements InfluencesPersistency
     {
         List<Emission> emissions = new ArrayList<Emission>();
 
-        emissions.add(emission(at(9, 18, 15, 0), 10, 15)); 
-        emissions.add(emission(at(9, 19, 21, 0), 10, 15));
-        emissions.add(emission(at(9, 20, 8, 0), 5, 15, true));  
-
-        emissions.add(emission(at(9, 20, 15, 0), 10, 15));        
-        emissions.add(emission(at(9, 20, 21, 0), 10, 20)); 
-        emissions.add(emission(at(9, 20, 23, 0), 5, 15, true));  
-        emissions.add(emission(at(9, 21, 2, 0), 10, 20));     
-        emissions.add(emission(at(9, 21, 4, 0), 5, 15, true)); 
-        emissions.add(emission(at(9, 21, 6, 0), 5, 15));
-        emissions.add(emission(at(9, 21, 9, 0), 10, 20)); 
-        emissions.add(emission(at(9, 21, 12, 0), 5, 15, true));
-        emissions.add(emission(at(9, 21, 14, 30), 10, 15)); 
-        emissions.add(emission(at(9, 21, 16, 45), 10, 20, true));
-        emissions.add(emission(at(9, 21, 18, 15), 5, 15));
-        emissions.add(emission(at(9, 21, 21, 00), 20, 60));
+        // Emissions
+        emissions.add(emission(at(4, 10, 15, 00), 3, 20));
+        emissions.add(emission(at(4, 10, 16, 30), 5, 1, true));
+        emissions.add(emission(at(4, 10, 18, 40), 2, 30));
+        emissions.add(emission(at(4, 10, 21, 35), 5, 15));
+        emissions.add(emission(at(4, 10, 23, 50), 7, 1, true));
+        emissions.add(emission(at(4, 11, 3, 10), 5, 1, true));
+        emissions.add(emission(at(4, 11, 7, 15), 5, 30));
+        emissions.add(emission(at(4, 11, 10, 30), 10, 20));
 
         return emissions;
     }

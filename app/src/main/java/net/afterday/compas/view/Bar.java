@@ -7,18 +7,17 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.MotionEvent;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import net.afterday.compas.R;
-public class Bar extends AbstractView
-{
+
+public class Bar extends AbstractView {
     private static final String TAG = "Bar";
     private static final int VERTICAL = 0;
     private static final int HORIZONTAL = 1;
@@ -52,10 +51,14 @@ public class Bar extends AbstractView
         getAttrs(context, attrs, defStyleAttr);
     }
 
-    private void getAttrs(Context context, AttributeSet attrs, int defStyleAttr)
-    {
-        if(attrs == null)
-        {
+    public static float convertPixelsToDp(float px) {
+        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
+        float dp = px / (metrics.densityDpi / 160f);
+        return Math.round(dp);
+    }
+
+    private void getAttrs(Context context, AttributeSet attrs, int defStyleAttr) {
+        if (attrs == null) {
             return;
         }
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Bar, 0, 0);
@@ -70,27 +73,20 @@ public class Bar extends AbstractView
     }
 
     @Override
-    protected Bitmap getBackgroundDrawable()
-    {
-        if(mTopImage == null)
-        {
+    protected Bitmap getBackgroundDrawable() {
+        if (mTopImage == null) {
             mTopImage = BitmapFactory.decodeResource(getResources(), imgResId);
         }
         return mTopImage;
     }
 
-
-    public void setPercents(double percents)
-    {
-        if(percentage == percents)
-        {
+    public void setPercents(double percents) {
+        if (percentage == percents) {
             return;
         }
-        if(percents > 100)
-        {
+        if (percents > 100) {
             percents = 100;
-        }else if(percents < 0)
-        {
+        } else if (percents < 0) {
             percents = 0;
         }
         percentage = (float) percents;
@@ -98,19 +94,15 @@ public class Bar extends AbstractView
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
 
         canvas.drawBitmap(mTopImage, matrix, null);
-        if(percentage > 0)
-        {
-            if(measurement == VERTICAL)
-            {
-                drawRect(scaleWidth, (int)(scaleHeight / 100 * percentage), rectf);
-            }
-            else
-            {
-                drawRect((int)(scaleWidth / 100 * percentage), scaleHeight, rectf);
+        if (percentage > 0) {
+            if (measurement == VERTICAL) {
+                drawRect(scaleWidth, (int) (scaleHeight / 100 * percentage), rectf);
+            } else {
+                drawRect((int) (scaleWidth / 100 * percentage), scaleHeight, rectf);
             }
         }
         canvas.drawRect(rectf, paint);
@@ -123,33 +115,24 @@ public class Bar extends AbstractView
         bottom = backgroundHeight - offsetBottom;
     }
 
-    private void drawRect(int width, int height, RectF rect)
-    {
+    private void drawRect(int width, int height, RectF rect) {
         Log.e(TAG, "W: " + this.width + " H: " + this.height + " BW: " + getBackgroundDrawable().getWidth() + " BH: " + getBackgroundDrawable().getHeight() + " SX: " + scaleX + " SY: " + scaleY + " SH: " + scaleHeight);
-        if(measurement == VERTICAL)
-            {
+        if (measurement == VERTICAL) {
             rect.set(
                     offsetLeft * scaleX,
                     (offsetBottom + scaleHeight - height) * scaleY,
                     (offsetLeft + scaleWidth) * scaleX,
                     scaleHeight * scaleY
             );
-        }
-        else {
+        } else {
             rect.set(
-                offsetLeft * scaleX,
-                (bottom - height) * scaleY,
-                (offsetLeft + width) * scaleX,
-                (bottom) * scaleY
+                    offsetLeft * scaleX,
+                    (bottom - height) * scaleY,
+                    (offsetLeft + width) * scaleX,
+                    (bottom) * scaleY
             );
         }
 
-    }
-
-    public static float convertPixelsToDp(float px){
-        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
-        float dp = px / (metrics.densityDpi / 160f);
-        return Math.round(dp);
     }
 }
 

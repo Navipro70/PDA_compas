@@ -4,28 +4,22 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 
-//import net.afterday.compas.Player;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import net.afterday.compas.R;
 import net.afterday.compas.core.player.Player;
 import net.afterday.compas.core.player.Player.STATE;
-//import net.afterday.compas.core.player.PlayerStatus;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 public class Tube extends View {
     private static final String TAG = "Tube";
@@ -128,34 +122,28 @@ public class Tube extends View {
         repaintIfNeed();
     }
 
-    public void setEmission(boolean emission)
-    {
+    public void setEmission(boolean emission) {
         this.mEmission = emission;
         repaintIfNeed();
     }
 
-    public void setFraction(Player.FRACTION fraction)
-    {
+    public void setFraction(Player.FRACTION fraction) {
         this.fraction = fraction;
     }
 
-    public void setLevel(int level)
-    {
+    public void setLevel(int level) {
         this.level = level;
     }
 
-    public void setState(STATE playerState)
-    {
+    public void setState(STATE playerState) {
         currentState = playerState;
         repaintIfNeed();
     }
 
-    private void repaintIfNeed()
-    {
+    private void repaintIfNeed() {
         Bitmap t = getCurrentTube();
-        Log.e(TAG, "t: " + t);
-        if(currentTube == t)
-        {
+        // Log.e(TAG, "t: " + t);
+        if (currentTube == t) {
             return;
         }
         currentTube = t;
@@ -182,7 +170,7 @@ public class Tube extends View {
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
         Log.d(TAG, "onDraw " + currentState);
         drawTube(canvas);
@@ -197,12 +185,11 @@ public class Tube extends View {
         mMatrix = new Matrix();
         mRect = new RectF();
         mPaint = new Paint();
-        mPaint.setARGB(255,100,255,100);
+        mPaint.setARGB(255, 100, 255, 100);
     }
 
     //Norint prideti nauja kolba, irasyti ja cia
-    private void bindResources()
-    {
+    private void bindResources() {
         mTubeOff = BitmapFactory.decodeResource(getResources(), R.drawable.tube_off);
         mTubeDeadAno = BitmapFactory.decodeResource(getResources(), R.drawable.tube_dead_ano);
         mTubeDeadMental = BitmapFactory.decodeResource(getResources(), R.drawable.tube_dead_mental);
@@ -231,8 +218,7 @@ public class Tube extends View {
     }
 
     //Cia susieti kolba su atitinkama busena
-    private void bindStatesToImg()
-    {
+    private void bindStatesToImg() {
         bitmapsByState = new HashMap<>();
         bitmapsByState.put(STATE.W_CONTROLLED, mTubeTransmutation);
         bitmapsByState.put(STATE.W_DEAD_ANOMALY, mTubeDying);
@@ -250,27 +236,26 @@ public class Tube extends View {
         bitmapsByState.put(STATE.DEAD_BURER, mTubeDeadMisc);
         bitmapsByState.put(STATE.ABDUCTED, mTubeAbducted);
         bitmapsByState.put(STATE.W_ABDUCTED, mTubeDying);
+        bitmapsByState.put(STATE.W_DEAD_FRUITPUNCH, mTubeDying);
+        bitmapsByState.put(STATE.W_DEAD_EXPLOSION, mTubeDying);
+        bitmapsByState.put(STATE.DEAD_EXPLOSION, mTubeDeadMisc);
     }
 
     protected void drawTube(Canvas canvas) {
-        if(currentTube == null)
-        {
+        if (currentTube == null) {
             return;
         }
         convertRect(currentTube.getWidth(), currentTube.getHeight(), 0, 0, mMatrix);
         canvas.drawBitmap(currentTube, mMatrix, null);
     }
 
-    private Bitmap getCurrentTube()
-    {
+    private Bitmap getCurrentTube() {
 
-        if(fraction == Player.FRACTION.MONOLITH && mMonolith > 0d)
-        {
+        if (fraction == Player.FRACTION.MONOLITH && mMonolith > 0d) {
             return mTubeMonolith;
         }
 
-        if(fraction == Player.FRACTION.DARKEN && mRadiation > 0d)
-        {
+        if (fraction == Player.FRACTION.DARKEN && mRadiation > 0d) {
             return mTubeRad0;
         }
 
@@ -278,17 +263,13 @@ public class Tube extends View {
             return mTubeEmission;
         }
 
-        if(currentState.getCode() != Player.ALIVE)
-        {
-            if(bitmapsByState.containsKey(currentState))
-            {
+        if (currentState.getCode() != Player.ALIVE) {
+            if (bitmapsByState.containsKey(currentState)) {
                 return bitmapsByState.get(currentState);
-            }else
-            {
+            } else {
                 return mTubeOff;
             }
-        }else if(currentState == STATE.ABDUCTED)
-        {
+        } else if (currentState == STATE.ABDUCTED) {
             return mTubeAbducted;
         }
 
@@ -309,7 +290,7 @@ public class Tube extends View {
                         && mMonolith < 0.01d
                         && mController < 0.01d
                         && mBurer < 0.01d
-                ) {
+        ) {
             return mTubeClear;
         }
 
@@ -319,11 +300,9 @@ public class Tube extends View {
             case 0: // Radiation
                 if (mRadiation >= 7d) {
                     return mTubeRad2;
-                }
-                else if (mRadiation >= 1d) {
+                } else if (mRadiation >= 1d) {
                     return mTubeRad1;
-                }
-                else if (mRadiation >= 0) {
+                } else if (mRadiation >= 0) {
                     return mTubeRad0;
                 }
             case 1: // Anomaly
@@ -374,8 +353,7 @@ public class Tube extends View {
         return inf;
     }
 
-    private void convertRect(int bitmapWidth, int bitmapHeight, int left, int top, Matrix matrix)
-    {
+    private void convertRect(int bitmapWidth, int bitmapHeight, int left, int top, Matrix matrix) {
         matrix.reset();
         matrix.postScale(mScaleFactorX, mScaleFactorY);
         matrix.postTranslate(mScaleFactorX * left, mScaleFactorY * top);

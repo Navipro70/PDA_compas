@@ -1,33 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.afterday.compas.MainActivity"
-    android:keepScreenOn="true">
-
-    <android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keepScreenOn="true"
+    tools:context="net.afterday.compas.MainActivity">
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/left_guideline_layout"
+        app:layout_constraintGuide_percent=".05"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_layout"
+        app:layout_constraintGuide_percent=".95"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_layout"
+        app:layout_constraintGuide_percent=".10"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_guideline_layout"
+        app:layout_constraintGuide_percent=".95"
+        android:orientation="horizontal"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/popup_background"
-        app:layout_marginLeftPercent="5%"
-        app:layout_marginRightPercent="5%"
-        app:layout_marginTopPercent="10%"
-        app:layout_marginBottomPercent="5%"
-        app:layout_widthPercent="100%"
-        app:layout_heightPercent="100%">
+        app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_layout"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_layout"
+        app:layout_constraintStart_toStartOf="@id/left_guideline_layout"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_layout">
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/left_guideline_scanner"
+            app:layout_constraintGuide_percent=".1"
+            android:orientation="vertical"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/right_guideline_scanner"
+            app:layout_constraintGuide_percent=".9"
+            android:orientation="vertical"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/top_guideline_scanner"
+            app:layout_constraintGuide_percent=".10"
+            android:orientation="horizontal"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottom_guideline_scanner"
+            app:layout_constraintGuide_percent=".9"
+            android:orientation="horizontal"/>
         <com.journeyapps.barcodescanner.DecoratedBarcodeView
             android:id="@+id/zxing_barcode_scanner"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_marginPercent="10%"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:zxing_preview_scaling_strategy="centerCrop"
             app:zxing_use_texture_view="false"
-            app:zxing_preview_scaling_strategy="centerCrop"/>
-    </android.support.percent.PercentRelativeLayout>
+            app:layout_constraintBottom_toBottomOf="@id/bottom_guideline_scanner"
+            app:layout_constraintEnd_toEndOf="@id/right_guideline_scanner"
+            app:layout_constraintStart_toStartOf="@id/left_guideline_scanner"
+            app:layout_constraintTop_toTopOf="@id/top_guideline_scanner"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/right_guideline_close"
+        app:layout_constraintGuide_percent=".99"
+        android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_guideline_btn"
+        app:layout_constraintGuide_percent=".08"
+        android:orientation="horizontal"/>
     <ImageButton
         android:id="@+id/close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_marginLeftPercent="87%"
-        app:layout_marginTopPercent="8%"
-        android:background="@drawable/popup_close" />
-</android.support.percent.PercentRelativeLayout>
+        android:background="@drawable/popup_close"
+        android:contentDescription="@string/close_info"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline_close"
+        app:layout_constraintTop_toTopOf="@id/top_guideline_btn" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,8 +6,7 @@ import net.afterday.compas.core.events.Event;
  * Created by Justas Spakauskas on 2/3/2018.
  */
 
-public interface Influence extends Event
-{
+public interface Influence extends Event {
     int RADIATION = 0;
     int ANOMALY = 1;
     int MENTAL = 2;
@@ -17,6 +16,8 @@ public interface Influence extends Event
     int ARTEFACT = 6;
     int MONOLITH = 7;
     int EMISSION = 8;
+    int EXPLOSION = 9;
+    int FRUITPUNCH = 10;
 
     double MIN = 0.1d;
     double MED = 1d;
@@ -25,7 +26,7 @@ public interface Influence extends Event
 
     int MAX_SATELLITES = 8;
 
-    int INFLUENCE_COUNT = 9;
+    int INFLUENCE_COUNT = 11;
     double NULL = -99999999999.9999d;
 
     double ANOMALY_PEAK = 16;
@@ -35,12 +36,18 @@ public interface Influence extends Event
     double MENTAL_PEAK = 16;
     double MONOLITH_PEAK = 16;
 
-    enum SOURCE {WIFI, BLUETOOTH, ALL};
-
     String getName();
+
+
     String getId();
+
     boolean affects(int what);
+
     boolean isDanger();
+
     double getStrength();
+
     int getTypeId();
+
+    enum SOURCE {WIFI, BLUETOOTH, ALL}
 }

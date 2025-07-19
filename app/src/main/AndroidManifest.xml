@@ -1,65 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="net.afterday.compas">
-    <uses-permission android:name="android.permission.ACCESS_GPS" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.Manifest.permission.NETWORK_SETTINGS" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_REMOTE_MESSAGING" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <uses-feature android:name="android.hardware.location.gps"/>
     <application
-        android:allowBackup="false"
+        android:name=".StalkerApp"
         android:icon="@mipmap/ic_launcher"
         android:label="S.T.A.L.K.E.R Полоцк"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".StalkerApp"
         android:largeHeap="true"
-        android:permission="">
-        <activity android:name="net.afterday.compas.MainActivity"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        tools:replace="android:label"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="net.afterday.compas.MainActivity"
             android:configChanges="keyboardHidden|screenSize"
-            android:label="S.T.A.L.K.E.R Полоцк">
+            android:exported="true"
+            android:foregroundServiceType="location">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="net.afterday.compas.HiddenActivity"
-            android:label="HiddenActivity"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoDisplay"
-            android:screenOrientation="reverseLandscape">
-        </activity>
-        <service android:name="net.afterday.compas.LocalMainService">
+        <service
+            android:name="net.afterday.compas.LocalMainService"
+            android:exported="false"
+            android:foregroundServiceType="location|connectedDevice">
             <intent-filter android:icon="@mipmap/ic_launcher">
-                <action android:name="android.net.wifi.SCAN_RESULTS">
-                </action>
+                <action android:name="android.net.wifi.SCAN_RESULTS"/>
             </intent-filter>
         </service>
-        <receiver android:name=".sensors.WiFi.WifiImpl$WifiReceiver">
-            <intent-filter android:icon="@mipmap/ic_launcher">
-                <action android:name="WifiManager.SCAN_RESULTS_AVAILABLE_ACTION"></action>
-            </intent-filter>
-        </receiver>
-        <receiver android:name=".ActionsReceiver">
+        <receiver
+            android:name=".ActionsReceiver"
+            android:exported="false">
             <intent-filter>
-                <action android:name="ServiceControlls"></action>
+                <action android:name="ServiceControlls" />
             </intent-filter>
         </receiver>
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="334a8225ed7cef5df63ef4c9488a130072c04ca6" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

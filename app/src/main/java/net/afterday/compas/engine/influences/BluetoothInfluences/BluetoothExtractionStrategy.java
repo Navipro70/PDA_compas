@@ -1,8 +1,6 @@
 package net.afterday.compas.engine.influences.BluetoothInfluences;
 
 import net.afterday.compas.core.influences.Influence;
-import net.afterday.compas.core.influences.InfluencesPack;
-import net.afterday.compas.engine.influences.InflPack;
 import net.afterday.compas.engine.influences.InfluenceExtractionStrategy;
 import net.afterday.compas.sensors.Bluetooth.BluetoothScanResult;
 
@@ -13,16 +11,14 @@ import java.util.List;
  * Created by spaka on 4/2/2018.
  */
 
-public class BluetoothExtractionStrategy implements InfluenceExtractionStrategy<List<BluetoothScanResult>, Double>
-{
+public class BluetoothExtractionStrategy implements InfluenceExtractionStrategy<List<BluetoothScanResult>, Double> {
     private static final String TAG = "BluetoothExtractor";
-    private List<BluetoothScanResult> emitNext;
     private static final int CONNECTION_COOLDOWN = 3000;
+    private List<BluetoothScanResult> emitNext;
     private double lastStrength;
     private long lastReceived;
 
-    public BluetoothExtractionStrategy()
-    {
+    public BluetoothExtractionStrategy() {
         emitNext = new ArrayList<>();
     }
 //    @Override
@@ -64,12 +60,9 @@ public class BluetoothExtractionStrategy implements InfluenceExtractionStrategy<
 //        return ip;
 //    }
 
-    private int getIndex(List<BluetoothScanResult> results, BluetoothScanResult bsr)
-    {
-        for(int i = 0; i < results.size(); i++)
-        {
-            if(results.get(i).getName().equals(bsr.getName()))
-            {
+    private int getIndex(List<BluetoothScanResult> results, BluetoothScanResult bsr) {
+        for (int i = 0; i < results.size(); i++) {
+            if (results.get(i).getName().equals(bsr.getName())) {
                 return i;
             }
         }
@@ -77,23 +70,17 @@ public class BluetoothExtractionStrategy implements InfluenceExtractionStrategy<
     }
 
     @Override
-    public Double makeInfluences(List<BluetoothScanResult> i)
-    {
+    public Double makeInfluences(List<BluetoothScanResult> i) {
         long now = System.currentTimeMillis();
-        if(i.isEmpty())
-        {
-            if(lastReceived < now - CONNECTION_COOLDOWN)
-            {
+        if (i.isEmpty()) {
+            if (lastReceived < now - CONNECTION_COOLDOWN) {
                 return Influence.NULL;
-            }else
-            {
+            } else {
                 return lastStrength;
             }
         }
-        for(BluetoothScanResult bs : i)
-        {
-            if(bs.getStrength() > lastStrength)
-            {
+        for (BluetoothScanResult bs : i) {
+            if (bs.getStrength() > lastStrength) {
                 lastStrength = bs.getStrength();
                 lastReceived = bs.getScanTime();
             }
