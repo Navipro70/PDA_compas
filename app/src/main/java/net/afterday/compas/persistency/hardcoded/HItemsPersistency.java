@@ -69,53 +69,53 @@ public class HItemsPersistency implements ItemsPersistency
         Log.w(TAG, "setupItems");
 
 //MEDKITS (Аптечки)
-        possibleItems.put ("Bandage567", (new ItemDescriptorImpl(MEDKITS, R.string.item_bandage)) //Бинт
+        possibleItems.put("Bandage5671", (new ItemDescriptorImpl(MEDKITS, R.string.item_bandage)) //Бинт
                 .setImage(R.drawable.item_bandage)
                 .setArtefact(false)
                 .addModifier(Item.HEALTH_INSTANT, 10d)
                 .setDescription(R.string.desc_bandage)
         );
-        possibleItems.put("Medkit259", (new ItemDescriptorImpl(MEDKITS, R.string.item_medkit)) //Аптечка
+        possibleItems.put("Medkit2591", (new ItemDescriptorImpl(MEDKITS, R.string.item_medkit)) //Аптечка
                 .setImage(R.drawable.item_medkit)
                 .setArtefact(false)
                 .addModifier(Item.HEALTH_INSTANT, 20d)
                 .setDescription(R.string.desc_medkit)
         );
-        possibleItems.put("ArmyMedkit539", (new ItemDescriptorImpl(MEDKITS, R.string.item_army_medkit)) //Армейская аптечка
+        possibleItems.put("ArmyMedkit5391", (new ItemDescriptorImpl(MEDKITS, R.string.item_army_medkit)) //Армейская аптечка
                 .setImage(R.drawable.item_army_medkit)
                 .setArtefact(false)
                 .addModifier(Item.HEALTH_INSTANT, 30d)
                 .setDescription(R.string.desc_army_medkit)
         );
-        possibleItems.put("Vinca569", (new ItemDescriptorImpl(MEDKITS, R.string.item_vinca)) //Таблетки Барвинок
+        possibleItems.put("Vinca5691", (new ItemDescriptorImpl(MEDKITS, R.string.item_vinca)) //Таблетки Барвинок
                 .setImage(R.drawable.item_vinca)
                 .setArtefact(false)
                 .addModifier(Item.HEALTH_INSTANT, 40d)
                 .addModifier(Item.RADIATION_INSTANT, -1d)
                 .setDescription(R.string.desc_vinca)
         );
-        possibleItems.put("ScientificMedkit156", (new ItemDescriptorImpl(MEDKITS, R.string.item_scientific_medkit)) //Научная аптечка
+        possibleItems.put("ScientificMedkit1561", (new ItemDescriptorImpl(MEDKITS, R.string.item_scientific_medkit)) //Научная аптечка
                 .setImage(R.drawable.item_scientific_medkit)
                 .setArtefact(false)
                 .addModifier(Item.HEALTH_INSTANT, 50d)
                 .addModifier(Item.RADIATION_INSTANT, -3d)
                 .setDescription(R.string.desc_scientific_medkit)
         );
-        possibleItems.put("Vodka140", (new ItemDescriptorImpl(ANTIRADS, R.string.item_vodka)) //Водка Казаки
+        possibleItems.put("Vodka1401", (new ItemDescriptorImpl(ANTIRADS, R.string.item_vodka)) //Водка Казаки
                 .setImage(R.drawable.item_vodka)
                 .setArtefact(false)
                 .addModifier(Item.HEALTH_INSTANT, -10d)
                 .addModifier(Item.RADIATION_INSTANT, -1d)
                 .setDescription(R.string.desc_vodka)
         );
-        possibleItems.put("AntiRad353", (new ItemDescriptorImpl(ANTIRADS, R.string.item_antirad)) //Антирад
+        possibleItems.put("AntiRad3531", (new ItemDescriptorImpl(ANTIRADS, R.string.item_antirad)) //Антирад
                 .setImage(R.drawable.item_antirad)
                 .setArtefact(false)
                 .addModifier(Item.HEALTH_INSTANT, -20d)
                 .addModifier(Item.RADIATION_INSTANT, -7d)
                 .setDescription(R.string.desc_antirad)
         );
-        possibleItems.put("Anabiotic568", (new ItemDescriptorImpl(ANTIRADS, R.string.item_anabiotic)) //Анабиотик
+        possibleItems.put("Anabiotic5681", (new ItemDescriptorImpl(ANTIRADS, R.string.item_anabiotic)) //Анабиотик
                 .setImage(R.drawable.item_anabiotic)
                 .setTitle("Anabiotic")
                 .setArtefact(false)
@@ -124,7 +124,7 @@ public class HItemsPersistency implements ItemsPersistency
         );
 
 //BOOSTERS (Бустеры)
-        possibleItems.put("B190Radioprotectant853", (new ItemDescriptorImpl(BOOSTERS, R.string.item_b190)) //Радиопротектор Б190
+        possibleItems.put("B190Radioprotectant8531", (new ItemDescriptorImpl(BOOSTERS, R.string.item_b190)) //Радиопротектор Б190
                 .setImage(R.drawable.item_b190)
                 .setArtefact(false)
                 .addModifier(Item.RADIATION_MODIFIER, 0d)
@@ -132,7 +132,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setDuration(60L * 1000L)
                 .setDescription(R.string.desc_b190)
         );
-        possibleItems.put("PsyBlock875", (new ItemDescriptorImpl(BOOSTERS, R.string.item_psyblock)) //Пси-блокада
+        possibleItems.put("PsyBlock8751", (new ItemDescriptorImpl(BOOSTERS, R.string.item_psyblock)) //Пси-блокада
                 .setImage(R.drawable.item_psy_block)
                 .setArtefact(false)
                 .addModifier(Item.MENTAL_MODIFIER, 0d)
@@ -140,7 +140,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setDuration(60L * 1000L)
                 .setDescription(R.string.desc_psyblock)
         );
-        possibleItems.put("IP2Antidote346", (new ItemDescriptorImpl(BOOSTERS, R.string.item_ip2)) //Антидот ИП2
+        possibleItems.put("IP2Antidote3461", (new ItemDescriptorImpl(BOOSTERS, R.string.item_ip2)) //Антидот ИП2
                 .setImage(R.drawable.item_ip2_antidote)
                 .setArtefact(false)
                 .addModifier(Item.ANOMALY_MODIFIER, 0d)
@@ -148,7 +148,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setDuration(60L * 1000L)
                 .setDescription(R.string.desc_ip2)
         );
-        possibleItems.put("GreenSvobodaSerum753", (new ItemDescriptorImpl(BOOSTERS, R.string.item_green_svoboda)) //Настойка Радвинок
+        possibleItems.put("GreenSvobodaSerum7531", (new ItemDescriptorImpl(BOOSTERS, R.string.item_green_svoboda)) //Настойка Радвинок
                 .setImage(R.drawable.item_green_svoboda_serum)
                 .setArtefact(false)
                 .setBooster(true)
@@ -156,7 +156,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .addModifier(Item.RADIATION_MODIFIER, 0.1d)
                 .setDescription(R.string.desc_green_svoboda)
         );
-        possibleItems.put("YellowSvobodaSerum376", (new ItemDescriptorImpl(BOOSTERS, R.string.item_yellow_svoboda)) //Настойка Менвинок
+        possibleItems.put("YellowSvobodaSerum3761", (new ItemDescriptorImpl(BOOSTERS, R.string.item_yellow_svoboda)) //Настойка Менвинок
                 .setImage(R.drawable.item_yellow_svoboda_serum)
                 .setArtefact(false)
                 .setBooster(true)
@@ -166,7 +166,7 @@ public class HItemsPersistency implements ItemsPersistency
         );
 
 //FILTERS (Фильтры)
-        possibleItems.put("Respirator269", (new ItemDescriptorImpl(FILTERS, R.string.item_respirator)) //Респиратор
+        possibleItems.put("Respirator2691", (new ItemDescriptorImpl(FILTERS, R.string.item_respirator)) //Респиратор
                 .setImage(R.drawable.item_respirator)
                 .setArtefact(false)
                 .setDevice(true)
@@ -174,7 +174,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .addModifier(Item.RADIATION_MODIFIER, 0.6d)
                 .setDescription(R.string.desc_respirator)
         );
-        possibleItems.put("Gasmask941", (new ItemDescriptorImpl(FILTERS, R.string.item_gasmask)) //Противогаз
+        possibleItems.put("Gasmask9411", (new ItemDescriptorImpl(FILTERS, R.string.item_gasmask)) //Противогаз
                 .setImage(R.drawable.item_gasmask)
                 .setArtefact(false)
                 .setDevice(true)
@@ -182,7 +182,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .addModifier(Item.RADIATION_MODIFIER, 0.4d)
                 .setDescription(R.string.desc_gasmask)
         );
-        possibleItems.put("Rebreather824", (new ItemDescriptorImpl(FILTERS, R.string.item_szd)) //Система замкнутого дыхания
+        possibleItems.put("Rebreather8241", (new ItemDescriptorImpl(FILTERS, R.string.item_szd)) //Система замкнутого дыхания
                 .setImage(R.drawable.item_szd)
                 .setArtefact(false)
                 .setDevice(true)
@@ -192,7 +192,7 @@ public class HItemsPersistency implements ItemsPersistency
         );
 
 //DEVICES (Приборы)
-        possibleItems.put("PsionicHelmetMark582", (new ItemDescriptorImpl(DEVICES, R.string.item_shlem1)) //Пси-шлем М1
+        possibleItems.put("PsionicHelmetMark5821", (new ItemDescriptorImpl(DEVICES, R.string.item_shlem1)) //Пси-шлем М1
                 .setImage(R.drawable.item_shlem1)
                 .setArtefact(false)
                 .setDevice(true)
@@ -201,7 +201,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .addModifier(Item.CONTROLLER_MODIFIER, 0.7d)
                 .setDescription(R.string.desc_shlem1)
         );
-        possibleItems.put("PsionicHelmetMark746", (new ItemDescriptorImpl(DEVICES, R.string.item_shlem2)) //Пси-шлем М2
+        possibleItems.put("PsionicHelmetMark7461", (new ItemDescriptorImpl(DEVICES, R.string.item_shlem2)) //Пси-шлем М2
                 .setImage(R.drawable.item_shlem2)
                 .setArtefact(false)
                 .setDevice(true)
@@ -214,7 +214,7 @@ public class HItemsPersistency implements ItemsPersistency
 
 //SUITS (Комбезы)
 //SIMPLE (Простые)
-        possibleItems.put("LeatherJacket235", (new ItemDescriptorImpl(ARMORS, R.string.item_leather_jacket)) //Кожаная куртка
+        possibleItems.put("LeatherJacket2351", (new ItemDescriptorImpl(ARMORS, R.string.item_leather_jacket)) //Кожаная куртка
                 .setImage(R.drawable.item_leather_jacket)
                 .setArtefact(false)
                 .setArmor(true)
@@ -222,7 +222,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setDuration(60L * 60L * 1000L)
                 .setDescription(R.string.desc_leather_jacket)
         );
-        possibleItems.put("SSP99Ecologist927", (new ItemDescriptorImpl(ARMORS, R.string.item_ssp99)) //Комбинезон Эколог
+        possibleItems.put("SSP99Ecologist9271", (new ItemDescriptorImpl(ARMORS, R.string.item_ssp99)) //Комбинезон Эколог
                 .setImage(R.drawable.item_ssp_99_ecologist)
                 .setArtefact(false)
                 .setArmor(true)
@@ -234,7 +234,7 @@ public class HItemsPersistency implements ItemsPersistency
         );
 
 //ADVANCED (Улучшенные)
-        possibleItems.put("StalkerSuit378", (new ItemDescriptorImpl(ARMORS, R.string.item_stalker_suit)) //Комбез сталкера Заря
+        possibleItems.put("StalkerSuit3781", (new ItemDescriptorImpl(ARMORS, R.string.item_stalker_suit)) //Комбез сталкера Заря
                 .setImage(R.drawable.item_stalker_suit)
                 .setArtefact(false)
                 .setArmor(true)
@@ -244,7 +244,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setDuration(120L * 60L * 1000L)
                 .setDescription(R.string.desc_stalker_suit)
         );
-        possibleItems.put("SEVASuit368", (new ItemDescriptorImpl(ARMORS, R.string.item_seva_suit)) //Комбинезон СЕВА
+        possibleItems.put("SEVASuit3681", (new ItemDescriptorImpl(ARMORS, R.string.item_seva_suit)) //Комбинезон СЕВА
                 .setImage(R.drawable.item_seva_suit)
                 .setArtefact(false)
                 .setArmor(true)
@@ -254,7 +254,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setDuration(120L * 60L * 1000L)
                 .setDescription(R.string.desc_seva_suit)
         );
-        possibleItems.put("Exoskeleton853", (new ItemDescriptorImpl(ARMORS, R.string.item_exoskeleton)) //Экзоскелет
+        possibleItems.put("Exoskeleton8531", (new ItemDescriptorImpl(ARMORS, R.string.item_exoskeleton)) //Экзоскелет
                 .setImage(R.drawable.item_exoskeleton)
                 .setArtefact(false)
                 .setArmor(true)
@@ -267,7 +267,7 @@ public class HItemsPersistency implements ItemsPersistency
         );
 
 //FRACTIONAL (Фракционные)
-        possibleItems.put("BerillSuit346", (new ItemDescriptorImpl(ARMORS, R.string.item_berill_suit)) //Бронекостюм Берилл
+        possibleItems.put("BerillSuit3461", (new ItemDescriptorImpl(ARMORS, R.string.item_berill_suit)) //Бронекостюм Берилл
                 .setImage(R.drawable.item_berill)
                 .setArtefact(false)
                 .setArmor(true)
@@ -278,7 +278,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setDuration(180L * 60L * 1000L)
                 .setDescription(R.string.desc_berill_suit)
         );
-        possibleItems.put("MercSuit753", (new ItemDescriptorImpl(ARMORS, R.string.item_merc_suit)) //Комбез наёмника
+        possibleItems.put("MercSuit7531", (new ItemDescriptorImpl(ARMORS, R.string.item_merc_suit)) //Комбез наёмника
                 .setImage(R.drawable.item_merc_suit)
                 .setArtefact(false)
                 .setArmor(true)
@@ -288,7 +288,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setDuration(180L * 60L * 1000L)
                 .setDescription(R.string.desc_merc_suit)
         );
-        possibleItems.put("DutySuit874", (new ItemDescriptorImpl(ARMORS, R.string.item_duty_suit)) //Комбез Долга
+        possibleItems.put("DutySuit8741", (new ItemDescriptorImpl(ARMORS, R.string.item_duty_suit)) //Комбез Долга
                 .setImage(R.drawable.item_duty)
                 .setArtefact(false)
                 .setArmor(true)
@@ -298,7 +298,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setDuration(180L * 60L * 1000L)
                 .setDescription(R.string.desc_duty_suit)
         );
-        possibleItems.put("FreedomSuit365", (new ItemDescriptorImpl(ARMORS, R.string.item_freedom_suit)) //Комбез Свободы
+        possibleItems.put("FreedomSuit3651", (new ItemDescriptorImpl(ARMORS, R.string.item_freedom_suit)) //Комбез Свободы
                 .setImage(R.drawable.item_freedom)
                 .setArtefact(false)
                 .setArmor(true)
@@ -308,7 +308,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setDuration(180L * 60L * 1000L)
                 .setDescription(R.string.desc_freedom_suit)
         );
-        possibleItems.put("ClearSkySuit246", (new ItemDescriptorImpl(ARMORS, R.string.item_clearsky_suit)) //Комбез Чистого Неба
+        possibleItems.put("ClearSkySuit2461", (new ItemDescriptorImpl(ARMORS, R.string.item_clearsky_suit)) //Комбез Чистого Неба
                 .setImage(R.drawable.item_clear_sky)
                 .setArtefact(false)
                 .setArmor(true)
@@ -318,7 +318,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setDuration(180L * 60L * 1000L)
                 .setDescription(R.string.desc_clearsky_suit)
         );
-        possibleItems.put("BanditSuit356", (new ItemDescriptorImpl(ARMORS, R.string.item_bandit_suit)) //Плащ бандита
+        possibleItems.put("BanditSuit3561", (new ItemDescriptorImpl(ARMORS, R.string.item_bandit_suit)) //Плащ бандита
                 .setImage(R.drawable.item_bandit)
                 .setArtefact(false)
                 .setArmor(true)
@@ -328,7 +328,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setDuration(180L * 60L * 1000L)
                 .setDescription(R.string.desc_bandit_suit)
         );
-        possibleItems.put("MonolithSuit248", (new ItemDescriptorImpl(ARMORS, R.string.item_monolith_suit)) //Комбез Монолита
+        possibleItems.put("MonolithSuit2481", (new ItemDescriptorImpl(ARMORS, R.string.item_monolith_suit)) //Комбез Монолита
                 .setImage(R.drawable.item_monolith)
                 .setArtefact(false)
                 .setArmor(true)
@@ -341,35 +341,35 @@ public class HItemsPersistency implements ItemsPersistency
 
 //ARTEFACTS (Артефакты)
 //ANTIRAD (Антирадные)
-        possibleItems.put("Droplets457", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_droplets)) //Капли
+        possibleItems.put("Droplets4571", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_droplets)) //Капли
                 .setImage(R.drawable.item_droplets)
                 .setArtefact(true)
                 .addModifier(Item.RADIATION_MODIFIER, 0.9d)
                 .setXpPoints(2)
                 .setDescription(R.string.desc_droplets)
         );
-        possibleItems.put("Bubble346", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_bubble)) //Пузырь
+        possibleItems.put("Bubble3461", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_bubble)) //Пузырь
                 .setImage(R.drawable.item_bubble)
                 .setArtefact(true)
                 .addModifier(Item.RADIATION_MODIFIER, 0.8d)
                 .setXpPoints(5)
                 .setDescription(R.string.desc_bubble)
         );
-        possibleItems.put("Fireball265", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_fireball)) //Огненный шар
+        possibleItems.put("Fireball2651", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_fireball)) //Огненный шар
                 .setImage(R.drawable.item_fireball)
                 .setArtefact(true)
                 .addModifier(Item.RADIATION_MODIFIER, 0.7d)
                 .setXpPoints(10)
                 .setDescription(R.string.desc_fireball)
         );
-        possibleItems.put("Crystal875", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_crystal)) //Кристалл
+        possibleItems.put("Crystal8751", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_crystal)) //Кристалл
                 .setImage(R.drawable.item_crystal)
                 .setArtefact(true)
                 .addModifier(Item.RADIATION_MODIFIER, 0.6d)
                 .setXpPoints(10)
                 .setDescription(R.string.desc_crystal)
         );
-        possibleItems.put("Thorn245", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_thorn)) //Колючка
+        possibleItems.put("Thorn2451", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_thorn)) //Колючка
                 .setImage(R.drawable.item_thorn)
                 .setArtefact(true)
                 .addModifier(Item.RADIATION_MODIFIER, 0.5d)
@@ -380,28 +380,28 @@ public class HItemsPersistency implements ItemsPersistency
         );
 
 //MEDICINE (Лечащие)
-        possibleItems.put("Jellyfish237", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_jellyfish)) //Медуза
+        possibleItems.put("Jellyfish2371", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_jellyfish)) //Медуза
                 .setImage(R.drawable.item_jellyfish)
                 .setArtefact(true)
                 .addModifier(Item.HEALTH_MODIFIER, 1.5d)
                 .setXpPoints(1)
                 .setDescription(R.string.desc_jellyfish)
         );
-        possibleItems.put("Eye764", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_eye)) //Глаз
+        possibleItems.put("Eye7641", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_eye)) //Глаз
                 .setImage(R.drawable.item_eye)
                 .setArtefact(true)
                 .addModifier(Item.HEALTH_MODIFIER, 2d)
                 .setXpPoints(2)
                 .setDescription(R.string.desc_eye)
         );
-        possibleItems.put("Kolobok346", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_kolobok)) //Колобок
+        possibleItems.put("Kolobok3461", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_kolobok)) //Колобок
                 .setImage(R.drawable.item_kolobok)
                 .setArtefact(true)
                 .addModifier(Item.HEALTH_MODIFIER, 3d)
                 .setXpPoints(5)
                 .setDescription(R.string.desc_kolobok)
         );
-        possibleItems.put("Goldfish346", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_goldfish)) //Золотая рыбка
+        possibleItems.put("Goldfish3461", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_goldfish)) //Золотая рыбка
                 .setImage(R.drawable.item_goldfish)
                 .setArtefact(true)
                 .addModifier(Item.HEALTH_MODIFIER, 4d)
@@ -409,7 +409,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setXpPoints(15)
                 .setDescription(R.string.desc_goldfish)
         );
-        possibleItems.put("MamasBeads257", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_mamas_beads)) //Мамины бусы
+        possibleItems.put("MamasBeads2571", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_mamas_beads)) //Мамины бусы
                 .setImage(R.drawable.item_mamas_beads)
                 .setArtefact(true)
                 .addModifier(Item.HEALTH_MODIFIER, 5d)
@@ -417,7 +417,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setXpPoints(15)
                 .setDescription(R.string.desc_mamas_beads)
         );
-        possibleItems.put("Mica987", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_mica)) //Слюда
+        possibleItems.put("Mica9871", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_mica)) //Слюда
                 .setImage(R.drawable.item_mica)
                 .setArtefact(true)
                 .addModifier(Item.HEALTH_MODIFIER, 6d)
@@ -431,7 +431,7 @@ public class HItemsPersistency implements ItemsPersistency
         );
 
 //ANOMALY (Противоаномальные)
-        possibleItems.put("Spring245", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_spring)) //Пружина
+        possibleItems.put("Spring2451", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_spring)) //Пружина
                 .setImage(R.drawable.item_spring)
                 .setArtefact(true)
                 .addModifier(Item.RADIATION_MODIFIER, 1.1d)
@@ -439,7 +439,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setXpPoints(5)
                 .setDescription(R.string.desc_spring)
         );
-        possibleItems.put("Moonlight875", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_moonlight)) //Лунный свет
+        possibleItems.put("Moonlight8751", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_moonlight)) //Лунный свет
                 .setImage(R.drawable.item_moonlight)
                 .setArtefact(true)
                 .addModifier(Item.RADIATION_MODIFIER, 1.2d)
@@ -449,7 +449,7 @@ public class HItemsPersistency implements ItemsPersistency
         );
 
 //PSY (Противоментальные)
-        possibleItems.put("StoneFlower863", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_stone_flower)) //Каменный цветок
+        possibleItems.put("StoneFlower8631", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_stone_flower)) //Каменный цветок
                 .setImage(R.drawable.item_stone_flower)
                 .setArtefact(true)
                 .addModifier(Item.RADIATION_MODIFIER, 1.2d)
@@ -457,7 +457,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setXpPoints(5)
                 .setDescription(R.string.desc_stone_flower)
         );
-        possibleItems.put("Pe1licle267", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_pellicle)) //Плёнка
+        possibleItems.put("Pe1licle2671", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_pellicle)) //Плёнка
                 .setImage(R.drawable.item_pellicle)
                 .setArtefact(true)
                 .addModifier(Item.RADIATION_MODIFIER, 1.4d)
@@ -465,7 +465,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setXpPoints(10)
                 .setDescription(R.string.desc_pellicle)
         );
-        possibleItems.put("NightStar346", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_night_star)) //Ночная звезда
+        possibleItems.put("NightStar3461", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_night_star)) //Ночная звезда
                 .setImage(R.drawable.item_night_star)
                 .setArtefact(true)
                 .addModifier(Item.RADIATION_MODIFIER, 1.6d)
@@ -473,7 +473,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .setXpPoints(15)
                 .setDescription(R.string.desc_night_star)
         );
-        possibleItems.put("Compass677", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_compass)) //Компас
+        possibleItems.put("Compass6771", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_compass)) //Компас
                 .setImage(R.drawable.item_compass)
                 .setArtefact(true)
                 .addModifier(Item.RADIATION_MODIFIER, 2d)
@@ -484,19 +484,19 @@ public class HItemsPersistency implements ItemsPersistency
         );
 
 //NEGATIVE RADIATION (Радиоактивные)
-        possibleItems.put("Shell268", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_shell)) //Пустышка
+        possibleItems.put("Shell2681", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_shell)) //Пустышка
                 .setImage(R.drawable.item_shell)
                 .setArtefact(true)
                 .addModifier(Item.RADIATION_EMMITER, 1d)
                 .setDescription(R.string.desc_shell)
         );
-        possibleItems.put("AlteredInsulator734", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_altered_insulator)) //Радиоактивный (изменённый) изолятор
+        possibleItems.put("AlteredInsulator7341", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_altered_insulator)) //Радиоактивный (изменённый) изолятор
                 .setImage(R.drawable.item_altered_insulator)
                 .setArtefact(true)
                 .addModifier(Item.RADIATION_EMMITER, 7d)
                 .setDescription(R.string.desc_altered_insulator)
         );
-        possibleItems.put("BlackEnergy994", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_black_energy)) //Чёрная (тёмная) энергия
+        possibleItems.put("BlackEnergy9941", (new ItemDescriptorImpl(ARTIFACTS, R.string.item_black_energy)) //Чёрная (тёмная) энергия
                 .setImage(R.drawable.item_black_energy)
                 .setArtefact(true)
                 .addModifier(Item.RADIATION_EMMITER, 14d)
@@ -504,42 +504,42 @@ public class HItemsPersistency implements ItemsPersistency
         );
 
 //UPGRADES (Обвес)
-        possibleItems.put("Binoculars135", (new ItemDescriptorImpl(UPGRADES, R.string.item_binocl)) //Бинокль
+        possibleItems.put("Binoculars1351", (new ItemDescriptorImpl(UPGRADES, R.string.item_binocl)) //Бинокль
                 .setImage(R.drawable.item_binocl)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(0)
                 .setDescription(R.string.desc_binocl)
         );
-        possibleItems.put("Optics135", (new ItemDescriptorImpl(UPGRADES, R.string.item_optics)) //Оптический прицел
+        possibleItems.put("Optics1351", (new ItemDescriptorImpl(UPGRADES, R.string.item_optics)) //Оптический прицел
                 .setImage(R.drawable.item_optics)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(0)
                 .setDescription(R.string.desc_optics)
         );
-        possibleItems.put("Collimator854", (new ItemDescriptorImpl(UPGRADES, R.string.item_collimator)) //Коллиматор
+        possibleItems.put("Collimator8541", (new ItemDescriptorImpl(UPGRADES, R.string.item_collimator)) //Коллиматор
                 .setImage(R.drawable.item_collimator)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(0)
                 .setDescription(R.string.desc_collimator)
         );
-        possibleItems.put("NightVision786", (new ItemDescriptorImpl(UPGRADES, R.string.item_night_vision)) //Прибор ночного видения
+        possibleItems.put("NightVision7861", (new ItemDescriptorImpl(UPGRADES, R.string.item_night_vision)) //Прибор ночного видения
                 .setImage(R.drawable.item_night_vision)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(0)
                 .setDescription(R.string.desc_night_vision)
         );
-        possibleItems.put("WalkieTalkie259", (new ItemDescriptorImpl(UPGRADES, R.string.item_walkie_talkie)) //Рация
+        possibleItems.put("WalkieTalkie2591", (new ItemDescriptorImpl(UPGRADES, R.string.item_walkie_talkie)) //Рация
                 .setImage(R.drawable.item_walkie_talkie)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(0)
                 .setDescription(R.string.desc_walkie_talkie)
         );
-        possibleItems.put("GrenadeLauncher548", (new ItemDescriptorImpl(UPGRADES, R.string.item_grenade_launcher)) //Гранатомёт
+        possibleItems.put("GrenadeLauncher5481", (new ItemDescriptorImpl(UPGRADES, R.string.item_grenade_launcher)) //Гранатомёт
                 .setImage(R.drawable.item_grenade_launcher)
                 .setArtefact(false)
                 .setConsumable(false)
@@ -548,49 +548,49 @@ public class HItemsPersistency implements ItemsPersistency
         );
 
 //FOOD (Еда)
-        possibleItems.put("DeadRat354", (new ItemDescriptorImpl(FOOD, R.string.item_dead_rat)) //Дохлая крыса
+        possibleItems.put("DeadRat3541", (new ItemDescriptorImpl(FOOD, R.string.item_dead_rat)) //Дохлая крыса
                 .setImage(R.drawable.item_rat)
                 .setArtefact(false)
                 .addModifier(Item.HEALTH_INSTANT, 30d)
                 .addModifier(Item.RADIATION_INSTANT, 2d)
                 .setDescription(R.string.desc_dead_rat)
         );
-        possibleItems.put("Bread358", (new ItemDescriptorImpl(FOOD, R.string.item_bread)) //Батон
+        possibleItems.put("Bread3581", (new ItemDescriptorImpl(FOOD, R.string.item_bread)) //Батон
                 .setImage(R.drawable.item_bread)
                 .setArtefact(false)
                 .addModifier(Item.HEALTH_INSTANT, 3d)
                 .setXpPoints(1)
                 .setDescription(R.string.desc_bread)
         );
-        possibleItems.put("Sausage245", (new ItemDescriptorImpl(FOOD, R.string.item_sausage)) //Колбаса
+        possibleItems.put("Sausage2451", (new ItemDescriptorImpl(FOOD, R.string.item_sausage)) //Колбаса
                 .setImage(R.drawable.item_sausage)
                 .setArtefact(false)
                 .addModifier(Item.HEALTH_INSTANT, 6d)
                 .setXpPoints(2)
                 .setDescription(R.string.desc_sausage)
         );
-        possibleItems.put("CannedMeat245", (new ItemDescriptorImpl(FOOD, R.string.item_canned_meat)) //Консерва
+        possibleItems.put("CannedMeat2451", (new ItemDescriptorImpl(FOOD, R.string.item_canned_meat)) //Консерва
                 .setImage(R.drawable.item_can)
                 .setArtefact(false)
                 .addModifier(Item.HEALTH_INSTANT, 9d)
                 .setXpPoints(3)
                 .setDescription(R.string.desc_canned_meat)
         );
-        possibleItems.put("Doktorskaja854", (new ItemDescriptorImpl(FOOD, R.string.item_doktorskaja)) //Докторская
+        possibleItems.put("Doktorskaja8541", (new ItemDescriptorImpl(FOOD, R.string.item_doktorskaja)) //Докторская
                 .setImage(R.drawable.item_doktorskaja)
                 .setArtefact(false)
                 .addModifier(Item.HEALTH_INSTANT, 12d)
                 .setXpPoints(5)
                 .setDescription(R.string.desc_doktorskaja)
         );
-        possibleItems.put("Delikates754", (new ItemDescriptorImpl(FOOD, R.string.item_delikates)) //Деликатес
+        possibleItems.put("Delikates7541", (new ItemDescriptorImpl(FOOD, R.string.item_delikates)) //Деликатес
                 .setImage(R.drawable.item_delikates)
                 .setArtefact(false)
                 .addModifier(Item.HEALTH_INSTANT, 15d)
                 .setXpPoints(6)
                 .setDescription(R.string.desc_delikates)
         );
-        possibleItems.put("Hercules634", (new ItemDescriptorImpl(FOOD, R.string.item_hercules)) //Геркулес
+        possibleItems.put("Hercules6341", (new ItemDescriptorImpl(FOOD, R.string.item_hercules)) //Геркулес
                 .setImage(R.drawable.item_hercules)
                 .setArtefact(false)
                 .setBooster(true)
@@ -598,7 +598,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .addModifier(Item.HEALTH_MODIFIER, 1.5d)
                 .setDescription(R.string.desc_hercules)
         );
-        possibleItems.put("EnergyDrink745", (new ItemDescriptorImpl(FOOD, R.string.item_energy_drink)) //Энергетик Сталкер
+        possibleItems.put("EnergyDrink7451", (new ItemDescriptorImpl(FOOD, R.string.item_energy_drink)) //Энергетик Сталкер
                 .setImage(R.drawable.item_energy_drink)
                 .setArtefact(false)
                 .setBooster(true)
@@ -606,7 +606,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .addModifier(Item.HEALTH_MODIFIER, 2d)
                 .setDescription(R.string.desc_energy_drink)
         );
-        possibleItems.put("RedDevil356", (new ItemDescriptorImpl(FOOD, R.string.item_red_devil)) //Левый энергетик
+        possibleItems.put("RedDevil3561", (new ItemDescriptorImpl(FOOD, R.string.item_red_devil)) //Левый энергетик
                 .setImage(R.drawable.item_red_devil)
                 .setArtefact(false)
                 .setBooster(true)
@@ -617,70 +617,70 @@ public class HItemsPersistency implements ItemsPersistency
         );
 
 //WEAPONS (Оружие)
-        possibleItems.put("Knife791", (new ItemDescriptorImpl(WEAPONS, R.string.item_knife)) //Нож
+        possibleItems.put("Knife7911", (new ItemDescriptorImpl(WEAPONS, R.string.item_knife)) //Нож
                 .setImage(R.drawable.item_knife)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(0)
                 .setDescription(R.string.desc_knife)
         );
-        possibleItems.put("Pistol184", (new ItemDescriptorImpl(WEAPONS, R.string.item_pistol)) //Пистолет
+        possibleItems.put("Pistol1841", (new ItemDescriptorImpl(WEAPONS, R.string.item_pistol)) //Пистолет
                 .setImage(R.drawable.item_pistol)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(0)
                 .setDescription(R.string.desc_pistol)
         );
-        possibleItems.put("Shotgun673", (new ItemDescriptorImpl(WEAPONS, R.string.item_shotgun)) //Дробовик
+        possibleItems.put("Shotgun6731", (new ItemDescriptorImpl(WEAPONS, R.string.item_shotgun)) //Дробовик
                 .setImage(R.drawable.item_shotgun)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(0)
                 .setDescription(R.string.desc_shotgun)
         );
-        possibleItems.put("SubMachineGun385", (new ItemDescriptorImpl(WEAPONS, R.string.item_submachinegun)) //Пистолет-пулемёт
+        possibleItems.put("SubMachineGun3851", (new ItemDescriptorImpl(WEAPONS, R.string.item_submachinegun)) //Пистолет-пулемёт
                 .setImage(R.drawable.item_smg)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(0)
                 .setDescription(R.string.desc_submachinegun)
         );
-        possibleItems.put("Aktype368", (new ItemDescriptorImpl(WEAPONS, R.string.item_ak)) //Калаш
+        possibleItems.put("Aktype3681", (new ItemDescriptorImpl(WEAPONS, R.string.item_ak)) //Калаш
                 .setImage(R.drawable.item_ak)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(0)
                 .setDescription(R.string.desc_ak)
         );
-        possibleItems.put("M4type357", (new ItemDescriptorImpl(WEAPONS, R.string.item_m4)) //М4
+        possibleItems.put("M4type3571", (new ItemDescriptorImpl(WEAPONS, R.string.item_m4)) //М4
                 .setImage(R.drawable.item_m4)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(0)
                 .setDescription(R.string.desc_m4)
         );
-        possibleItems.put("VAL246", (new ItemDescriptorImpl(WEAPONS, R.string.item_val)) //Вал
+        possibleItems.put("VAL2461", (new ItemDescriptorImpl(WEAPONS, R.string.item_val)) //Вал
                 .setImage(R.drawable.item_val)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(0)
                 .setDescription(R.string.desc_val)
         );
-        possibleItems.put("SniperGun924", (new ItemDescriptorImpl(WEAPONS, R.string.item_sniper)) //Снайперская винтовка
+        possibleItems.put("SniperGun9241", (new ItemDescriptorImpl(WEAPONS, R.string.item_sniper)) //Снайперская винтовка
                 .setImage(R.drawable.item_sniper)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(0)
                 .setDescription(R.string.desc_sniper)
         );
-        possibleItems.put("MachineGun643", (new ItemDescriptorImpl(WEAPONS, R.string.item_machinegun)) //Пулемёт
+        possibleItems.put("MachineGun6431", (new ItemDescriptorImpl(WEAPONS, R.string.item_machinegun)) //Пулемёт
                 .setImage(R.drawable.item_machinegun)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(0)
                 .setDescription(R.string.desc_machinegun)
         );
-        possibleItems.put("GaussGun456", (new ItemDescriptorImpl(WEAPONS, R.string.item_gauss_gun)) //Гаусс пушка
+        possibleItems.put("GaussGun4561", (new ItemDescriptorImpl(WEAPONS, R.string.item_gauss_gun)) //Гаусс пушка
                 .setImage(R.drawable.item_gauss)
                 .setArtefact(false)
                 .setConsumable(false)
@@ -689,119 +689,119 @@ public class HItemsPersistency implements ItemsPersistency
         );
 
 //AMMO (Боеприпасы)
-        possibleItems.put("9mm784", (new ItemDescriptorImpl(AMMO, R.string.item_9mm)) //Пистолетные 9мм
+        possibleItems.put("9mm7841", (new ItemDescriptorImpl(AMMO, R.string.item_9mm)) //Пистолетные 9мм
                 .setImage(R.drawable.item_9mm)
                 .setXpPoints(1)
                 .setDescription(R.string.desc_9mm)
         );
-        possibleItems.put("12cal784", (new ItemDescriptorImpl(AMMO, R.string.item_12cal)) //Картечь 12 калибр
+        possibleItems.put("12cal7841", (new ItemDescriptorImpl(AMMO, R.string.item_12cal)) //Картечь 12 калибр
                 .setImage(R.drawable.item_12cal)
                 .setXpPoints(1)
                 .setDescription(R.string.desc_12cal)
         );
-        possibleItems.put("545ak875", (new ItemDescriptorImpl(AMMO, R.string.item_545ak)) //От АК 5.45
+        possibleItems.put("545ak8751", (new ItemDescriptorImpl(AMMO, R.string.item_545ak)) //От АК 5.45
                 .setImage(R.drawable.item_545ak)
                 .setXpPoints(1)
                 .setDescription(R.string.desc_545ak)
         );
-        possibleItems.put("556nato875", (new ItemDescriptorImpl(AMMO, R.string.item_556nato)) //От НАТО 5.56
+        possibleItems.put("556nato8751", (new ItemDescriptorImpl(AMMO, R.string.item_556nato)) //От НАТО 5.56
                 .setImage(R.drawable.item_556nato)
                 .setXpPoints(1)
                 .setDescription(R.string.desc_556nato)
         );
-        possibleItems.put("VALvintorez875", (new ItemDescriptorImpl(AMMO, R.string.item_9val)) //9мм Вал
+        possibleItems.put("VALvintorez8751", (new ItemDescriptorImpl(AMMO, R.string.item_9val)) //9мм Вал
                 .setImage(R.drawable.item_9val)
                 .setXpPoints(1)
                 .setDescription(R.string.desc_9val)
         );
-        possibleItems.put("762mm875", (new ItemDescriptorImpl(AMMO, R.string.item_762)) //7.62 универсальные
+        possibleItems.put("762mm8751", (new ItemDescriptorImpl(AMMO, R.string.item_762)) //7.62 универсальные
                 .setImage(R.drawable.item_762)
                 .setXpPoints(1)
                 .setDescription(R.string.desc_762)
         );
-        possibleItems.put("Gauss875", (new ItemDescriptorImpl(AMMO, R.string.item_atom)) //Гаусс патроны
+        possibleItems.put("Gauss8751", (new ItemDescriptorImpl(AMMO, R.string.item_atom)) //Гаусс патроны
                 .setImage(R.drawable.item_atom)
                 .setXpPoints(10)
                 .addModifier(Item.RADIATION_INSTANT, 3d)
                 .setDescription(R.string.desc_atom)
         );
-        possibleItems.put("BigBK875", (new ItemDescriptorImpl(AMMO, R.string.item_bigbk)) //Большой боекомплект
+        possibleItems.put("BigBK8751", (new ItemDescriptorImpl(AMMO, R.string.item_bigbk)) //Большой боекомплект
                 .setImage(R.drawable.item_bigbk)
                 .setXpPoints(20)
                 .setDescription(R.string.desc_bigbk)
         );
-        possibleItems.put("F1grenade875", (new ItemDescriptorImpl(AMMO, R.string.item_f1)) //Ф1
+        possibleItems.put("F1grenade8751", (new ItemDescriptorImpl(AMMO, R.string.item_f1)) //Ф1
                 .setImage(R.drawable.item_f1)
                 .setXpPoints(2)
                 .setDescription(R.string.desc_f1)
         );
-        possibleItems.put("Limonka875", (new ItemDescriptorImpl(AMMO, R.string.item_limonka)) //Лимонка
+        possibleItems.put("Limonka8751", (new ItemDescriptorImpl(AMMO, R.string.item_limonka)) //Лимонка
                 .setImage(R.drawable.item_limonka)
                 .setXpPoints(2)
                 .setDescription(R.string.desc_limonka)
         );
-        possibleItems.put("Zazhigalka875", (new ItemDescriptorImpl(AMMO, R.string.item_incend)) //Зажигательная граната
+        possibleItems.put("Zazhigalka8751", (new ItemDescriptorImpl(AMMO, R.string.item_incend)) //Зажигательная граната
                 .setImage(R.drawable.item_incend)
                 .setXpPoints(2)
                 .setDescription(R.string.desc_incend)
         );
-        possibleItems.put("Podstvolka875", (new ItemDescriptorImpl(AMMO, R.string.item_podgren)) //Выстрел к гранатомёту
+        possibleItems.put("Podstvolka8751", (new ItemDescriptorImpl(AMMO, R.string.item_podgren)) //Выстрел к гранатомёту
                 .setImage(R.drawable.item_podgren)
                 .setXpPoints(3)
                 .setDescription(R.string.desc_podgren)
         );
 
 //HABAR (Хабар)
-        possibleItems.put("Garmoshka052", (new ItemDescriptorImpl(HABAR, R.string.item_garmoshka)) //Губная гармошка
+        possibleItems.put("Garmoshka0521", (new ItemDescriptorImpl(HABAR, R.string.item_garmoshka)) //Губная гармошка
                 .setImage(R.drawable.item_garmoshka)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(4)
                 .setDescription(R.string.desc_garmoshka)
         );
-        possibleItems.put("Bag753", (new ItemDescriptorImpl(HABAR, R.string.item_bag)) //Спальный мешок
+        possibleItems.put("Bag7531", (new ItemDescriptorImpl(HABAR, R.string.item_bag)) //Спальный мешок
                 .setImage(R.drawable.item_bag)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(5)
                 .setDescription(R.string.desc_bag)
         );
-        possibleItems.put("Gasoline346", (new ItemDescriptorImpl(HABAR, R.string.item_gasoline)) //Канистра бензина
+        possibleItems.put("Gasoline3461", (new ItemDescriptorImpl(HABAR, R.string.item_gasoline)) //Канистра бензина
                 .setImage(R.drawable.item_gasoline)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(10)
                 .setDescription(R.string.desc_gasoline)
         );
-        possibleItems.put("Maps289", (new ItemDescriptorImpl(HABAR, R.string.item_maps)) //Старая карта
+        possibleItems.put("Maps2891", (new ItemDescriptorImpl(HABAR, R.string.item_maps)) //Старая карта
                 .setImage(R.drawable.item_maps)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(15)
                 .setDescription(R.string.desc_maps)
         );
-        possibleItems.put("Guitar854", (new ItemDescriptorImpl(HABAR, R.string.item_guitar)) //Потрёпанная гитара
+        possibleItems.put("Guitar8541", (new ItemDescriptorImpl(HABAR, R.string.item_guitar)) //Потрёпанная гитара
                 .setImage(R.drawable.item_guitar)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(20)
                 .setDescription(R.string.desc_guitar)
         );
-        possibleItems.put("Instruments455", (new ItemDescriptorImpl(HABAR, R.string.item_instruments)) //Ящик с инструментами
+        possibleItems.put("Instruments4551", (new ItemDescriptorImpl(HABAR, R.string.item_instruments)) //Ящик с инструментами
                 .setImage(R.drawable.item_instruments)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(30)
                 .setDescription(R.string.desc_instruments)
         );
-        possibleItems.put("UnknownDevice456", (new ItemDescriptorImpl(HABAR, R.string.item_psionic_device)) //Непонятный прибор
+        possibleItems.put("UnknownDevice4561", (new ItemDescriptorImpl(HABAR, R.string.item_psionic_device)) //Непонятный прибор
                 .setImage(R.drawable.item_psionic_device)
                 .setArtefact(false)
                 .setConsumable(false)
                 .setXpPoints(40)
                 .setDescription(R.string.desc_psionic_device)
         );
-        possibleItems.put("InfoPDA853", (new ItemDescriptorImpl(HABAR, R.string.item_pda)) //ПДА с важной инфой
+        possibleItems.put("InfoPDA8531", (new ItemDescriptorImpl(HABAR, R.string.item_pda)) //ПДА с важной инфой
                 .setImage(R.drawable.item_pda)
                 .setArtefact(false)
                 .setConsumable(false)
@@ -809,21 +809,21 @@ public class HItemsPersistency implements ItemsPersistency
                 .setDescription(R.string.desc_pda)
         );
         //UNIQUE HABAR (Уникальный хабар)
-        possibleItems.put("BloodsuckerTentacles101", (new ItemDescriptorImpl(HABAR, R.string.item_bloodsucker_tentacles)) 
+        possibleItems.put("BloodsuckerTentacles1011", (new ItemDescriptorImpl(HABAR, R.string.item_bloodsucker_tentacles)) 
                 .setImage(R.drawable.bloodsucker_tentacles)
                 .setArtefact(false)
                 .setConsumable(true)
                 .setXpPoints(10)
                 .setDescription(R.string.desc_bloodsucker_tentacles)
         );
-        possibleItems.put("SnorkFoot101", (new ItemDescriptorImpl(HABAR, R.string.item_snork_foot)) 
+        possibleItems.put("SnorkFoot1011", (new ItemDescriptorImpl(HABAR, R.string.item_snork_foot)) 
                 .setImage(R.drawable.snork_foot)
                 .setArtefact(false)
                 .setConsumable(true)
                 .setXpPoints(10)
                 .setDescription(R.string.desc_snork_foot)
         );
-        possibleItems.put("Bebra101", (new ItemDescriptorImpl(HABAR, R.string.item_bebra)) 
+        possibleItems.put("Bebra1011", (new ItemDescriptorImpl(HABAR, R.string.item_bebra)) 
                 .setImage(R.drawable.bebra)
                 .setArtefact(true)
                 .setConsumable(false)
@@ -831,21 +831,21 @@ public class HItemsPersistency implements ItemsPersistency
                 .addModifier(Item.HEALTH_MODIFIER, -3.75d)
                 .setDescription(R.string.desc_bebra)
         );
-        possibleItems.put("PistonKey101", (new ItemDescriptorImpl(HABAR, R.string.item_piston_key)) 
+        possibleItems.put("PistonKey1011", (new ItemDescriptorImpl(HABAR, R.string.item_piston_key)) 
                 .setImage(R.drawable.piston_key)
                 .setArtefact(false)
                 .setConsumable(true)
                 .setXpPoints(10)
                 .setDescription(R.string.desc_piston_key)
         );
-        possibleItems.put("RashpilVIPCard101", (new ItemDescriptorImpl(HABAR, R.string.item_rashpil_card)) 
+        possibleItems.put("RashpilVIPCard1011", (new ItemDescriptorImpl(HABAR, R.string.item_rashpil_card)) 
                 .setImage(R.drawable.rashpil_card)
                 .setArtefact(false)
                 .setConsumable(true)
                 .setXpPoints(10)
                 .setDescription(R.string.desc_rashpil_card)
         );
-        possibleItems.put("FicalisTrash101", (new ItemDescriptorImpl(HABAR, R.string.item_ficalis_trash)) 
+        possibleItems.put("FicalisTrash1011", (new ItemDescriptorImpl(HABAR, R.string.item_ficalis_trash)) 
                 .setImage(R.drawable.ficalis_trash)
                 .setArtefact(false)
                 .setConsumable(true)
@@ -853,7 +853,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .addModifier(Item.HEALTH_INSTANT, 50d)
                 .setDescription(R.string.desc_ficalis_trash)
         );
-        possibleItems.put("CiganHorse101", (new ItemDescriptorImpl(HABAR, R.string.item_cigan_horse)) 
+        possibleItems.put("CiganHorse1011", (new ItemDescriptorImpl(HABAR, R.string.item_cigan_horse)) 
                 .setImage(R.drawable.cigan_horse)
                 .setArtefact(true)
                 .setConsumable(false)
@@ -861,64 +861,78 @@ public class HItemsPersistency implements ItemsPersistency
                 .addModifier(Item.RADIATION_MODIFIER, 0.5d)
                 .setDescription(R.string.desc_cigan_horse)
         );
-        possibleItems.put("FomaMap101", (new ItemDescriptorImpl(HABAR, R.string.item_foma_map)) 
+        possibleItems.put("FomaMap1011", (new ItemDescriptorImpl(HABAR, R.string.item_foma_map)) 
                 .setImage(R.drawable.foma_map)
                 .setArtefact(false)
                 .setConsumable(true)
                 .setXpPoints(10)
                 .setDescription(R.string.desc_foma_map)
         );
-        possibleItems.put("PaulavaPills101", (new ItemDescriptorImpl(HABAR, R.string.item_paulava_pills)) 
+        possibleItems.put("PaulavaPills1011", (new ItemDescriptorImpl(HABAR, R.string.item_paulava_pills)) 
                 .setImage(R.drawable.paulava_pills)
                 .setArtefact(false)
                 .setConsumable(true)
                 .setXpPoints(10)
                 .addModifier(Item.HEALTH_INSTANT, 50d)
                 .setDescription(R.string.desc_paulava_pills)
-        ); 
-        possibleItems.put("AlfFlashDrive101", (new ItemDescriptorImpl(HABAR, R.string.item_alf_flash_drive)) 
+        );
+        possibleItems.put("AlfFlashDrive1011", (new ItemDescriptorImpl(HABAR, R.string.item_alf_flash_drive)) 
                 .setImage(R.drawable.flash_drive)
                 .setArtefact(false)
                 .setConsumable(true)
                 .setXpPoints(10)
                 .setDescription(R.string.desc_flash_drive)
         );
-        possibleItems.put("SquirrelFlashDrive101", (new ItemDescriptorImpl(HABAR, R.string.item_squirrel_flash_drive)) 
+        possibleItems.put("ZmurFlashDrive1011", (new ItemDescriptorImpl(HABAR, R.string.item_zhmur_flash_drive)) 
                 .setImage(R.drawable.flash_drive)
                 .setArtefact(false)
                 .setConsumable(true)
                 .setXpPoints(10)
                 .setDescription(R.string.desc_flash_drive)
         );
-        possibleItems.put("LebedevaFlashDrive101", (new ItemDescriptorImpl(HABAR, R.string.item_lebedeva_flash_drive)) 
+        possibleItems.put("LimurFlashDrive1011", (new ItemDescriptorImpl(HABAR, R.string.item_limur_flash_drive)) 
                 .setImage(R.drawable.flash_drive)
                 .setArtefact(false)
                 .setConsumable(true)
                 .setXpPoints(10)
                 .setDescription(R.string.desc_flash_drive)
         );
-        possibleItems.put("ClayFlashDrive101", (new ItemDescriptorImpl(HABAR, R.string.item_clay_flash_drive)) 
+        possibleItems.put("SquirrelFlashDrive1011", (new ItemDescriptorImpl(HABAR, R.string.item_squirrel_flash_drive)) 
                 .setImage(R.drawable.flash_drive)
                 .setArtefact(false)
                 .setConsumable(true)
                 .setXpPoints(10)
                 .setDescription(R.string.desc_flash_drive)
         );
-        possibleItems.put("HelgasDrakkar101", (new ItemDescriptorImpl(HABAR, R.string.item_helgas_drakkar)) 
+        possibleItems.put("LebedevaFlashDrive1011", (new ItemDescriptorImpl(HABAR, R.string.item_lebedeva_flash_drive)) 
+                .setImage(R.drawable.flash_drive)
+                .setArtefact(false)
+                .setConsumable(true)
+                .setXpPoints(10)
+                .setDescription(R.string.desc_flash_drive)
+        );
+        possibleItems.put("ClayFlashDrive1011", (new ItemDescriptorImpl(HABAR, R.string.item_clay_flash_drive)) 
+                .setImage(R.drawable.flash_drive)
+                .setArtefact(false)
+                .setConsumable(true)
+                .setXpPoints(10)
+                .setDescription(R.string.desc_flash_drive)
+        );
+        possibleItems.put("HelgasDrakkar1011", (new ItemDescriptorImpl(HABAR, R.string.item_helgas_drakkar)) 
                 .setImage(R.drawable.helgas_drakkar)
                 .setArtefact(false)
                 .setConsumable(true)
                 .setXpPoints(10)
                 .setDescription(R.string.desc_helgas_drakkar)
         );
-        possibleItems.put("X18Docs101", (new ItemDescriptorImpl(HABAR, R.string.item_x18_docs)) 
+        possibleItems.put("X18Docs1011", (new ItemDescriptorImpl(HABAR, R.string.item_x18_docs)) 
                 .setImage(R.drawable.x18_docs)
                 .setArtefact(false)
                 .setConsumable(true)
                 .setXpPoints(15)
                 .setDescription(R.string.desc_x18_docs)
         );
-        possibleItems.put("CallsPetal101", (new ItemDescriptorImpl(HABAR, R.string.item_calls_petal)) 
+        possibleItems.put("CallsPetal1011", (new ItemDescriptorImpl(HABAR, R.string.item_calls_petal)) 
                 .setImage(R.drawable.calls_petal)
                 .setArtefact(true)
                 .setConsumable(true)
@@ -928,7 +942,7 @@ public class HItemsPersistency implements ItemsPersistency
         ); 
         
         //CALIBRATION (Калибрация)
-        possibleItems.put("Calibrating111", (new ItemDescriptorImpl(DEVICES, R.string.item_calibrating_10)) //-10% к некоторым угрозам
+        possibleItems.put("Calibrating1111", (new ItemDescriptorImpl(DEVICES, R.string.item_calibrating_10)) //-10% к некоторым угрозам
                 .setImage(R.drawable.item_calibrating_10)
                 .setArtefact(true)
                 .setConsumable(false)
@@ -941,7 +955,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .addModifier(Item.MONOLITH_MODIFIER, 0.9d)
                 .setDescription(R.string.desc_calibrating_10)
         );
-        possibleItems.put("Calibrating222", (new ItemDescriptorImpl(DEVICES, R.string.item_calibrating_25)) //-25% к некоторым угрозам
+        possibleItems.put("Calibrating2221", (new ItemDescriptorImpl(DEVICES, R.string.item_calibrating_25)) //-25% к некоторым угрозам
                 .setImage(R.drawable.item_calibrating_25)
                 .setArtefact(true)
                 .setConsumable(false)
@@ -954,7 +968,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .addModifier(Item.MONOLITH_MODIFIER, 0.75d)
                 .setDescription(R.string.desc_calibrating_25)
         );
-        possibleItems.put("Calibrating333", (new ItemDescriptorImpl(DEVICES, R.string.item_calibrating_50)) //-50% к некоторым угрозам
+        possibleItems.put("Calibrating3331", (new ItemDescriptorImpl(DEVICES, R.string.item_calibrating_50)) //-50% к некоторым угрозам
                 .setImage(R.drawable.item_calibrating_50)
                 .setArtefact(true)
                 .setConsumable(false)
@@ -967,7 +981,7 @@ public class HItemsPersistency implements ItemsPersistency
                 .addModifier(Item.MONOLITH_MODIFIER, 0.5d)
                 .setDescription(R.string.desc_calibrating_50)
         );
-        possibleItems.put("Calibrating444", (new ItemDescriptorImpl(DEVICES, R.string.item_calibrating_75)) //-99,9% к некоторым угрозам
+        possibleItems.put("Calibrating4441", (new ItemDescriptorImpl(DEVICES, R.string.item_calibrating_75)) //-99,9% к некоторым угрозам
                 .setImage(R.drawable.item_calibrating_75)
                 .setArtefact(true)
                 .setConsumable(false)

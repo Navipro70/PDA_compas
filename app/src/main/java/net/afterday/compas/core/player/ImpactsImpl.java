@@ -177,7 +177,7 @@ public class ImpactsImpl implements Impacts
                 if(accumulatedController >= CONTROLLER_COOLDOWN)
                 {
                     accumulatedController = 0;
-                    newProps.subtractHealth(35); //Контролёр
+                    newProps.subtractHealth(45); //Контролёр
                     if(newProps.getHealth() <= 0)
                     {
                         newProps.setState(Player.STATE.W_CONTROLLED);

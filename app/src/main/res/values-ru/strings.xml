@@ -163,6 +163,8 @@
     <string name="item_paulava_pills">Пилюля Павловой</string>
     <string name="desc_paulava_pills">Залечу любые раны, даже душевные. 10 очков опыта, востанавливает 50% здоровья.</string>
     <string name="item_alf_flash_drive">Флешка Альфа</string>
+    <string name="item_zhmur_flash_drive">Флешка Жмуровоза</string>
+    <string name="item_limur_flash_drive">Флешка Лимура</string>
     <string name="item_squirrel_flash_drive">Флешка Белки</string>
     <string name="item_lebedeva_flash_drive">Флешка Лебедевой</string>
     <string name="item_clay_flash_drive">Флешка Глиныча</string>
@@ -308,7 +310,7 @@
     <string name="popup_no">Нет</string>
     <string name="popup_drop">Выбросить</string>
     <string name="popup_use">Использовать</string>
-    <string name="tray_open">Зов крови</string>
+    <string name="tray_open">S.T.A.L.K.E.R Полоцк</string>
     <string name="tray_stop">Выкл. ПДА</string>
     <string name="tray_settings">Настроить ПДА</string>
     <string name="tray_vibro">Виброэффекты выкл./вкл. </string>

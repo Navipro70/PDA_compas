@@ -72,7 +72,17 @@ public class BluetoothImpl implements Bluetooth
         registeredMacs.add("FF:FF:39:F3:95:0E");
         registeredMacs.add("FF:FF:3E:F3:F4:EC");
 
-        //
+        //Polotsk stalkersrike Bluetooth mac addresses
+        registeredMacs.add("CA:35:DC:58:A9:85");
+        registeredMacs.add("64:DE:B2:DD:60:80");
+        registeredMacs.add("80:2D:E9:93:F4:4A");
+        registeredMacs.add("D4:C1:67:E5:FA:11");
+        registeredMacs.add("02:5F:6C:6B:FE:9E");
+        registeredMacs.add("B5:DC:2E:E5:ED:1D");
+        registeredMacs.add("B4:DF:46:29:82:AB");
+        registeredMacs.add("74:DF:50:2C:CC:51");
+        registeredMacs.add("EC:E6:BA:35:B1:16");
+        registeredMacs.add("FE:CB:A4:03:D7:92");
 
 
     }

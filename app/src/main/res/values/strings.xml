@@ -244,6 +244,8 @@
     <string name="item_paulava_pills">Paulava pills</string>
     <string name="desc_paulava_pills">I will heal any wounds, even mental ones. 10 exp, heal 50% of health</string>
     <string name="item_alf_flash_drive">Alfs flash drive</string>
+    <string name="item_zhmur_flash_drive">Zhmurovoz flash drive</string>
+    <string name="item_limur_flash_drive">Limur flash drive</string>
     <string name="item_squirrel_flash_drive">Squirrel flash drive</string>
     <string name="item_lebedeva_flash_drive">Lebedeva flash drive</string>
     <string name="item_clay_flash_drive">Glinych flash drive</string>
@@ -309,7 +311,7 @@
     <string name="popup_no">No</string>
     <string name="popup_drop">Drop</string>
     <string name="popup_use">Use</string>
-    <string name="tray_open">Зов крови</string>
+    <string name="tray_open">S.T.A.L.K.E.R Полоцк</string>
     <string name="tray_stop">PDA Off</string>
     <string name="tray_settings">Tune PDA</string>
     <string name="tray_vibro">Vibro off/on </string>
